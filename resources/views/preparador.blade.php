@@ -286,6 +286,24 @@
 
 		<section class="add-to-db" id="add-testp">
 			<span class="icon-cross" id="close-add-testp"></span>
+			<div class="add-content">
+			<form action="/user/test-creado" method="POST" enctype="multipart/form-data">
+				{{ csrf_field() }}
+				<label for="oposicion">Elegir el curso</label>
+				<select name="oposicion">
+				@forelse ($cursosid as $cursoid)
+				<option value="{{ $cursoid->id }}">{{ $cursoid->oposicione->descripcion }}</option>
+				@empty
+				<option value="">No hay cursos disponibles</option>
+				@endforelse
+				</select>
+				<label for="titulo" id="video">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="test">Subir test - formato pdf</label>
+				<input type="file" name="test" id="">
+				<input type="submit" value="Subir test" name="subirTest">
+			</form>
+			</div>
 		</section>
 
 		<section class="contenido" id="mensajesp">

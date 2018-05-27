@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CrearTemaRequest extends FormRequest
+class CrearTestRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,15 +25,15 @@ class CrearTemaRequest extends FormRequest
     {
         return [
             'titulo' => ['required'],
-            'tema' => ['required']
+            'test' => ['required']
         ];
     }
 
     public function messages()
     {
         return [
-            'titulo.required' => 'Por favor introduce el titulo del tema',
-            'tema.required' => 'Por favor sube  el tema',
+            'titulo.required' => 'Por favor introduce el titulo del test',
+            'test.required' => 'Por favor sube  el test',
         ];
     }
 }

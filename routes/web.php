@@ -30,6 +30,9 @@ Route::post('/user/video-creado','Crear@video')
 Route::post('/user/tema-creado','Crear@tema')
 ->middleware('auth');
 
+Route::post('/user/test-creado','Crear@test')
+->middleware('auth');
+
 
 
 

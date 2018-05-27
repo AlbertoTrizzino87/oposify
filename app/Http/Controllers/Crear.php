@@ -10,9 +10,11 @@ use App\User;
 use App\Curso;
 use App\Video;
 use App\Tema;
+use App\Test;
 use App\Http\Requests\CrearCursoRequest;
 use App\Http\Requests\CrearVideoRequest;
 use App\Http\Requests\CrearTemaRequest;
+use App\Http\Requests\CrearTestRequest;
 use App\Oposicione;
 
 class Crear extends Controller
@@ -50,6 +52,20 @@ class Crear extends Controller
             'user_id' => $id,
             'curso_id' => $request->input('oposicion'),
             'tema' => $tema->store('temas','public'),
+            'titulo' => $request->input('titulo')
+        ]);
+        return 'Todo ha ido bien';
+    }
+
+    public function test(CrearTestRequest $request)
+    {   
+        $id = Auth::user()->id;
+        $test = $request->file('test');
+        
+        $tests = Test::create([
+            'user_id' => $id,
+            'curso_id' => $request->input('oposicion'),
+            'test' => $test->store('tests','public'),
             'titulo' => $request->input('titulo')
         ]);
         return 'Todo ha ido bien';
