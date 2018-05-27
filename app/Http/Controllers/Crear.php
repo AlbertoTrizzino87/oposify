@@ -15,8 +15,8 @@ class Crear extends Controller
 {
     public function curso(CrearCursoRequest $request){
         $cursos = Curso::create([
-            'preparador' => $request->input('preparador'),
-            'oposicion' => $request->input('oposicion'),
+            'user_id' => $request->input('preparador'),
+            'oposicione_id' => $request->input('oposicion'),
             'descripcion' => $request->input('descripcion'),
             'precio' => $request->input('precio')
         ]);

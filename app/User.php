@@ -27,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function cursos()
+    {
+        return $this->hasMany(Curso::class)->orderBy('descripcion','asc');
+    }
 }

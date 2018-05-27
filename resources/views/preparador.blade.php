@@ -86,10 +86,31 @@
 			<div class="anadir-curso">
 				<span id="new-course">añadir curso</span>
 			</div>
+				<div class="box">
+				@forelse ($user->cursos as $curso)
+				<div class="content-box">
+				<div class="box-header">
+					<h4>{{$curso->oposicione->descripcion}}</h4>
+					<span>{{ $curso->precio}}€ mes</span>
+				</div>
+				<div class="box-description">
+					<p>{{ $curso->descripcion }}</p>
+				</div>
+				<div class="box-bottom">
+					<a href="">modificar</a>
+					<a href="">eliminar</a>
+				</div>
+				</div>										
+				@empty
+					<p>No se ha creado ningun curso</p>
+				@endforelse
+				</div>
+			
 		</section>
 
 		<section class="add-to-db" id="add-curso">
 			<span class="icon-cross" id="close-add-course"></span>
+			<div class="add-content">
 			<form action="/user/curso-creado" method="POST">
 				{{ csrf_field() }}
 				<label for="oposicion">Elegeri el tipo de oposicion</label>
@@ -101,16 +122,18 @@
 				@endforelse
 				</select>
 				<input type="text" name="preparador" value="{{Auth::user()->id}}" hidden>
-				<textarea name="descripcion" id="" cols="30" rows="10"></textarea><br>
+				<label for="descripcion">Descripción</label>
+				<textarea name="descripcion" id="" cols="30" rows="10"></textarea>
 				@if ($errors -> has('descripcion'))
 					@foreach ($errors->get('descripcion') as $error)
 						<div>{{ $error }}</div>
 					@endforeach
 				@endif
-				<label for="precio">Precio</label><br>
-				<input type="text" name="precio" id=""><br>
+				<label for="precio">Precio</label>
+				<input type="text" name="precio" id="">
 				<input type="submit" value="Crear curso" name="crearCurso">
 			</form>
+			</div>
 		</section>
 
 		<section class="contenido" id="video">

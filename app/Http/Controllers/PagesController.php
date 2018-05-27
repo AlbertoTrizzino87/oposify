@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 use App\User;
 use App\Oposicione;
-
+use App\Curso;
 
 
 class PagesController extends Controller
@@ -16,12 +16,15 @@ class PagesController extends Controller
     public function usuario()
     {   
        
-        $user = Auth::user()->role;
+        $userRole = Auth::user()->role;
         $image = Auth::user()->image;
         $oposiciones = Oposicione::orderBy('descripcion', 'ASC')->get();
+        $cursos = Curso::all();
+        $user = Auth::user();
+        $oposiciones = Oposicione::all();
         
 
-        if($user == 'Academia'){
+        if($userRole == 'Academia'){
 
             $title = 'Academia';
 
@@ -41,7 +44,7 @@ class PagesController extends Controller
                 'main' => $main,
                 'title_home' => $title_home
             ]);
-        }else if($user == 'Preparador'){
+        }else if($userRole == 'Preparador'){
 
             $title = 'Preparador';
 
@@ -59,10 +62,13 @@ class PagesController extends Controller
                 'title' => $title,
                 'main' => $main,
                 'title_home' => $title_home,
+                'oposiciones' => $oposiciones,
+                'cursos' => $cursos,
+                'user' => $user,
                 'oposiciones' => $oposiciones
             ]);
 
-        }else if($user == 'Opositor'){
+        }else if($userRole == 'Opositor'){
 
             $title = 'Opositor';
 

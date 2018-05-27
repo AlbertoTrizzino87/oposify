@@ -580,7 +580,8 @@ section.contenido {
     display: flex;
     justify-content: flex-end;
     margin: 0 auto;
-    padding-top: 15px; }
+    padding-top: 15px;
+    margin-bottom: 20px; }
     section.contenido .anadir-curso span {
       text-transform: uppercase;
       font-size: 1rem;
@@ -593,6 +594,50 @@ section.contenido {
       @media screen and (max-width: 1023px) {
         section.contenido .anadir-curso span {
           font-size: 0.7rem; } }
+  section.contenido .box {
+    width: 95%;
+    margin: 0 auto; }
+    section.contenido .box p {
+      color: #ffffff; }
+    section.contenido .box .content-box {
+      width: 100%;
+      margin-top: 40px;
+      border-bottom: solid 1px #ffffff;
+      padding-bottom: 10px; }
+      section.contenido .box .content-box .box-header {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        color: #ffffff; }
+        section.contenido .box .content-box .box-header h4, section.contenido .box .content-box .box-header span {
+          text-transform: uppercase;
+          font-size: 1.5rem;
+          font-family: "Roboto Condensed", sans-serif;
+          letter-spacing: 0.1rem; }
+      section.contenido .box .content-box .box-description p {
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-family: "Roboto", sans-serif; }
+      section.contenido .box .content-box .box-bottom {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: flex-end; }
+        section.contenido .box .content-box .box-bottom a {
+          text-transform: uppercase;
+          font-size: 0.8rem;
+          font-family: "Roboto", sans-serif;
+          color: #ffffff;
+          border: solid 1px #ffffff;
+          padding: 10px;
+          letter-spacing: 0.1rem;
+          margin-left: 10px;
+          cursor: pointer; }
 
 section.add-to-db {
   width: 30vw;
@@ -619,6 +664,49 @@ section.add-to-db {
     @media screen and (max-width: 1023px) {
       section.add-to-db span {
         color: #000000; } }
+  section.add-to-db .add-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    section.add-to-db .add-content form {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      -ms-align-items: center;
+      align-items: center; }
+      section.add-to-db .add-content form label {
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 1rem; }
+      section.add-to-db .add-content form select, section.add-to-db .add-content form input {
+        width: 300px;
+        height: 40px;
+        border: solid 2px #ffffff;
+        border-radius: none;
+        background-color: transparent;
+        color: #ffffff;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        outline: none; }
+      section.add-to-db .add-content form textarea {
+        width: 300px;
+        height: 330px;
+        border: solid 2px #ffffff;
+        border-radius: none;
+        background-color: transparent;
+        color: #ffffff;
+        margin-bottom: 10px;
+        padding: 10px;
+        outline: none; }
+      section.add-to-db .add-content form input[type="submit"] {
+        width: 150px;
+        cursor: pointer;
+        margin-top: 20px; }
 
 section#banner {
   width: 95vw;
