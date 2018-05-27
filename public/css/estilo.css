@@ -724,7 +724,8 @@ section.add-to-db {
       section.add-to-db .add-content form input[type="submit"] {
         width: 150px;
         cursor: pointer;
-        margin-top: 20px; }
+        margin-top: 20px;
+        padding-left: 0; }
 
 section#banner {
   width: 95vw;

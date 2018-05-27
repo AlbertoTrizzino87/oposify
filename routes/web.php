@@ -27,6 +27,9 @@ Route::post('/user/curso-creado','Crear@curso')
 Route::post('/user/video-creado','Crear@video')
 ->middleware('auth');
 
+Route::post('/user/tema-creado','Crear@tema')
+->middleware('auth');
+
 
 
 
