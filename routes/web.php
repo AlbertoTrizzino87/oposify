@@ -24,6 +24,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/user/curso-creado','Crear@curso')
 ->middleware('auth');
 
+Route::post('/user/video-creado','Crear@video')
+->middleware('auth');
+
+
 
 
 

@@ -152,6 +152,24 @@
 
 		<section class="add-to-db" id="add-video">
 			<span class="icon-cross" id="close-add-video"></span>
+			<div class="add-content">
+			<form action="/user/video-creado" method="POST" enctype="multipart/form-data">
+				{{ csrf_field() }}
+				<label for="oposicion">Elegir el curso</label>
+				<select name="oposicion">
+				@forelse ($cursosid as $cursoid)
+				<option value="{{ $cursoid->id }}">{{ $curso->oposicione->descripcion }}</option>
+				@empty
+				<option value="">No hay cursos disponibles</option>
+				@endforelse
+				</select>
+				<label for="titulo" id="video">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="video">Subir video - formato mp4</label>
+				<input type="file" name="video" id="">
+				<input type="submit" value="Subir video" name="subirVideo">
+			</form>
+			</div>
 		</section>
 
 		<section class="contenido" id="tema">

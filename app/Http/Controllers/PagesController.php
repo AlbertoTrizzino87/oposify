@@ -15,13 +15,14 @@ class PagesController extends Controller
 {
     public function usuario()
     {   
-       
+        $id = Auth::user()->id;
         $userRole = Auth::user()->role;
         $image = Auth::user()->image;
         $oposiciones = Oposicione::orderBy('descripcion', 'ASC')->get();
         $cursos = Curso::all();
         $user = Auth::user();
         $oposiciones = Oposicione::all();
+        $cursos_id = Curso::where('user_id',$id)->get();
         
 
         if($userRole == 'Academia'){
@@ -65,7 +66,8 @@ class PagesController extends Controller
                 'oposiciones' => $oposiciones,
                 'cursos' => $cursos,
                 'user' => $user,
-                'oposiciones' => $oposiciones
+                'oposiciones' => $oposiciones,
+                'cursosid' => $cursos_id
             ]);
 
         }else if($userRole == 'Opositor'){

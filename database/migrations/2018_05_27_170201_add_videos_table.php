@@ -17,6 +17,8 @@ class AddVideosTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('curso_id')->unsigned();
+            $table->foreign('curso_id')->references('id')->on('cursos');
             $table->string('video')->nullable();
             $table->string('titulo')->nullable();
             $table->timestamps();
