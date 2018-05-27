@@ -805,7 +805,13 @@ section.contenido {
 
             .tab-content{
                 padding: 20px 0;
-               
+
+                a{
+                    span{
+                        font-size: 8rem;
+                        color: $blanco;
+                    }
+                }
 
                 h5{
                     text-transform: uppercase;

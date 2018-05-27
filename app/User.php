@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Video::class)->orderBy('created_at','desc');
     }
+
+    public function temas()
+    {
+        return $this->hasMany(Tema::class)->orderBy('created_at','desc');
+    }
 }

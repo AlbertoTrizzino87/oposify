@@ -22,4 +22,9 @@ class Curso extends Model
     {
         return $this->hasMany(Video::class);
     }
+
+    public function temacurso()
+    {
+        return $this->hasMany(Tema::class);
+    }
 }

@@ -610,6 +610,9 @@ section.contenido {
           padding: 10px; }
       section.contenido .box .content-box .tab-content {
         padding: 20px 0; }
+        section.contenido .box .content-box .tab-content a span {
+          font-size: 8rem;
+          color: #ffffff; }
         section.contenido .box .content-box .tab-content h5 {
           text-transform: uppercase;
           color: #ffffff;
