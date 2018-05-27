@@ -811,6 +811,9 @@ section.contenido {
                         font-size: 8rem;
                         color: $blanco;
                     }
+
+                    display: block;
+                    margin-bottom: 10px;
                 }
 
                 h5{
@@ -818,6 +821,7 @@ section.contenido {
                     color: $blanco;
                     margin-top: 5px;
                     font-size: 1rem;
+                    display: block;
                 }
             }
         }

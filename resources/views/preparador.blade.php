@@ -282,6 +282,37 @@
 			<div class="anadir-curso">
 				<span id="new-testp">añadir test</span>
 			</div>
+			<div class="box">
+				<div class="content-box">
+					<ul class="nav nav-tabs" id="temaTab" role="tablist">
+						@forelse ($cursosid as $cursoid)
+							<li class="nav-item"><a id="{{ $cursoid->oposicione->descripcion }}-tab" href="#3{{ $cursoid->oposicione->descripcion }}" data-toggle="tab" role="tab" aria-controls="{{ $cursoid->oposicione->descripcion }}" aria-selected="{{ $cursoid->oposicione->descripcion }}">{{ $cursoid->oposicione->descripcion }}</a></li>
+						@empty
+							<option value="">No hay temario disponibles</option>
+						@endforelse
+					</ul>
+					<div class="tab-content" id="temaTabContent">
+						@foreach ($cursosid as $cursoid)					
+							<div class="tab-pane" id="3{{ $cursoid->oposicione->descripcion }}" role="tabpanel" aria-labelledby="{{ $cursoid->oposicione->descripcion }}-tab">
+								<div class="container">
+									<div class="row">
+										@foreach ($tests as $test)
+											@if($test->curso_id == $cursoid->id)	
+												<div class="col-md-3 col-lg-4">
+													<div>
+														<a href="{{ Storage::disk('public')->url($test->test) }}" target="_blank"><span class="icon-exam"></span></a>
+													</div>
+													<h5>{{ $test->titulo }}</h5>
+												</div>
+											@endif
+										@endforeach
+									</div>
+								</div>
+							</div>						
+						@endforeach
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<section class="add-to-db" id="add-testp">

@@ -11,6 +11,7 @@ use App\Oposicione;
 use App\Curso;
 use App\Video;
 use App\Tema;
+use App\Test;
 
 
 class PagesController extends Controller
@@ -27,6 +28,7 @@ class PagesController extends Controller
         $cursos_id = Curso::where('user_id',$id)->get();
         $videos = Video::where('user_id',$id)->get();
         $temas = Tema::where('user_id',$id)->get();
+        $tests = Test::where('user_id',$id)->get();
         
 
         if($userRole == 'Academia'){
@@ -75,7 +77,8 @@ class PagesController extends Controller
                 'oposiciones' => $oposiciones,
                 'cursosid' => $cursos_id,
                 'videos' => $videos,
-                'temas' => $temas
+                'temas' => $temas,
+                'tests' => $tests
             ]);
 
         }else if($userRole == 'Opositor'){

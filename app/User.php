@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Tema::class)->orderBy('created_at','desc');
     }
+
+    public function tests()
+    {
+        return $this->hasMany(Test::class)->orderBy('created_at','desc');
+    }
 }
