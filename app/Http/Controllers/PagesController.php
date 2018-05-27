@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\Oposicione;
 use App\Curso;
+use App\Video;
 
 
 class PagesController extends Controller
@@ -23,6 +24,7 @@ class PagesController extends Controller
         $user = Auth::user();
         $oposiciones = Oposicione::all();
         $cursos_id = Curso::where('user_id',$id)->get();
+        $videos = Video::where('user_id',$id)->get();
         
 
         if($userRole == 'Academia'){
@@ -59,6 +61,8 @@ class PagesController extends Controller
                 'cinco' => 'Notificaciones',
             ];
 
+            // dd($cursos_id);
+
             return view('preparador',[
                 'title' => $title,
                 'main' => $main,
@@ -67,7 +71,8 @@ class PagesController extends Controller
                 'cursos' => $cursos,
                 'user' => $user,
                 'oposiciones' => $oposiciones,
-                'cursosid' => $cursos_id
+                'cursosid' => $cursos_id,
+                'videos' => $videos
             ]);
 
         }else if($userRole == 'Opositor'){

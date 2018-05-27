@@ -14,7 +14,7 @@ $negro: #000000;
     box-sizing: border-box;
 }
 
-img {
+img,video {
     display: block;
      max-width: 100%;
 }
@@ -786,6 +786,36 @@ section.contenido {
         width: 95%;
         margin: 0 auto;
 
+        .content-box{
+            border: none !important;
+            .nav{
+
+                border: none;
+                padding: 10px;
+                border-bottom: solid 1px $blanco;
+                    li{
+                        a{
+                            color: $blanco;
+                            text-transform: uppercase;
+                            border: solid 1px $blanco;
+                            padding: 10px;
+                        }
+                    }
+            }
+
+            .tab-content{
+                padding: 20px 0;
+               
+
+                h5{
+                    text-transform: uppercase;
+                    color: $blanco;
+                    margin-top: 5px;
+                    font-size: 1rem;
+                }
+            }
+        }
+
         p{
             color: $blanco;
             
@@ -842,9 +872,7 @@ section.contenido {
                     cursor: pointer;
                 }
             }
-    }
-
-    
+    }   
     }
 }
 
@@ -1425,6 +1453,7 @@ section.contenido-global {
     right: -100%;
     padding: 50px;
     transition: all 500ms;
+    overflow-y: scroll;
 
     .cabezera {
         width: 100%;

@@ -17,4 +17,9 @@ class Curso extends Model
     {
         return $this->belongsTo(Oposicione::class);
     }
+
+    public function videocurso()
+    {
+        return $this->hasMany(Video::class);
+    }
 }

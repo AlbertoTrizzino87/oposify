@@ -148,6 +148,37 @@
 			<div class="anadir-curso">
 				<span id="new-video">añadir video</span>
 			</div>
+			<div class="box">
+				<div class="content-box">
+					<ul class="nav nav-tabs" id="videoTab" role="tablist">
+						@forelse ($cursosid as $cursoid)
+							<li class="nav-item"><a id="{{ $cursoid->oposicione->descripcion }}-tab" href="#{{ $cursoid->oposicione->descripcion }}" data-toggle="tab" role="tab" aria-controls="home" aria-selected="{{ $cursoid->oposicione->descripcion }}">{{ $cursoid->oposicione->descripcion }}</a></li>
+						@empty
+							<option value="">No hay cursos disponibles</option>
+						@endforelse
+					</ul>
+					<div class="tab-content" id="videoTabContent">
+						@foreach ($cursosid as $cursoid)					
+							<div class="tab-pane" id="{{ $cursoid->oposicione->descripcion }}" role="tabpanel" aria-labelledby="{{ $cursoid->oposicione->descripcion }}-tab">
+								<div class="container">
+									<div class="row">
+										@foreach ($videos as $video)
+											@if($video->curso_id == $cursoid->id)	
+												<div class="col-md-3 col-lg-4">
+													<video controls>
+														<source src="{{ Storage::disk('public')->url($video->video) }}" type="video/mp4">
+													</video>
+													<h5>{{ $video->titulo }}</h5>
+												</div>
+											@endif
+										@endforeach
+									</div>
+								</div>
+							</div>						
+						@endforeach
+					</div>
+				</div>
+			</div>
 		</section>
 
 		<section class="add-to-db" id="add-video">
@@ -158,7 +189,7 @@
 				<label for="oposicion">Elegir el curso</label>
 				<select name="oposicion">
 				@forelse ($cursosid as $cursoid)
-				<option value="{{ $cursoid->id }}">{{ $curso->oposicione->descripcion }}</option>
+				<option value="{{ $cursoid->id }}">{{ $cursoid->oposicione->descripcion }}</option>
 				@empty
 				<option value="">No hay cursos disponibles</option>
 				@endforelse
