@@ -4,9 +4,9 @@
 <meta name="description" content="Oposify es una plataforma que pone en contacto academias,preparadores y opositores y que mejorando el flujo de información">
 <meta name="keywords" content="preparar una oposición,oposición,academias,preparadores">
 <meta name="robots" content="index,follow">
-<meta property="og:title" content="Oposify" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="http://entregas.albertotrizzino.com" />
+<meta property="og:title" content="Oposify">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://entregas.albertotrizzino.com">
 <meta name="twitter:card" content="summary"></meta>
 <meta name=“twitter:url” content=“http://entregas.albertotrizzino.com”>
 <meta name=“twitter:title” content=“Oposify”>
