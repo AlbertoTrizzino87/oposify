@@ -880,7 +880,8 @@ section#about {
   left: 20.5vw;
   color: #ffffff;
   padding: 30px;
-  transition: all 500ms; }
+  transition: all 500ms;
+  overflow-y: scroll; }
   @media screen and (max-width: 1023px) {
     section#about {
       background-color: #ffffff;

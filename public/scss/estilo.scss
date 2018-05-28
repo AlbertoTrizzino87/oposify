@@ -1158,6 +1158,7 @@ section#about {
     color: $blanco;
     padding: 30px;
     transition: all 500ms;
+    overflow-y: scroll;
 
     @media screen and (max-width: 1023px){
         background-color: $blanco;
