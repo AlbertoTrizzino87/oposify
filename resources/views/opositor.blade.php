@@ -32,6 +32,7 @@
 			<a href="#" id="test-trigger">test</a>
 			<a href="#" id="mensajes-trigger">mensajes</a>
 			<a href="#" id="diario-trigger">diario</a>
+			<a href="#" id="buscar-trigger">buscar curso</a>
 			<a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">{{ __('Cerrar sessión') }}</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -46,6 +47,7 @@
 			<span class="icon-exam" id="test-mobile-trigger"></span>
 			<span class="icon-paper-plane" id="mensajes-mobile-trigger"></span>
 			<span class="icon-quill-drawing-a-line" id="diario-mobile-trigger"></span>
+			<span class="icon-lupa" id="buscar-mobile-trigger"></span>
 		</div>
 
 		<div class="container-fluid feeds">
@@ -154,5 +156,39 @@
 		<section class="add-to-db" id="add-diario">
 			<span class="icon-cross" id="close-add-diario"></span>
 		</section>
+
+		<section class="contenido" id="buscar">
+			<div class="cabezera">
+				<span class="icon-cross" id="close-buscar"></span>
+				<form action="/buscar" method="GET">
+				<input type="text" name="parametro" placeholder="Buscar">
+				<input type="submit" name="buscar" value="Buscar">
+				</form>
+			</div>
+			<div class="resultados">
+					@forelse ($resultados as $resultado)
+						<div class="busqueda-layout">
+						 	<div>
+							 	<div class="layout-left">
+							 		<img src="{{Storage::disk('public')->url($resultado->user->image)}}" alt="">
+								 	@if (empty($resultado->user->apellido))
+								 	<span>{{ $resultado->user->name }}</span>
+								 	@elseif (empty($resultado->user->apellidoDos))
+								 	<span>{{ $resultado->user->name }} {{ $resultado->user->apellido }}</span>
+								 	@else 
+								 	<span>{{ $resultado->user->name }} {{ $resultado->user->apellido }} {{ $resultado->user->apellidoDos }}</span>
+								 	@endif
+								</div>
+								<div class="layout-right">
+									<h5>{{ $resultado->oposicione->descripcion }}</h5>
+									<p>{{ $resultado->descripcion }}</p>
+								</div>
+						 	</div>
+						</div>
+					@empty
+						
+					@endforelse
+				</div>
+        </section>
 	</main>
 @endsection

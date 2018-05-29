@@ -33,6 +33,7 @@ Route::post('/user/tema-creado','Crear@tema')
 Route::post('/user/test-creado','Crear@test')
 ->middleware('auth');
 
+Route::get('/buscar', 'PagesController@usuario');
 
 
 

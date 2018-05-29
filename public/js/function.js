@@ -17,6 +17,7 @@ function Inicio() {
             $("#temario").css("width", "79.5vw");
             $("#apuntes").css("width", "79.5vw");
             $("#test").css("width", "79.5vw");
+            $("#buscar").css("width", "79.5vw");
 
             if($("#add-mensajes").css("right") == "0px"){
                 $("#mensajes").css("width", "49.3vw");
@@ -116,6 +117,7 @@ function Inicio() {
             $("#temario").css("width", "94.7vw");
             $("#apuntes").css("width", "94.7vw");
             $("#test").css("width", "94.7vw");
+            $("#buscar").css("width", "94.7vw");
 
             if($("#add-mensajes").css("right") == "0px"){
                 $("#mensajes").css("width", "64.6vw");
@@ -263,6 +265,7 @@ function Inicio() {
         $("#apuntes").css("right", "-100%");
         $("#test").css("right", "-100%");
         $("#mensajes").css("right", "-100%");
+        $("#buscar").css("right", "-100%");
         $("#clases").css("right", "0");
         $("#add-mensajes").css("right", "-100%");
         $("#add-diario").css("right", "-100%");
@@ -277,6 +280,7 @@ function Inicio() {
         $("#test").css("right", "-100%");
         $("#mensajes").css("right", "-100%");
         $("#diario").css("right", "-100%");
+        $("#buscar").css("right", "-100%");
         $("#temario").css("right", "0");
         $("#add-mensajes").css("right", "-100%");
         $("#add-diario").css("right", "-100%");
@@ -291,6 +295,7 @@ function Inicio() {
         $("#test").css("right", "-100%");
         $("#mensajes").css("right", "-100%");
         $("#diario").css("right", "-100%");
+        $("#buscar").css("right", "-100%");
         $("#apuntes").css("right", "0");
         $("#add-mensajes").css("right", "-100%");
         $("#add-diario").css("right", "-100%");
@@ -305,6 +310,7 @@ function Inicio() {
         $("#apuntes").css("right", "-100%");
         $("#mensajes").css("right", "-100%");
         $("#diario").css("right", "-100%");
+        $("#buscar").css("right", "-100%");
         $("#test").css("right", "0");
         $("#add-mensajes").css("right", "-100%");
         $("#add-diario").css("right", "-100%");
@@ -319,6 +325,7 @@ function Inicio() {
         $("#apuntes").css("right", "-100%");
         $("#test").css("right", "-100%");
         $("#diario").css("right", "-100%");
+        $("#buscar").css("right", "-100%");
         $("#mensajes").css("right", "0");
         $("#add-diario").css("right", "-100%");
         $(".feeds").css("display","none");
@@ -332,7 +339,22 @@ function Inicio() {
         $("#apuntes").css("right", "-100%");
         $("#test").css("right", "-100%");
         $("#mensajes").css("right", "-100%");
+        $("#buscar").css("right", "-100%");
         $("#diario").css("right", "0");
+        $("#add-mensajes").css("right", "-100%");
+        $(".feeds").css("display","none");
+    });
+
+    $("#buscar-trigger").click(function(e) {
+        e.preventDefault();
+        $("#diario").css("width", "79.5vw");
+        $("#clases").css("right", "-100%");
+        $("#temario").css("right", "-100%");
+        $("#apuntes").css("right", "-100%");
+        $("#test").css("right", "-100%");
+        $("#mensajes").css("right", "-100%");
+        $("#diario").css("right", "-100%");
+        $("#buscar").css("right", "0");
         $("#add-mensajes").css("right", "-100%");
         $(".feeds").css("display","none");
     });
@@ -396,6 +418,17 @@ function Inicio() {
         $("#add-diario").css("right", "-100%");
         $("#diario").css("right", "-100%");
         $("#diario").css("width", "94.7vw");
+        if(window.matchMedia("(max-width: 767px)").matches){
+            $(".block").css("display","block");
+            $(".full-block").css("display","block");
+        }
+    });
+
+    $("#close-buscar").click(function(e) {
+        $(".feeds").css("display","block");
+        $("#add-diario").css("right", "-100%");
+        $("#buscar").css("right", "-100%");
+        $("#buscar").css("width", "94.7vw");
         if(window.matchMedia("(max-width: 767px)").matches){
             $(".block").css("display","block");
             $(".full-block").css("display","block");

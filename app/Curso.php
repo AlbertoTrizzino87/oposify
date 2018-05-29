@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
+
 class Curso extends Model
-{
+{   
+    use Searchable;
     protected $guarded = [];
 
     public function user()
@@ -31,5 +34,11 @@ class Curso extends Model
     public function testcurso()
     {
         return $this->hasMany(Test::class);
+    }
+
+    public function toSearchableArray()
+    {
+        $this->load('user')->load('oposicione');
+        return $this->toArray();
     }
 }

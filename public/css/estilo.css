@@ -412,6 +412,7 @@ nav.nav {
       cursor: pointer;
       transition: all 10ms; }
   nav.nav .botones {
+    width: 70%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -429,8 +430,8 @@ nav.nav {
     nav.nav .botones a {
       text-transform: uppercase;
       color: #ffffff;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
+      font-size: 1rem;
+      margin-bottom: 30px;
       text-align: center; }
 
 .menu-mobile {

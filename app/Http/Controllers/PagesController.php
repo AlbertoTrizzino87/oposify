@@ -16,7 +16,8 @@ use App\Test;
 
 class PagesController extends Controller
 {
-    public function usuario()
+    
+    public function usuario(Request $request)
     {   
         $id = Auth::user()->id;
         $userRole = Auth::user()->role;
@@ -29,6 +30,14 @@ class PagesController extends Controller
         $videos = Video::where('user_id',$id)->get();
         $temas = Tema::where('user_id',$id)->get();
         $tests = Test::where('user_id',$id)->get();
+
+        $parametro = $request->input('parametro');
+        $enviar = $request->input('buscar');
+        if(isset($enviar)){
+        $resultados = Curso::search($parametro)->get();
+        }else{
+            $resultados = [];
+        }
         
 
         if($userRole == 'Academia'){
@@ -99,7 +108,8 @@ class PagesController extends Controller
                 'title' => $title,
                 'main' => $main,
                 'title_home' => $title_home,
-                'image' => $image
+                'image' => $image,
+                'resultados' => $resultados
             ]);
         }
     }
