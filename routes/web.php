@@ -14,6 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
 Route::get('/user','PagesController@usuario');
 
 
@@ -34,6 +36,9 @@ Route::post('/user/test-creado','Crear@test')
 ->middleware('auth');
 
 Route::get('/buscar', 'PagesController@usuario');
+
+Route::post('paypal','PaymentController@payWithpaypal');
+Route::get('status', [ 'as' => 'status', 'uses' => 'PaymentController@getPaymentStatus']);
 
 
 
