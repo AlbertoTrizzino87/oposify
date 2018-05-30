@@ -9,7 +9,7 @@
 		<header class="header">
 			<img src="{{Storage::disk('public')->url(Auth::user()->image)}}"  class="foto-user">
 			<div id="logo">
-				<a href="index.php"><img src="img/Logo-TuOposify-negro.png" title="logotipo" alt="Logotipo tuOposify"></a>
+				<a href="{{ URL('/user') }}"><img src="img/Logo-TuOposify-negro.png" title="logotipo" alt="Logotipo tuOposify"></a>
 			</div>
 			<span class="icon-hamburguesa" id="trigger-home"></span>
 			<a href="{{ route('logout') }}" onclick="event.preventDefault();

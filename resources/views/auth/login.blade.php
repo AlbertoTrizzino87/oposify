@@ -4,7 +4,7 @@
 <main id=login>
     <header class="header">
 			<div id="logo">
-				<a href="index.php"><img src="img/Logo-TuOposify-negro.png" title="logotipo" alt="Logotipo tuOposify"></a>
+				<a href="{{ URL('/') }}"><img src="img/Logo-TuOposify-negro.png" title="logotipo" alt="Logotipo tuOposify"></a>
 			</div>
 			<span class="icon-hamburguesa" id="trigger-home"></span>
 		</header>

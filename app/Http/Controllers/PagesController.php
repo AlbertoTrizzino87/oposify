@@ -12,6 +12,8 @@ use App\Curso;
 use App\Video;
 use App\Tema;
 use App\Test;
+use App\Opositore;
+use App\Apunte;
 
 
 class PagesController extends Controller
@@ -28,9 +30,13 @@ class PagesController extends Controller
         $oposiciones = Oposicione::all();
         $cursos_id = Curso::where('user_id',$id)->get();
         $videos = Video::where('user_id',$id)->get();
+        $apuntes = Apunte::where('user_id',$id)->get();
+        $videOpositor = Video::all();
         $temas = Tema::where('user_id',$id)->get();
         $tests = Test::where('user_id',$id)->get();
-
+        $opositorId = Opositore::where('user_id',$id)->get();
+        $temasOpositor = Tema::all();
+        $testsOpositor = Test::all();
         $parametro = $request->input('parametro');
         $enviar = $request->input('buscar');
         if(isset($enviar)){
@@ -109,7 +115,13 @@ class PagesController extends Controller
                 'main' => $main,
                 'title_home' => $title_home,
                 'image' => $image,
-                'resultados' => $resultados
+                'resultados' => $resultados,
+                'opositorId' => $opositorId,
+                'cursos' => $cursos,
+                'videos' =>  $videOpositor,
+                'temas' => $temasOpositor,
+                'tests' => $testsOpositor,
+                'apuntes' => $apuntes
             ]);
         }
     }

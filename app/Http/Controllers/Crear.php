@@ -11,10 +11,12 @@ use App\Curso;
 use App\Video;
 use App\Tema;
 use App\Test;
+use App\Apunte;
 use App\Http\Requests\CrearCursoRequest;
 use App\Http\Requests\CrearVideoRequest;
 use App\Http\Requests\CrearTemaRequest;
 use App\Http\Requests\CrearTestRequest;
+use App\Http\Requests\CrearApunteRequest;
 use App\Oposicione;
 
 class Crear extends Controller
@@ -26,7 +28,7 @@ class Crear extends Controller
             'descripcion' => $request->input('descripcion'),
             'precio' => $request->input('precio')
         ]);
-        return 'Todo ha ido bien';
+        return redirect('/user');
     }
 
     public function video(CrearVideoRequest $request)
@@ -40,7 +42,7 @@ class Crear extends Controller
             'video' => $video->store('videos','public'),
             'titulo' => $request->input('titulo')
         ]);
-        return 'Todo ha ido bien';
+        return redirect('/user');
     }
 
     public function tema(CrearTemaRequest $request)
@@ -54,7 +56,7 @@ class Crear extends Controller
             'tema' => $tema->store('temas','public'),
             'titulo' => $request->input('titulo')
         ]);
-        return 'Todo ha ido bien';
+        return redirect('/user');
     }
 
     public function test(CrearTestRequest $request)
@@ -68,6 +70,22 @@ class Crear extends Controller
             'test' => $test->store('tests','public'),
             'titulo' => $request->input('titulo')
         ]);
-        return 'Todo ha ido bien';
+        return redirect('/user');
     }
+
+    public function apunte(CrearApunteRequest $request)
+    {   
+        $id = Auth::user()->id;
+        $apunte = $request->file('apuntes');
+        
+        $apuntes = Apunte::create([
+            'user_id' => $id,
+            'curso_id' => $request->input('oposicion'),
+            'apuntes' => $apunte->store('apuntes','public'),
+            'titulo' => $request->input('titulo')
+        ]);
+        return redirect('/user');
+    }
+
+    
 }

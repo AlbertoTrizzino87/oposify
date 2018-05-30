@@ -15,7 +15,6 @@ function Inicio() {
             //OPOSITOR
             $("#clases").css("width", "79.5vw");
             $("#temario").css("width", "79.5vw");
-            $("#apuntes").css("width", "79.5vw");
             $("#test").css("width", "79.5vw");
             $("#buscar").css("width", "79.5vw");
 
@@ -23,6 +22,12 @@ function Inicio() {
                 $("#mensajes").css("width", "49.3vw");
             }else{
                 $("#mensajes").css("width", "79.5vw");
+            }
+
+            if($("#add-apunte").css("right") == "0px"){
+                $("#apuntes").css("width", "49.3vw");
+            }else{
+                $("#apuntes").css("width", "79.5vw");
             }
 
             if($("#add-diario").css("right") == "0px"){
@@ -123,6 +128,12 @@ function Inicio() {
                 $("#mensajes").css("width", "64.6vw");
             }else{
                 $("#mensajes").css("width", "94.7vw");
+            }
+
+            if($("#add-apunte").css("right") == "0px"){
+                $("#apuntes").css("width", "64.6vw");
+            }else{
+                $("#apuntes").css("width", "94.7vw");
             }
 
             if($("#add-diario").css("right") == "0px"){
@@ -394,7 +405,9 @@ function Inicio() {
 
     $("#close-apuntes").click(function(e) {
         $(".feeds").css("display","block");
+        $("#add-apunte").css("right", "-100%");
         $("#apuntes").css("right", "-100%");
+        $("#apuntes").css("width", "94.7vw");
         if(window.matchMedia("(max-width: 1023px)").matches){
             $(".block").css("display","block");
             $(".full-block").css("display","block");
@@ -461,6 +474,36 @@ function Inicio() {
         }
         else{
             $("#mensajes").css("width", "94.7vw");
+        }
+
+    });
+
+    //OPOSITOR ESCRIBIR MENSAJE
+
+    $("#new-apunte").click(function(){
+        if($("#trigger-home").hasClass("icon-cross")){
+            $("#apuntes").css("width", "49.3vw");
+            $("#apuntes").css("right", "30.2%");
+            $("#add-apunte").css("right", "0");
+        }else if(window.matchMedia("(max-width: 1023px)").matches){
+            $("#add-apunte").css("right", "50%");
+        }else{
+            $("#apuntes").css("width", "64.7vw");
+            $("#apuntes").css("right", "30.2%");
+            $("#add-apunte").css("right", "0");
+        }
+    });
+
+    $("#close-add-apunte").click(function(){
+        $("#add-apunte").css("right", "-100%");
+        $("#apuntes").css("right", "0");
+        if($("#trigger-home").hasClass("icon-cross")){
+            $("#apuntes").css("width", "79.5vw");
+        }else if(window.matchMedia("(max-width: 1023px)").matches){
+            $("#add-apunte").css("right", "-100%");
+        }
+        else{
+            $("#apuntes").css("width", "94.7vw");
         }
 
     });

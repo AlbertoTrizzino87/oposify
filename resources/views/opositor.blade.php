@@ -86,6 +86,37 @@
 				</form>
 			</div>
 			<h3>clases</h3>
+			<div class="box">
+				<div class="content-box">
+					<ul class="nav nav-tabs" id="videoTab" role="tablist">
+						@forelse ($opositorId as $id)
+							<li class="nav-item"><a id="{{ $id->curso }}-tab" href="#{{ $id->curso }}" data-toggle="tab" role="tab" aria-controls="home" aria-selected="{{ $id->curso }}">{{ $id->curso }}</a></li>
+						@empty
+							<span>No hay cursos disponibles</span>
+						@endforelse
+					</ul>
+					<div class="tab-content" id="videoTabContent">
+						@foreach ($opositorId as $id)
+							<div class="tab-pane" id="{{ $id->curso }}" role="tabpanel" aria-labelledby="{{ $id->curso }}-tab">
+								<div class="container">
+									<div class="row">
+										@foreach ($videos as $video)
+											@if($video->curso_id == $id->curso_id)
+											<div class="col-md-3 col-lg-4">
+													<video controls>
+														<source src="{{ Storage::disk('public')->url($video->video) }}" type="video/mp4">
+													</video>
+													<h5>{{ $video->titulo }}</h5>
+												</div>
+											@endif
+										@endforeach	
+									</div>
+								</div>
+							</div>
+						@endforeach	
+					</div>
+				</div>
+			</div>
 		</section>
 		
 		<section class="contenido" id="temario">
@@ -97,6 +128,37 @@
 				</form>
 			</div>
 			<h3>temario</h3>
+			<div class="box">
+				<div class="content-box">
+					<ul class="nav nav-tabs" id="videoTab" role="tablist">
+						@forelse ($opositorId as $id)
+							<li class="nav-item"><a id="{{ $id->curso }}-tab" href="#2{{ $id->curso }}" data-toggle="tab" role="tab" aria-controls="home" aria-selected="{{ $id->curso }}">{{ $id->curso }}</a></li>
+						@empty
+							<span>No hay cursos disponibles</span>
+						@endforelse
+					</ul>
+					<div class="tab-content" id="videoTabContent">
+						@foreach ($opositorId as $id)
+							<div class="tab-pane" id="2{{ $id->curso }}" role="tabpanel" aria-labelledby="{{ $id->curso }}-tab">
+								<div class="container">
+									<div class="row">
+										@foreach ($temas as $tema)
+											@if($tema->curso_id == $id->curso_id)
+											<div class="col-md-3 col-lg-4">
+													<div>
+														<a href="{{ Storage::disk('public')->url($tema->tema) }}" target="_blank"><span class="icon-books-stack-of-three"></span></a>
+													</div>
+													<h5>{{ $tema->titulo }}</h5>
+												</div>
+											@endif
+										@endforeach	
+									</div>
+								</div>
+							</div>
+						@endforeach	
+					</div>
+				</div>
+			</div>
 		</section>
 		
 		<section class="contenido" id="apuntes">
@@ -108,6 +170,62 @@
 				</form>
 			</div>
 			<h3>apuntes</h3>
+			<div class="anadir-curso">
+				<span id="new-apunte">subir apuntes</span>
+			</div>
+			<div class="box">
+				<div class="content-box">
+					<ul class="nav nav-tabs" id="videoTab" role="tablist">
+						@forelse ($opositorId as $id)
+							<li class="nav-item"><a id="{{ $id->curso }}-tab" href="#5{{ $id->curso }}" data-toggle="tab" role="tab" aria-controls="home" aria-selected="{{ $id->curso }}">{{ $id->curso }}</a></li>
+						@empty
+							<span>No hay apuntes disponibles</span>
+						@endforelse
+					</ul>
+					<div class="tab-content" id="videoTabContent">
+						@foreach ($opositorId as $id)
+							<div class="tab-pane" id="5{{ $id->curso }}" role="tabpanel" aria-labelledby="{{ $id->curso }}-tab">
+								<div class="container">
+									<div class="row">
+										@foreach ($apuntes as $apunte)
+											@if($apunte->curso_id == $id->curso_id)
+											<div class="col-md-3 col-lg-4">
+													<div>
+														<a href="{{ Storage::disk('public')->url($apunte->apuntes) }}" target="_blank"><span class="icon-books-stack-of-three"></span></a>
+													</div>
+													<h5>{{ $apunte->titulo }}</h5>
+												</div>
+											@endif
+										@endforeach	
+									</div>
+								</div>
+							</div>
+						@endforeach	
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="add-to-db" id="add-apunte">
+			<span class="icon-cross" id="close-add-apunte"></span>
+			<div class="add-content">
+			<form action="/user/apunte-creado" method="POST" enctype="multipart/form-data">
+				{{ csrf_field() }}
+				<label for="oposicion">Elegir el curso</label>
+				<select name="oposicion">
+				@forelse ($opositorId as $id)
+				<option value="{{ $id->curso_id }}">{{ $id->curso }}</option>
+				@empty
+				<option value="">No hay cursos disponibles</option>
+				@endforelse
+				</select>
+				<label for="titulo" id="apunte">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="apuntes">Subir apuntes - formato PDF</label>
+				<input type="file" name="apuntes" id="">
+				<input type="submit" value="Subir apuntes" name="subirApunte">
+			</form>
+			</div>
 		</section>
 		
 		<section class="contenido" id="test">
@@ -119,6 +237,37 @@
 				</form>
 			</div>
 			<h3>test</h3>
+			<div class="box">
+				<div class="content-box">
+					<ul class="nav nav-tabs" id="videoTab" role="tablist">
+						@forelse ($opositorId as $id)
+							<li class="nav-item"><a id="{{ $id->curso }}-tab" href="#3{{ $id->curso }}" data-toggle="tab" role="tab" aria-controls="home" aria-selected="{{ $id->curso }}">{{ $id->curso }}</a></li>
+						@empty
+							<span>No hay cursos disponibles</span>
+						@endforelse
+					</ul>
+					<div class="tab-content" id="videoTabContent">
+						@foreach ($opositorId as $id)
+							<div class="tab-pane" id="3{{ $id->curso }}" role="tabpanel" aria-labelledby="{{ $id->curso }}-tab">
+								<div class="container">
+									<div class="row">
+										@foreach ($tests as $test)
+											@if($test->curso_id == $id->curso_id)
+											<div class="col-md-3 col-lg-4">
+													<div>
+														<a href="{{ Storage::disk('public')->url($test->test) }}" target="_blank"><span class="icon-exam"></span></a>
+													</div>
+													<h5>{{ $test->titulo }}</h5>
+												</div>
+											@endif
+										@endforeach	
+									</div>
+								</div>
+							</div>
+						@endforeach	
+					</div>
+				</div>
+			</div>
 		</section>
 		
 		<section class="contenido" id="mensajes">
@@ -161,7 +310,7 @@
 			<div class="cabezera">
 				<span class="icon-cross" id="close-buscar"></span>
 				<form action="/buscar" method="GET">
-				<input type="text" name="parametro" placeholder="Buscar">
+				<input type="text" name="parametro" placeholder="Buscar preparador,academia u oposición">
 				<input type="submit" name="buscar" value="Buscar">
 				</form>
 			</div>

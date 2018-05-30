@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Test::class)->orderBy('created_at','desc');
     }
+
+    public function apuntes()
+    {
+        return $this->hasMany(Apunte::class)->orderBy('created_at','desc');
+    }
 }

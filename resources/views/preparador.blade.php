@@ -9,7 +9,7 @@
 		<header class="header">
 			<img src="{{Storage::disk('public')->url(Auth::user()->image)}}"  class="foto-user">
 			<div id="logo">
-				<a href="{{ url('/') }}"><img src="img/Logo-TuOposify-negro.png" title="logotipo" alt="Logotipo tuOposify"></a>
+				<a href="{{ url('/user') }}"><img src="img/Logo-TuOposify-negro.png" title="logotipo" alt="Logotipo tuOposify"></a>
 			</div>
 			<span class="icon-hamburguesa" id="trigger-home"></span>
 			<a href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -154,7 +154,7 @@
 						@forelse ($cursosid as $cursoid)
 							<li class="nav-item"><a id="{{ $cursoid->oposicione->descripcion }}-tab" href="#{{ $cursoid->oposicione->descripcion }}" data-toggle="tab" role="tab" aria-controls="home" aria-selected="{{ $cursoid->oposicione->descripcion }}">{{ $cursoid->oposicione->descripcion }}</a></li>
 						@empty
-							<option value="">No hay cursos disponibles</option>
+							<span>No hay cursos disponibles</span>
 						@endforelse
 					</ul>
 					<div class="tab-content" id="videoTabContent">

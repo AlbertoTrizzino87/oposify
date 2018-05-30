@@ -144,7 +144,7 @@ class PaymentController extends Controller
         if (empty(Input::get('PayerID')) || empty(Input::get('token'))) {
  
             \Session::put('error', 'Payment failed');
-            return redirect('/');
+            return redirect('/user');
  
         }
  
@@ -165,12 +165,12 @@ class PaymentController extends Controller
                 'curso' => $curso,
                 'preparador_id' => $preparador_id,
             ]);
-            return redirect('/');
+            return redirect('/user');
  
         }
  
         \Session::put('error', 'Payment failed');
-        return redirect('/');
+        return redirect('/user');
  
     }
 }
