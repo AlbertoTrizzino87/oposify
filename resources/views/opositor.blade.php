@@ -168,23 +168,22 @@
 			<div class="resultados">
 					@forelse ($resultados as $resultado)
 						<div class="busqueda-layout">
-						 	<div>
-							 	<div class="layout-left">
+							 	<div class="layout-left col-md-2">
 							 		<img src="{{Storage::disk('public')->url($resultado->user->image)}}" alt="">
 								 	@if (empty($resultado->user->apellido))
 								 	<span>{{ $resultado->user->name }}</span>
 								 	@elseif (empty($resultado->user->apellidoDos))
 								 	<span>{{ $resultado->user->name }} {{ $resultado->user->apellido }}</span>
 								 	@else 
-								 	<span>{{ $resultado->user->name }} {{ $resultado->user->apellido }} {{ $resultado->user->apellidoDos }}</span>
+								 	<span>{{ $resultado->user->name }} {{ $resultado->user->apellido }} <br> {{ $resultado->user->apellidoDos }}</span>
 								 	@endif
 								</div>
-								<div class="layout-center">
+								<div class="layout-center col-md-7">
 									<h5>{{ $resultado->oposicione->descripcion }}</h5>
 									<p>{{ $resultado->descripcion }}</p>
 								</div>
-								<div class="layout-right">
-									<span>{{ $resultado->precio }}</span>
+								<div class="layout-right col-md-3">
+									<span>{{ $resultado->precio }}€</span>
 									<form action="{!! URL::to('paypal') !!}" method="POST" id="payment-form">
 										{{ csrf_field() }}
 										<input type="text" name="amount" id="amount" value="{{ $resultado->precio }}" hidden>
@@ -194,7 +193,6 @@
 										<button>comprar</button>
 									</form>
 								</div>
-						 	</div>
 						</div>
 					@empty
 						
