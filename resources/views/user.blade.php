@@ -94,10 +94,6 @@
 		<section class="contenido" id="profesores">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-profesores"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar cursos">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>profesores</h3>
 			<div class="anadir-curso">
@@ -107,6 +103,32 @@
 
 		<section class="add-to-db" id="add-profesores">
 			<span class="icon-cross" id="close-add-profesores"></span>
+			<form action="/buscar-preparador" method="GET">
+				<input type="text" name="parametro" placeholder="Buscar preparador">
+				<input type="submit" name="buscar2" value="Buscar">
+			</form>
+			<div class="resultados">
+				@forelse ($resultadoPreparadores as $resultadoPreparadore)
+					<div class="busqueda-layout">
+						<div class="layout-left col-md-2">
+							<img src="{{Storage::disk('public')->url($resultadoPreparadore->image)}}" alt="">
+						</div>
+						<div class="layout-center col-md-7">
+							<span>{{ $resultadoPreparadore->name }} {{ $resultadoPreparadore->apellido }} {{ $resultadoPreparadore->apellidoDos }}</span><br>
+							<span>{{ $resultadoPreparadore->email }}</span>
+						</div>
+						<div class="layout-right col-md-3">
+							<form action="/user/entrada-creada" method="POST">
+								{{ csrf_field() }}
+								<input type="text" name="idPrepa" id="idPrepa" value="{{ $resultadoPreparadore->id }}" hidden>
+								<button>Añadir</button>
+							</form>
+						</div>
+					</div>
+				@empty
+					<span>No se ha añadido ningun preparador</span>	
+				@endforelse	
+			</div>
 		</section>
 
 		<section class="contenido" id="mensajesa">

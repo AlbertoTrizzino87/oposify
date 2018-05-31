@@ -42,6 +42,7 @@ Route::post('/user/entrada-creada','Crear@entrada')
 ->middleware('auth');
 
 Route::get('/buscar', 'PagesController@usuario');
+Route::get('/buscar-preparador', 'PagesController@usuario');
 
 Route::post('paypal','PaymentController@payWithpaypal');
 Route::get('status', [ 'as' => 'status', 'uses' => 'PaymentController@getPaymentStatus']);

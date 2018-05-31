@@ -41,12 +41,19 @@ class PagesController extends Controller
         $testsOpositor = Test::all();
         $parametro = $request->input('parametro');
         $enviar = $request->input('buscar');
+        $enviar2 = $request->input('buscar2');
         if(isset($enviar)){
-        $resultados = Curso::search($parametro)->get();
+            $resultados = Curso::search($parametro)->get();      
         }else{
             $resultados = [];
         }
-        
+
+        if(isset($enviar2)){
+            $resultadosPreparador = \App\User::search($parametro)->where('role_id', 2)->get();     
+        }else{
+            $resultadosPreparador = [];
+        }
+       
 
         if($userRole == 'Academia'){
 
@@ -66,7 +73,8 @@ class PagesController extends Controller
             
                 'title' => $title,
                 'main' => $main,
-                'title_home' => $title_home
+                'title_home' => $title_home,
+                'resultadoPreparadores' => $resultadosPreparador
             ]);
         }else if($userRole == 'Preparador'){
 
