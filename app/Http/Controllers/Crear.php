@@ -12,11 +12,13 @@ use App\Video;
 use App\Tema;
 use App\Test;
 use App\Apunte;
+use App\Blog;
 use App\Http\Requests\CrearCursoRequest;
 use App\Http\Requests\CrearVideoRequest;
 use App\Http\Requests\CrearTemaRequest;
 use App\Http\Requests\CrearTestRequest;
 use App\Http\Requests\CrearApunteRequest;
+use App\Http\Requests\CrearEntradaRequest;
 use App\Oposicione;
 
 class Crear extends Controller
@@ -87,5 +89,18 @@ class Crear extends Controller
         return redirect('/user');
     }
 
+    public function entrada(CrearEntradaRequest $request)
+    {   
+        $id = Auth::user()->id;
+        $portada = $request->file('portada');
+        
+        $portadas = Blog::create([
+            'user_id' => $id,
+            'contenido' => $request->input('contenido'),
+            'portada' => $portada->store('portadas','public'),
+            'titulo' => $request->input('titulo')
+        ]);
+        return redirect('/user');
+    }
     
 }

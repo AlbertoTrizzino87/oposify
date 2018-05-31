@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Apunte::class)->orderBy('created_at','desc');
     }
+
+    public function entradas()
+    {
+        return $this->hasMany(Blog::class)->orderBy('created_at','desc');
+    }
 }

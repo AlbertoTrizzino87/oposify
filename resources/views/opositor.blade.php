@@ -300,10 +300,31 @@
 			<div class="anadir-curso">
 				<span id="new-diario">añadir entrada</span>
 			</div>
+			<div class="blog">
+				@forelse ($entradas as $entrada)
+					<div class="entrada col-md-4">					
+						<img src="{{Storage::disk('public')->url($entrada->portada)}}" alt="">
+						<h4>{{ $entrada->titulo }}</h4>
+					</div>
+				@empty
+					<p>No has subido todavia nada</p>
+				@endforelse
+			</div>
         </section>
 
 		<section class="add-to-db" id="add-diario">
 			<span class="icon-cross" id="close-add-diario"></span>
+			<div class="add-content">
+			<form action="/user/entrada-creada" method="POST" enctype="multipart/form-data">
+				{{ csrf_field() }}
+				<label for="titulo entrada">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="portada">Imagen destacada</label>
+				<input type="file" name="portada" id="portada">
+				<textarea name="contenido" placeholder="¿Que tal ha ido hoy?"></textarea>
+				<input type="submit" value="Subir entrada" name="subirApunte">
+			</form>
+			</div>
 		</section>
 
 		<section class="contenido" id="buscar">

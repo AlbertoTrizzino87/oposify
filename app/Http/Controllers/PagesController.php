@@ -14,6 +14,7 @@ use App\Tema;
 use App\Test;
 use App\Opositore;
 use App\Apunte;
+use App\Blog;
 
 
 class PagesController extends Controller
@@ -32,6 +33,7 @@ class PagesController extends Controller
         $videos = Video::where('user_id',$id)->get();
         $apuntes = Apunte::where('user_id',$id)->get();
         $videOpositor = Video::all();
+        $entradas = Blog::where('user_id',$id)->get();
         $temas = Tema::where('user_id',$id)->get();
         $tests = Test::where('user_id',$id)->get();
         $opositorId = Opositore::where('user_id',$id)->get();
@@ -121,7 +123,8 @@ class PagesController extends Controller
                 'videos' =>  $videOpositor,
                 'temas' => $temasOpositor,
                 'tests' => $testsOpositor,
-                'apuntes' => $apuntes
+                'apuntes' => $apuntes,
+                'entradas' => $entradas
             ]);
         }
     }

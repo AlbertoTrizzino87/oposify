@@ -38,6 +38,9 @@ Route::post('/user/test-creado','Crear@test')
 Route::post('/user/apunte-creado','Crear@apunte')
 ->middleware('auth');
 
+Route::post('/user/entrada-creada','Crear@entrada')
+->middleware('auth');
+
 Route::get('/buscar', 'PagesController@usuario');
 
 Route::post('paypal','PaymentController@payWithpaypal');
