@@ -10,11 +10,11 @@ class Profesore extends Model
 
     public function academia()
     {
-        $this->belongsTo(User::class,'id_academia');
+        return $this->belongsTo(User::class,'id_academia');
     }
 
     public function preparador()
     {
-        $this->belongsTo(User::class,'id_preparador');
+        return $this->belongsTo(User::class,'id_preparador');
     }
 }

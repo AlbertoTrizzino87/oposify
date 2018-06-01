@@ -39,4 +39,11 @@ class PeticionesController extends Controller
 
        
     }
+
+    public function eliminar(Request $request)
+    {
+        $id = $request->input('idPreparador');
+        Profesore::destroy($id);
+        return redirect('/user');
+    }
 }

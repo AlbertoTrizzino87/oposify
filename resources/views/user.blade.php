@@ -82,9 +82,19 @@
 				</form>
 			</div>
 			<h3>cursos</h3>
-			<div class="anadir-curso">
-				<span id="new-cursosa">añadir curso</span>
+			<div class="box">
+				@forelse ($cursosAcademia as $cursoAcademia)
+				<div class="content-box">
+				<div class="box-header">
+					<h4>{{$cursoAcademia->oposicione->descripcion}}</h4>
+					<span>{{ $cursoAcademia->precio}}€ mes</span>
+				</div>
+				</div>										
+				@empty
+					<p>No se ha creado ningun curso</p>
+				@endforelse
 			</div>
+				
 		</section>
 
 		<section class="add-to-db" id="add-cursosa">
@@ -98,6 +108,27 @@
 			<h3>profesores</h3>
 			<div class="anadir-curso">
 				<span id="new-profesores">añadir profesor</span>
+			</div>
+			<div class="box">
+				<div class="content-box">
+					@forelse ($profesores as $profesore)
+						<div class="layout-left col-md-2">
+							<img src="{{Storage::disk('public')->url($profesore->preparador->image )}}" alt="">
+						</div>
+						<div class="layout-center col-md-8">
+							<span>{{ $profesore->preparador->name }} {{ $profesore->preparador->apellido }} {{ $profesore->preparador->apellidoDos }}</span><br>
+							<span>{{ $profesore->preparador->email }}</span>
+						</div>
+						<div class="layout-right col-md-2">
+							<form action="/user/eliminar-profesor" method="POST">
+								{{ csrf_field() }}
+								<input type="text" name="idPreparador" id="idPreparador" value="{{$profesore->id }}" hidden>
+								<button>Eliminar</button>
+							</form>
+						</div>
+					@empty
+					@endforelse
+				</div>
 			</div>
 		</section>
 

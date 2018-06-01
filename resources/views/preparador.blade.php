@@ -108,7 +108,7 @@
 				<span id="new-course">añadir curso</span>
 			</div>
 				<div class="box">
-				@forelse ($user->cursos as $curso)
+				@forelse ($cursos_id as $curso)
 				<div class="content-box">
 				<div class="box-header">
 					<h4>{{$curso->oposicione->descripcion}}</h4>
@@ -141,6 +141,14 @@
 				@empty
 				<option value="">No hay oposiciones disponibles</option>
 				@endforelse
+				</select>
+				<select name="dueno" id="">
+					<option value="{{Auth::user()->id}}">Personal</option>
+					@forelse ($academias as $academia)
+					<option value="{{ $academia->id_academia }}">{{ $academia->academia->name }}</option>
+					@empty
+					<option value="">No hay ninguna collaboración</option>
+					@endforelse
 				</select>
 				<input type="text" name="preparador" value="{{Auth::user()->id}}" hidden>
 				<label for="descripcion">Descripción</label>

@@ -65,7 +65,16 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+
+        if($data['role']== 'Academia'){
+            $role_id = 1;
+        }elseif($data['role']== 'Preparador'){
+            $role_id = 2;
+        }elseif($data['role']== 'Opositor'){
+            $role_id = 3;
+        }
+
         return User::create([
             'name' => $data['name'],
             'apellido' => $data['apellido'],
@@ -75,6 +84,7 @@ class RegisterController extends Controller
             'ciudad' => $data['ciudad'],
             'telefono' => $data['telefono'],
             'direccion' => $data['direccion'],
+            'role_id' => $role_id,
             'image' => $data['image']->store('FotoPerfil','public'),
             'password' => Hash::make($data['password']),
         ]);

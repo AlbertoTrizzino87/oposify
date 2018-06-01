@@ -24,9 +24,11 @@ use App\Oposicione;
 class Crear extends Controller
 {
     public function curso(CrearCursoRequest $request){
+        $id = Auth::user()->id;
         $cursos = Curso::create([
-            'user_id' => $request->input('preparador'),
+            'user_id' => $request->input('dueno'),
             'oposicione_id' => $request->input('oposicion'),
+            'preparador_id' => $id,
             'descripcion' => $request->input('descripcion'),
             'precio' => $request->input('precio')
         ]);

@@ -31,7 +31,8 @@ class PagesController extends Controller
         $cursos = Curso::all();
         $user = Auth::user();
         $oposiciones = Oposicione::all();
-        $cursos_id = Curso::where('user_id',$id)->get();
+        $cursoAcademia = Curso::where('user_id',$id)->get();
+        $cursos_id = Curso::where('preparador_id',$id)->get();
         $videos = Video::where('user_id',$id)->get();
         $apuntes = Apunte::where('user_id',$id)->get();
         $videOpositor = Video::all();
@@ -57,8 +58,8 @@ class PagesController extends Controller
         }
 
         $notificaciones = Peticione::where('id_user_2',$id)->get();
-        $profesorado = Profesore::where('id_academia',$id)->get() ;
-        
+        $profesorado = Profesore::where('id_academia',$id)->get();
+        $academias = Profesore::where('id_preparador',$id)->get();        
 
         if($userRole == 'Academia'){
 
@@ -80,7 +81,8 @@ class PagesController extends Controller
                 'main' => $main,
                 'title_home' => $title_home,
                 'resultadoPreparadores' => $resultadosPreparador,
-                'profesorado' => $profesorado
+                'profesores' => $profesorado,
+                'cursosAcademia'=>$cursoAcademia
             ]);
         }else if($userRole == 'Preparador'){
 
@@ -110,7 +112,9 @@ class PagesController extends Controller
                 'videos' => $videos,
                 'temas' => $temas,
                 'tests' => $tests,
-                'notificaciones' => $notificaciones
+                'notificaciones' => $notificaciones,
+                'academias' =>$academias,
+                'cursos_id' =>$cursos_id
             ]);
 
         }else if($userRole == 'Opositor'){
