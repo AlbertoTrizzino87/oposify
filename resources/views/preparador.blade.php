@@ -64,6 +64,27 @@
 					</div>
 					<div class="block">
 						<h3>{{$title_home['cinco']}}</h3>
+						<div class="notificaciones">
+							@forelse ($notificaciones as $notificacione)
+								<div class="layout-left col-md-2">
+									<img src="{{Storage::disk('public')->url($notificacione->usersPeticiones->image )}}">
+								</div>
+								<div class="layout-center col-md-7">
+									<span>{{ $notificacione->usersPeticiones->name }}</span><br>
+									<span>{{ $notificacione->usersPeticiones->email }}</span>
+								</div>
+								<div class="layout-right col-md-3">
+									<form action="/user/aceptar-peticion" method="POST">
+										{{ csrf_field() }}
+										<input type="text" name="idPeticion" id="idPeticion" value="{{$notificacione->id }}" hidden>
+										<input type="text" name="idAcademia" id="idAcademia" value="{{$notificacione->user_id }}" hidden>
+										<button>Aceptar</button>
+									</form>
+								</div>
+							@empty
+								<span>No hay peticiones</span>
+							@endforelse
+						</div>
 					</div>
 				</div>
 				<div class="fila col-12 col-md-4">

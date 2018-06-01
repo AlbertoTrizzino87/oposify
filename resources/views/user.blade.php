@@ -118,7 +118,7 @@
 							<span>{{ $resultadoPreparadore->email }}</span>
 						</div>
 						<div class="layout-right col-md-3">
-							<form action="/user/entrada-creada" method="POST">
+							<form action="/user/anadir-preparador" method="POST">
 								{{ csrf_field() }}
 								<input type="text" name="idPrepa" id="idPrepa" value="{{ $resultadoPreparadore->id }}" hidden>
 								<button>Añadir</button>

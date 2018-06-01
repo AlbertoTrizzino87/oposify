@@ -36,6 +36,11 @@ class User extends Authenticatable
         return $this->hasMany(Curso::class)->orderBy('descripcion','asc');
     }
 
+    public function peticiones()
+    {
+        return $this->hasMany('App\Peticione');
+    }
+
     public function videos()
     {
         return $this->hasMany(Video::class)->orderBy('created_at','desc');

@@ -20,6 +20,7 @@ class AddCursosTable extends Migration
             $table->integer('oposicione_id')->unsigned();
             $table->foreign('oposicione_id')->references('id')->on('oposiciones');
             $table->string('descripcion');
+            $table->integer('preparador_id')->unsigned();
             $table->decimal('precio',5,2);
             $table->timestamps();
         });

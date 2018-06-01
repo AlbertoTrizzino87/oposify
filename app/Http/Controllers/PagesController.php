@@ -15,6 +15,8 @@ use App\Test;
 use App\Opositore;
 use App\Apunte;
 use App\Blog;
+use App\Peticione;
+use App\Profesore;
 
 
 class PagesController extends Controller
@@ -53,7 +55,10 @@ class PagesController extends Controller
         }else{
             $resultadosPreparador = [];
         }
-       
+
+        $notificaciones = Peticione::where('id_user_2',$id)->get();
+        $profesorado = Profesore::where('id_academia',$id)->get() ;
+        
 
         if($userRole == 'Academia'){
 
@@ -74,7 +79,8 @@ class PagesController extends Controller
                 'title' => $title,
                 'main' => $main,
                 'title_home' => $title_home,
-                'resultadoPreparadores' => $resultadosPreparador
+                'resultadoPreparadores' => $resultadosPreparador,
+                'profesorado' => $profesorado
             ]);
         }else if($userRole == 'Preparador'){
 
@@ -103,7 +109,8 @@ class PagesController extends Controller
                 'cursosid' => $cursos_id,
                 'videos' => $videos,
                 'temas' => $temas,
-                'tests' => $tests
+                'tests' => $tests,
+                'notificaciones' => $notificaciones
             ]);
 
         }else if($userRole == 'Opositor'){
