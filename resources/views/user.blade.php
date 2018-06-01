@@ -189,8 +189,44 @@
 				</form>
 			</div>
 			<h3>alumnos</h3>
-			<div class="anadir-curso">
-				<span id="new-alumnos">añadir alumno</span>
+			<div class="box">
+				<div class="content-box">
+					<ul class="nav nav-tabs" id="videoTab" role="tablist">
+						@forelse ($cursosAcademia as $cursoAcademia)
+							<li class="nav-item"><a id="{{ $cursoAcademia->oposicione->descripcion }}-tab" href="#{{ $cursoAcademia->oposicione->descripcion }}" data-toggle="tab" role="tab" aria-controls="home" aria-selected="{{ $cursoAcademia->oposicione->descripcion }}">{{ $cursoAcademia->oposicione->descripcion }}</a></li>
+						@empty
+							<span>No hay cursos disponibles</span>
+						@endforelse
+					</ul>
+					<div class="tab-content" id="videoTabContent">
+						@foreach ($cursosAcademia as $cursoAcademia)					
+							<div class="tab-pane" id="{{ $cursoAcademia->oposicione->descripcion }}" role="tabpanel" aria-labelledby="{{ $cursoAcademia->oposicione->descripcion }}-tab">
+								<div class="container">
+									<div class="row">
+										@foreach ($alumnos as $alumno)
+											@if($alumno->curso_id == $cursoAcademia->id)
+											<div class="layout-left col-md-2">
+												<img src="{{Storage::disk('public')->url($alumno->user->image )}}" alt="">
+											</div>	
+											<div class="layout-center col-md-8">
+												<span>{{ $alumno->user->name }} {{ $alumno->user->apellido }} {{ $alumno->user->apellidoDos }}</span><br>
+												<span>{{ $alumno->user->email }}</span>
+											</div>
+											<div class="layout-right col-md-2">
+												<form action="/user/eliminar-profesor" method="POST">
+													{{ csrf_field() }}
+													<input type="text" name="idPreparador" id="idPreparador" value="{{$profesore->id }}" hidden>
+													<button>Eliminar</button>
+												</form>
+											</div>	
+											@endif
+										@endforeach
+									</div>
+								</div>
+							</div>						
+						@endforeach
+					</div>
+				</div>
 			</div>
 		</section>
 

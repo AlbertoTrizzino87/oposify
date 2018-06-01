@@ -59,7 +59,8 @@ class PagesController extends Controller
 
         $notificaciones = Peticione::where('id_user_2',$id)->get();
         $profesorado = Profesore::where('id_academia',$id)->get();
-        $academias = Profesore::where('id_preparador',$id)->get();        
+        $academias = Profesore::where('id_preparador',$id)->get();
+        $alumnos= Opositore::where('preparador_id',$id)->get();        
 
         if($userRole == 'Academia'){
 
@@ -82,7 +83,8 @@ class PagesController extends Controller
                 'title_home' => $title_home,
                 'resultadoPreparadores' => $resultadosPreparador,
                 'profesores' => $profesorado,
-                'cursosAcademia'=>$cursoAcademia
+                'cursosAcademia'=>$cursoAcademia,
+                'alumnos'=> $alumnos
             ]);
         }else if($userRole == 'Preparador'){
 
