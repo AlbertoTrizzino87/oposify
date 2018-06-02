@@ -17,6 +17,7 @@ use App\Apunte;
 use App\Blog;
 use App\Peticione;
 use App\Profesore;
+use App\Mail;
 
 
 class PagesController extends Controller
@@ -62,7 +63,8 @@ class PagesController extends Controller
         $academias = Profesore::where('id_preparador',$id)->get();
         $alumnos= Opositore::where('preparador_id',$id)->get();
         $alumnosPreparador = Opositore::all();
-        $misCursos = Opositore::where('user_id',$id)->get();        
+        $misCursos = Opositore::where('user_id',$id)->get();
+        $mensajesPersonales = Mail::where('reference_id',$id)->get();        
 
         if($userRole == 'Academia'){
 
@@ -72,7 +74,7 @@ class PagesController extends Controller
 
             $title_home = [
                 'uno' => 'bienvenid@!',
-                'dos' => 'Ultimas opiniones',
+                'dos' => 'Mensajes',
                 'tres' => 'Profesorado',
                 'cuatro' => 'Cursos',
                 'cinco' => 'Notificaciones',
@@ -86,7 +88,8 @@ class PagesController extends Controller
                 'resultadoPreparadores' => $resultadosPreparador,
                 'profesores' => $profesorado,
                 'cursosAcademia'=>$cursoAcademia,
-                'alumnos'=> $alumnos
+                'alumnos'=> $alumnos,
+                'mensajesPersonales' => $mensajesPersonales
             ]);
         }else if($userRole == 'Preparador'){
 
@@ -96,7 +99,7 @@ class PagesController extends Controller
 
             $title_home = [
                 'uno' => 'bienvenid@!',
-                'dos' => 'Ultimas opiniones',
+                'dos' => 'Mensajes',
                 'tres' => 'Tareas pendientes',
                 'cuatro' => 'Cursos',
                 'cinco' => 'Notificaciones',
@@ -119,7 +122,8 @@ class PagesController extends Controller
                 'notificaciones' => $notificaciones,
                 'academias' =>$academias,
                 'cursos_id' =>$cursos_id,
-                'alumnosPreparador' => $alumnosPreparador
+                'alumnosPreparador' => $alumnosPreparador,
+                'mensajesPersonales' => $mensajesPersonales
             ]);
 
         }else if($userRole == 'Opositor'){
@@ -130,7 +134,7 @@ class PagesController extends Controller
 
             $title_home = [
                 'uno' => 'bienvenid@!',
-                'dos' => 'Timer',
+                'dos' => 'Mensajes',
                 'tres' => 'Tareas pendientes',
                 'cuatro' => 'Estadisticas',
                 'cinco' => 'Repaso',
@@ -149,7 +153,8 @@ class PagesController extends Controller
                 'tests' => $testsOpositor,
                 'apuntes' => $apuntes,
                 'entradas' => $entradas,
-                'misCursos' => $misCursos
+                'misCursos' => $misCursos,
+                'mensajesPersonales' => $mensajesPersonales
             ]);
         }
     }

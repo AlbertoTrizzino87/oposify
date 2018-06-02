@@ -60,6 +60,21 @@
 				<div class="fila col-12 col-md-4">
 					<div class="block">
 						<h3>{{$title_home['dos']}}</h3>
+						<div class="box">
+							<div class="content-box">
+								@forelse ($mensajesPersonales as $mensaje)
+									@if($mensaje->status == "No leido")
+										<div class="mensajes-personal">
+											<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="30px"  alt="">
+											<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span>
+											<button>Leer</button>
+										</div>
+									@endif
+								@empty
+								<span>No hay mensajes</span>
+								@endforelse
+							</div>
+						</div>
 					</div>
 					<div class="block">
 						<h3>{{$title_home['cinco']}}</h3>
@@ -173,6 +188,20 @@
 			<h3>mensajes</h3>
 			<div class="anadir-curso">
 				<span id="new-mensajesa">nuevo mensaje</span>
+			</div>
+			<div class="box">
+				<div class="content-box">
+					@forelse ($mensajesPersonales as $mensaje)
+						<div class="mensajes-personal">
+							<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="100px"  alt="">
+							<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span>
+							<button>Enviar</button>
+							<button>Leer</button>
+						</div>
+					@empty
+					<span>No hay mensajes</span>
+					@endforelse
+				</div>
 			</div>
 		</section>
 
