@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?9pb788');
-  src:  url('fonts/icomoon.eot?9pb788#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?9pb788') format('truetype'),
-    url('fonts/icomoon.woff?9pb788') format('woff'),
-    url('fonts/icomoon.svg?9pb788#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?k7364b');
+  src:  url('fonts/icomoon.eot?k7364b#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?k7364b') format('truetype'),
+    url('fonts/icomoon.woff?k7364b') format('woff'),
+    url('fonts/icomoon.svg?k7364b#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -62,6 +62,9 @@
 }
 .icon-lupa:before {
   content: "\e901";
+}
+.icon-camera:before {
+  content: "\e90f";
 }
 .icon-cloud-upload:before {
   content: "\e9c3";

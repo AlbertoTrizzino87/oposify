@@ -9,14 +9,12 @@ img, video {
   display: block;
   max-width: 100%; }
 
-body,
-html {
+body.general {
   font-size: 16px;
   overflow: hidden;
   font-family: "Roboto", sans-serif; }
   @media screen and (max-width: 1023px) {
-    body,
-    html {
+    body.general {
       overflow-y: scroll; } }
 
 main#home {
@@ -1356,5 +1354,190 @@ main#academia nav div.botones, main#preparador nav div.botones {
   right: -100%;
   z-index: 3;
   transition: all 500ms; }
+
+.social header {
+  width: 100%;
+  background-color: #000000;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+  -ms-align-items: center;
+  align-items: center;
+  padding: 20px 70px; }
+  .social header input[type="text"] {
+    border: solid 2px #ffffff;
+    background-color: transparent;
+    width: 300px;
+    padding-left: 5px; }
+    .social header input[type="text"]::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+    .social header input[type="text"]::-moz-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+    .social header input[type="text"]:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+    .social header input[type="text"]:-moz-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+  .social header img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer; }
+.social .container-fluid {
+  min-height: 90vh; }
+  .social .container-fluid .row .perfil-sn {
+    background-color: #000000;
+    padding: 50px;
+    min-height: 90vh; }
+    .social .container-fluid .row .perfil-sn .personal-imagen {
+      text-align: center;
+      border: solid 1px black;
+      margin-bottom: 100px; }
+      .social .container-fluid .row .perfil-sn .personal-imagen img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+        border: solid 2px #ffffff; }
+      .social .container-fluid .row .perfil-sn .personal-imagen h1 {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        color: #ffffff; }
+    .social .container-fluid .row .perfil-sn .sugerencias {
+      color: #ffffff;
+      text-align: center; }
+      .social .container-fluid .row .perfil-sn .sugerencias h4 {
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        margin-bottom: 30px; }
+        .social .container-fluid .row .perfil-sn .sugerencias h4:after {
+          content: "";
+          background-color: #ffffff;
+          width: 200px;
+          height: 2px;
+          display: block;
+          margin: 5px auto; }
+    .social .container-fluid .row .perfil-sn .sugeridos h5 {
+      text-transform: uppercase;
+      color: #ffffff;
+      font-size: 1rem; }
+      .social .container-fluid .row .perfil-sn .sugeridos h5:after {
+        content: "";
+        background-color: #ffffff;
+        width: 100%;
+        height: 1px;
+        display: block;
+        margin: 5px 0; }
+    .social .container-fluid .row .perfil-sn .sugeridos .sugerido {
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      justify-content: space-between;
+      -ms-align-items: center;
+      align-items: center;
+      margin-bottom: 10px; }
+      .social .container-fluid .row .perfil-sn .sugeridos .sugerido img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; }
+      .social .container-fluid .row .perfil-sn .sugeridos .sugerido span {
+        color: #ffffff;
+        text-transform: uppercase; }
+  .social .container-fluid .row .mensajes-sn {
+    padding: 50px; }
+    .social .container-fluid .row .mensajes-sn form {
+      width: 100%;
+      text-align: center;
+      border-bottom: solid 1px #000000;
+      padding: 10px; }
+      .social .container-fluid .row .mensajes-sn form textarea {
+        width: 400px;
+        height: 100px;
+        outline: none;
+        border: solid 1px #000000;
+        padding: 10px; }
+      .social .container-fluid .row .mensajes-sn form label {
+        cursor: pointer; }
+    .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn {
+      width: 100%; }
+      .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        -ms-align-items: center;
+        align-items: center;
+        margin-bottom: 20px; }
+        .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left {
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: flex;
+          -ms-align-items: center;
+          align-items: center;
+          width: 80%; }
+          .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; }
+          .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left span {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            margin-left: 15px; }
+    .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post {
+      width: 100%;
+      margin-top: 30px;
+      background-color: #000000;
+      padding: 10px; }
+      .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post {
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -ms-align-items: center;
+        align-items: center; }
+        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .left img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          margin-right: 10px; }
+        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .right span {
+          text-transform: uppercase;
+          font-size: 1.5rem;
+          font-family: "Roboto Condensed", sans-serif;
+          color: #ffffff; }
+      .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post {
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex; }
+        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .left {
+          width: 100px; }
+        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .right p {
+          color: #ffffff; }
 
 /*# sourceMappingURL=estilo.css.map */

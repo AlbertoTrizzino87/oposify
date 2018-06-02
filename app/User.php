@@ -36,6 +36,26 @@ class User extends Authenticatable
         return $this->hasMany(Curso::class)->orderBy('descripcion','asc');
     }
 
+    public function follows()
+    {
+        return $this->belongsToMany(User::class,'followers','user_id','followed_id');
+    }
+
+    public function followers()
+    {
+        return $this->belongsToMany(User::class,'followers','followed_id','user_id');
+    }
+
+    public function isFollowing(User $user)
+    {
+        return $this->follows->contains($user);
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function peticiones()
     {
         return $this->hasMany('App\Peticione');

@@ -10,6 +10,5 @@ class Oposicione extends Model
     {
         return $this->hasMany(Curso::class)->orderBy('descripcion','asc');
     }
-
     
 }

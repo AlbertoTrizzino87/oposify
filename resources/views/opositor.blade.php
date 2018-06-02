@@ -33,6 +33,7 @@
 			<a href="#" id="mensajes-trigger">mensajes</a>
 			<a href="#" id="diario-trigger">diario</a>
 			<a href="#" id="buscar-trigger">buscar curso</a>
+			<a href="{{ url('/user/red-social') }}">Red social</a>
 			<a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">{{ __('Cerrar sessión') }}</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

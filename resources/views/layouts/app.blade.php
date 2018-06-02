@@ -14,7 +14,7 @@
     
 	<title>@yield('title','TuOposify_home')</title>
 </head>
-<body>	
+<body class="general">	
 
         @yield('content')
  

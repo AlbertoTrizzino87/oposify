@@ -31,6 +31,7 @@
 			<a href="#" id="mensajesa-trigger">mensajes</a>
 			<a href="#" id="alumnos-trigger">alumnos</a>
 			<a href="#" id="bonosa-trigger">bonos</a>
+			<a href="{{ url('/user/red-social') }}">Red social</a>
 			<a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">{{ __('Cerrar sessión') }}</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

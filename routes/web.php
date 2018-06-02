@@ -42,7 +42,9 @@ Route::post('/user/entrada-creada','Crear@entrada')
 ->middleware('auth');
 
 Route::get('/buscar', 'PagesController@usuario');
+Route::get('/user/red-social', 'RedSocialController@usuario');
 Route::get('/buscar-preparador', 'PagesController@usuario');
+Route::get('/red-social/buscar-usuario','RedSocialController@buscar');
 Route::post('/user/anadir-preparador','PeticionesController@anadir')
 ->middleware('auth');
 
@@ -52,7 +54,10 @@ Route::post('/user/eliminar-profesor','PeticionesController@eliminar')
 ->middleware('auth');
 Route::post('/user/enviar-mensaje','MensajesController@enviar')
 ->middleware('auth');
-
+Route::post('/red-social/follow','RedSocialController@follow');
+Route::post('/red-social/unfollow','RedSocialController@unfollow');
+Route::post('/red-social/crear-post','RedSocialController@post');
+Route::get('/user/red-social/{id}','RedSocialController@show');
 Route::post('paypal','PaymentController@payWithpaypal');
 Route::get('status', [ 'as' => 'status', 'uses' => 'PaymentController@getPaymentStatus']);
 
