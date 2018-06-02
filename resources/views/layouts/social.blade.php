@@ -25,7 +25,7 @@
 			</form>
 
             <div class="personal-imagen">
-            	<img src="{{Storage::disk('public')->url(Auth::user()->image)}}"  alt="">
+            <a href="/user/red-social/{{ Auth::user()->id }}"><img src="{{Storage::disk('public')->url(Auth::user()->image)}}"  alt=""></a>
 			</div>
         </header>
 

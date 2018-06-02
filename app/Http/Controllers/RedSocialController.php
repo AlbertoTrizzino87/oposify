@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CrearPortadaRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Follower;
 use App\Opositore;
 use App\User;
 use App\Curso;
 use App\Post;
+use App\Portada;
 
 class RedSocialController extends Controller
 {
@@ -90,9 +92,27 @@ class RedSocialController extends Controller
     public function show($id)
     {
         $user = User::where('id',$id)->first();
+        $portada = Portada::where('user_id',$id)->get();
+    
+     
 
         return view('usuario',[
-            'user' => $user
+            'user' => $user,
+            'followers' => $user->followers,
+            'follows' => $user->follows,
+            'portada' => $portada
         ]);
+    }
+
+    public function portada(CrearPortadaRequest $request)
+    {
+        $id = Auth::user()->id;
+        $portada = $request->file('fotoPortada');
+
+        $portadas = Portada::create([
+            'user_id' => $id,
+            'portada' => $portada->store('portadas','public'),
+        ]);
+        return redirect('/user/red-social/{{$id}}');
     }
 }
