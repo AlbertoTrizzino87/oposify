@@ -382,6 +382,38 @@
 
 		<section class="add-to-db" id="add-mensajesp">
 			<span class="icon-cross" id="close-add-mensajesp"></span>
+			<div class="add-content">
+			<form action="/user/enviar-mensaje" method="POST">
+			{{ csrf_field() }}
+				<select name="tipo" class="mensaje-select">
+					<option value="Grupo" >Grupo</option>
+					<option value="Privado" >Privado</option>
+				</select>
+				<select name="idGrupo" id="" class="grupo">
+					@forelse($cursos_id as $cursos)
+						<option value="{{ $cursos->id }}">{{$cursos->oposicione->descripcion}}</option>
+					@empty
+						<option value="null">No hay ningun curso creado</option>
+					@endforelse
+				</select>
+				<select name="idPersonal" id="" style="display:none;" class="privado">
+				@forelse($cursos_id as $cursos)
+						@foreach ($alumnosPreparador as $alumnoPreparador)
+							@if( $alumnoPreparador->curso_id == $cursos->id)
+								<option value="{{ $alumnoPreparador->id }}">{{ $alumnoPreparador->user->name }} {{ $alumnoPreparador->user->apellido }} {{ $alumnoPreparador->user->apellidoDos }}</option>
+							@endif
+						@endforeach
+					@empty
+						<option value="null">No hay alumnos</option>
+					@endforelse
+				</select>
+				<label for="titulo">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="mensaje">Mensaje</label>
+				<textarea name="mensaje" ></textarea>
+				<input type="submit" value="Enviar">
+			</form>
+			</div>
 		</section>
 
 		<section class="contenido" id="bonosp">
@@ -401,7 +433,7 @@
 		<section class="add-to-db" id="add-bonosp">
 			<span class="icon-cross" id="close-add-bonosp"></span>
 		</section>
-
+		
        
 	</main>
 @endsection

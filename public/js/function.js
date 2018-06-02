@@ -1209,6 +1209,17 @@ function Inicio() {
         }
     });
 
+    $(".mensaje-select").change(function(){
+        
+        if($(".mensaje-select").val() == 'Privado'){
+            $(".grupo").css("display","none");
+            $(".privado").css("display","block");
+        }else{
+            $(".grupo").css("display","block");
+            $(".privado").css("display","none");
+        }
+    });
+
   
 
 

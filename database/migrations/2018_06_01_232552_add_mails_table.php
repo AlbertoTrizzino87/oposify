@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddOpositoresTable extends Migration
+class AddMailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class AddOpositoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('opositores', function (Blueprint $table) {
+        Schema::create('mails', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('curso_id')->unsigned();
-            $table->foreign('curso_id')->references('id')->on('cursos');
-            $table->integer('preparador_id')->unsigned();
-            $table->foreign('preparador_id')->references('user_id')->on('cursos');
-            $table->foreign('preparador_id')->references('id')->on('user');
-            $table->string('curso');
+            $table->longText('titulo');
+            $table->longText('mensaje');
+            $table->integer('reference_id')->unsigned();
+            $table->string('status');
+            $table->string('tipo');
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class AddOpositoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('opositores');
+        Schema::dropIfExists('mails');
     }
 }

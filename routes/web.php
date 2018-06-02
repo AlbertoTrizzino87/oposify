@@ -50,6 +50,8 @@ Route::post('/user/aceptar-peticion','PeticionesController@aceptar')
 ->middleware('auth');
 Route::post('/user/eliminar-profesor','PeticionesController@eliminar')
 ->middleware('auth');
+Route::post('/user/enviar-mensaje','MensajesController@enviar')
+->middleware('auth');
 
 Route::post('paypal','PaymentController@payWithpaypal');
 Route::get('status', [ 'as' => 'status', 'uses' => 'PaymentController@getPaymentStatus']);

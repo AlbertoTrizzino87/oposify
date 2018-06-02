@@ -178,6 +178,38 @@
 
 		<section class="add-to-db" id="add-mensajesa">
 			<span class="icon-cross" id="close-add-mensajesa"></span>
+			<div class="add-content">
+			<form action="/user/enviar-mensaje" method="post">
+			{{ csrf_field() }}
+				<select name="tipo" class="mensaje-select">
+					<option value="Grupo" >Grupo</option>
+					<option value="Privado" >Privado</option>
+				</select>
+				<select name="idGrupo" id="" class="grupo">
+					@forelse($cursosAcademia as $cursos)
+						<option value="{{ $cursos->id }}">{{$cursos->oposicione->descripcion}}</option>
+					@empty
+						<option value="null">No hay ningun curso creado</option>
+					@endforelse
+				</select>
+				<select name="idPersonal" id="" style="display:none;" class="privado">
+				@forelse($cursosAcademia  as $cursos)
+						@foreach ($alumnos as $alumnoPreparador)
+							@if( $alumnoPreparador->curso_id == $cursos->id)
+								<option value="{{ $alumnoPreparador->id }}">{{ $alumnoPreparador->user->name }} {{ $alumnoPreparador->user->apellido }} {{ $alumnoPreparador->user->apellidoDos }}</option>
+							@endif
+						@endforeach
+					@empty
+						<option value="null">No hay alumnos</option>
+					@endforelse
+				</select>
+				<label for="titulo">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="mensaje">Mensaje</label>
+				<textarea name="mensaje" ></textarea>
+				<input type="submit" value="Enviar">
+			</form>
+			</div>
 		</section>
 
 		<section class="contenido" id="alumnos">

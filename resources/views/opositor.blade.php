@@ -286,6 +286,24 @@
 
 		<section class="add-to-db" id="add-mensajes">
 			<span class="icon-cross" id="close-add-mensajes"></span>
+			<div class="add-content">
+			<form action="/user/enviar-mensaje" method="post">
+			{{ csrf_field() }}
+				<input type="text" name="tipo" value="Privado" id="">
+				<select name="idPersonal" id="" class="privado">
+				@forelse($misCursos  as $cursos)
+						<option value="{{ $cursos->preparador_id}}">{{ $cursos->profesor->name }}</option>
+					@empty
+						<option value="null">No hay preparador</option>
+					@endforelse
+				</select>
+				<label for="titulo">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="mensaje">Mensaje</label>
+				<textarea name="mensaje" ></textarea>
+				<input type="submit" value="Enviar">
+			</form>
+			</div>
 		</section>
 		
 		<section class="contenido" id="diario">
