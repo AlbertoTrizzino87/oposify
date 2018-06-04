@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index');
+
 
 
 Route::get('/user','PagesController@usuario');
@@ -54,6 +53,7 @@ Route::post('/user/borrar-tarea','Crear@borrarTarea')
 ->middleware('auth');
 
 Route::get('/buscar', 'PagesController@usuario');
+Route::get('/buscar-home', 'PagesController@buscar');
 Route::get('/user/red-social', 'RedSocialController@usuario');
 Route::get('/buscar-preparador', 'PagesController@usuario');
 Route::get('/red-social/buscar-usuario','RedSocialController@buscar');

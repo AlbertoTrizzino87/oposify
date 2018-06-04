@@ -8,7 +8,8 @@ function Inicio()
     $('.eliminarCurso').click(EliminarCurso);
     $(".leer-mensaje").click(LeerMensaje);
     $(".leer-entrada").click(LeerEntrada);
-    // $("#buscarPreparadorOpositor").click(BuscarPreparador);
+    $("#buscarHome").click(BuscarPreparador);
+    $("#buscarHome2").click(BuscarPreparador2);
 }
 
 function ValidarRegistro(e)
@@ -161,6 +162,7 @@ function BuscarPreparador(e)
         async: false,
         data: $('#buscar-preparador-opositor').serialize(),
         success: function(data){
+            $(".contenido-global").css("right","0");
             var resultados = $("#resultados");
             for(var i = 0; i < data.element.length; i++){
                 var busquedaLayout = $("<div class='busqueda-layout'></div>");
@@ -176,14 +178,56 @@ function BuscarPreparador(e)
                 centerLayout.append(h5);
                 centerLayout.append(p);
                 busquedaLayout.append(centerLayout);
-                var rightLayout = $("<div class='layout-center col-md-7'></div>");
-                var spanresultado = $("<span>"+data.element[i]['precio']+"€</span>")
+                var rightLayout = $("<div class='layout-right col-md-7'></div>");
+                var spanresultado = $("<span>"+data.element[i]['precio']+"€</span><a href='http://localhost:8000/login'>Descubrir</a>");
                 rightLayout.append(spanresultado);
-                var form = $("<form action='http://localhost:8000/paypal' method='POST' id='payment-form'></form>");
-                
-                var input =$("<input type='hidden' name='_token' value='C9OtqUsaarpvpTzYmXuBCLeIAoB0uxkFHMvarlyy'><input type='text' name='amount' id='amount' value=''"+data.element[i]['precio']+"' hidden><input type='text' name='idPreparador' id='idPreparador' value='"+data.element[i]['user_id']+"' hidden><input type='text' name='nombreCurso' id='nombreCurso' value='"+data.element[i].oposicione['descripcion'] +"' hidden><input type='text' name='idCurso' id='idCurso' value='"+data.element[i]['id']+"' hidden><button>comprar</button>")
-                form.append(input);
-                rightLayout.append(form);
+
+                busquedaLayout.append(rightLayout);
+                resultados.append(busquedaLayout);
+            }
+            console.log(data);
+        }
+    });
+    
+}
+
+function BuscarPreparador2(e)
+{
+    e.preventDefault();
+
+    var url = $("#buscar-preparador-opositor").attr('action');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: url,
+        type: 'get',
+        dataType: 'json',
+        async: false,
+        data: $('#buscar-preparador-opositor2').serialize(),
+        success: function(data){
+            $(".contenido-global").css("right","0");
+            var resultados = $("#resultados");
+            for(var i = 0; i < data.element.length; i++){
+                var busquedaLayout = $("<div class='busqueda-layout'></div>");
+                var leftLayout = $("<div class='layout-left col-md-2'></div>");
+                var img = $("<img src='http://localhost:8000/storage/"+ data.element[i].user['image'] + "' alt=''>");
+                var span = $("<span>" +data.element[i].user['name'] + " "+ data.element[i].user['apellido']+" "+data.element[i].user['apellidoDos'] + "</span>")
+                leftLayout.append(img);
+                leftLayout.append(span);
+                busquedaLayout.append(leftLayout);
+                var centerLayout = $("<div class='layout-center col-md-7'></div>");
+                var h5 = $("<h5>"+data.element[i].oposicione['descripcion']+"</h5>")
+                var p = $("<p>"+data.element[i]['descripcion']+"</p>");
+                centerLayout.append(h5);
+                centerLayout.append(p);
+                busquedaLayout.append(centerLayout);
+                var rightLayout = $("<div class='layout-right col-md-7'></div>");
+                var spanresultado = $("<span>"+data.element[i]['precio']+"€</span><a href='http://localhost:8000/login'>Descubrir</a>");
+                rightLayout.append(spanresultado);
 
                 busquedaLayout.append(rightLayout);
                 resultados.append(busquedaLayout);

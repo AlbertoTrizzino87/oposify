@@ -429,6 +429,7 @@
 			<div class="cabezera">
 				<span class="icon-cross" id="close-buscar"></span>
 				<form action="/buscar" method="GET" id="buscar-preparador-opositor">
+				{{ csrf_field() }}
 				<input type="text" name="parametro" placeholder="Buscar preparador,academia u oposición">
 				<input type="submit" name="buscar" value="Buscar" id="buscarPreparadorOpositor">
 				</form>

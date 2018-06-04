@@ -19,6 +19,7 @@ img,video {
      max-width: 100%;
 }
 
+
 body.general {
     font-size: 16px;
     overflow: hidden;
@@ -1538,7 +1539,7 @@ section#login {
     }
 }
 
-section.contenido-global {
+.contenido-global {
     width: 100vw;
     height: 100vh;
     background-color: $transparente;
@@ -1548,7 +1549,7 @@ section.contenido-global {
     right: -100%;
     padding: 50px;
     transition: all 500ms;
-    overflow-y: scroll;
+    
 
     .cabezera {
         width: 100%;
@@ -2743,4 +2744,66 @@ section#entrada-space{
     border: solid 1px $blanco;
     padding: 8px 12px;
     text-transform: uppercase;
+}
+
+#resultados{
+    .busqueda-layout{
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        -ms-align-items: center;
+        margin-top: 20px;
+
+        .layout-left{
+            img{
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin: 0 auto;
+                margin-bottom: 10px;
+            }
+
+            span{
+                color:$blanco;
+                text-transform: uppercase;
+                font-size: 1rem;
+                text-align: center;
+            }
+        }
+        .layout-center{
+            h5{
+                color:$blanco;
+                text-transform: uppercase;
+                font-size: 1.2rem;
+               
+            }
+
+            p{
+                color: $blanco;
+                font-size: 1rem;
+                text-transform: uppercase;
+            }
+        }
+        .layout-right{
+            margin: 0 auto;
+            text-align: left;
+            span{
+                color: $blanco;
+                margin-right: 20px;
+                margin-left: auto;
+            }
+
+            a{
+                color: $blanco;
+                border: solid 1px $blanco;
+                text-transform: uppercase;
+                padding: 7px 15px;
+            }
+        }
+    }
 }

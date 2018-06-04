@@ -104,9 +104,10 @@
 			<div class="caja">
 			<h2>Tuoposify</h2>
 			<h1>preparar una oposición nunca ha sido tan facil</h1>
-			<form action="search1">
-				<input type="text" name="parametro1" placeholder="Buscar academia, preparador o oposición" autofocus>
-				<input type="submit" name="buscar-ahora" value="Busca ahora">
+			<form action="/buscar-home" method="POST" id="buscar-preparador-opositor">
+				{{ csrf_field() }}
+				<input type="text" name="parametro" placeholder="Buscar academia, preparador o oposición" autofocus>
+				<input type="submit" name="buscar" value="Buscar" id="buscarHome">
 			</form>
 			</div>
 		</section>
@@ -114,12 +115,13 @@
 		<section class="contenido-global" id="search">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-search"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar academia, preparador o oposición" autofocus>
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
+				<form action="/buscar-home" method="POST" id="buscar-preparador-opositor2">
+				{{ csrf_field() }}
+				<input type="text" name="parametro" placeholder="Buscar academia, preparador o oposición" autofocus>
+				<input type="submit" name="buscar" value="Buscar" id="buscarHome2">
+			</form>
 			</div>
-			<h3>oposiciones</h3>
+			<div id="resultados"></div>
         </section>
     </main>
     @endsection

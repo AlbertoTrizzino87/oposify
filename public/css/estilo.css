@@ -1169,7 +1169,7 @@ section#login {
       margin: 0 auto;
       margin-top: 30px; }
 
-section.contenido-global {
+.contenido-global {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.7);
@@ -1178,9 +1178,8 @@ section.contenido-global {
   top: 0;
   right: -100%;
   padding: 50px;
-  transition: all 500ms;
-  overflow-y: scroll; }
-  section.contenido-global .cabezera {
+  transition: all 500ms; }
+  .contenido-global .cabezera {
     width: 100%;
     display: -webkit-flex;
     display: -moz-flex;
@@ -1188,10 +1187,10 @@ section.contenido-global {
     display: -o-flex;
     display: flex;
     justify-content: space-between; }
-    section.contenido-global .cabezera .icon-cross {
+    .contenido-global .cabezera .icon-cross {
       color: #ffffff;
       cursor: pointer; }
-    section.contenido-global .cabezera form input {
+    .contenido-global .cabezera form input {
       background-color: transparent;
       width: 350px;
       border: none;
@@ -1199,27 +1198,27 @@ section.contenido-global {
       color: #ffffff;
       font-family: "Roboto Condensed", sans-serif;
       outline: none; }
-      section.contenido-global .cabezera form input::-webkit-input-placeholder {
+      .contenido-global .cabezera form input::-webkit-input-placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         font-size: 0.7rem; }
-      section.contenido-global .cabezera form input::-moz-placeholder {
+      .contenido-global .cabezera form input::-moz-placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         font-size: 0.7rem; }
-      section.contenido-global .cabezera form input:-ms--placeholder {
+      .contenido-global .cabezera form input:-ms--placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         font-size: 0.7rem; }
-      section.contenido-global .cabezera form input:-moz-placeholder {
+      .contenido-global .cabezera form input:-moz-placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         font-size: 0.7rem; }
-    section.contenido-global .cabezera form input[type="submit"] {
+    .contenido-global .cabezera form input[type="submit"] {
       width: 120px;
       border: none;
       cursor: pointer;
@@ -2020,5 +2019,48 @@ section#mensaje-space {
   border: solid 1px #ffffff;
   padding: 8px 12px;
   text-transform: uppercase; }
+
+#resultados .busqueda-layout {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  -ms-align-items: center;
+  margin-top: 20px; }
+  #resultados .busqueda-layout .layout-left img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 10px; }
+  #resultados .busqueda-layout .layout-left span {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 1rem;
+    text-align: center; }
+  #resultados .busqueda-layout .layout-center h5 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 1.2rem; }
+  #resultados .busqueda-layout .layout-center p {
+    color: #ffffff;
+    font-size: 1rem;
+    text-transform: uppercase; }
+  #resultados .busqueda-layout .layout-right {
+    margin: 0 auto;
+    text-align: left; }
+    #resultados .busqueda-layout .layout-right span {
+      color: #ffffff;
+      margin-right: 20px;
+      margin-left: auto; }
+    #resultados .busqueda-layout .layout-right a {
+      color: #ffffff;
+      border: solid 1px #ffffff;
+      text-transform: uppercase;
+      padding: 7px 15px; }
 
 /*# sourceMappingURL=estilo.css.map */
