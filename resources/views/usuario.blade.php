@@ -2,7 +2,8 @@
 
 @section('contenido-social')   
 
-    <div class="banner" @if(!empty($portada)) style="background: url({{Storage::disk('public')->url($portada[0]->portada)}}); background-size: cover;"@endif>
+<div class="contenido-social">
+    <div class="banner" @if(!empty($portada)) style="background: url(../../storage/{{ $portada->portada}}); background-size: cover;"@endif>
         @if($user->id == Auth::user()->id )
         <form action="/user/red-social/subir-portada" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
@@ -20,13 +21,13 @@
             <span style="color:white;">Followers {{ $user->followers->count() }}</span>
         </div>
         @if(Auth::user()->isFollowing($user))
-            <form action="user/red-social/unfollow" method="POST">
+            <form action="/red-social/unfollow" method="POST">
                 {{ csrf_field() }}
                 <input type="text" value="{{ $user->id }}" name="user" hidden>
                 <button>Dejar de seguir</button>
             </form>
          @else
-             <form action="user/red-social/follow" method="POST">
+             <form action="/red-social/follow" method="POST">
                 {{ csrf_field() }}
                 <input type="text" value="{{ $user->id }}" name="user" hidden>
                 <button>Seguir</button>
@@ -116,5 +117,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

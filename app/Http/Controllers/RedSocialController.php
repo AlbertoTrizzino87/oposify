@@ -23,6 +23,7 @@ class RedSocialController extends Controller
         $cursos = Curso::all();
         $users = User::all();
         $posts = Post::all();
+       
 
         return view('homesocial',[
             'opositores' => $opositores,
@@ -30,7 +31,8 @@ class RedSocialController extends Controller
             'id' => $id,
             'cursos' => $cursos,
             'users' => $users,
-            'posts' => $posts
+            'posts' => $posts,
+            'id'=>$id
         ]);
     }
 
@@ -60,7 +62,7 @@ class RedSocialController extends Controller
         $user = User::where('id',$id)->first();
         $me = $request->user();
         $me->follows()->attach($user);
-        return "Ahora lo sigues";
+        return redirect('/user/red-social');
     }
 
     public function unfollow(Request $request)
@@ -69,7 +71,7 @@ class RedSocialController extends Controller
         $user = User::where('id',$id)->first();
         $me = $request->user();
         $me->follows()->detach($user);
-        return "Ahora lo sigues";
+        return redirect('/user/red-social');
     }
 
     public function post(Request $request)
@@ -92,7 +94,7 @@ class RedSocialController extends Controller
     public function show($id)
     {
         $user = User::where('id',$id)->first();
-        $portada = Portada::where('user_id',$id)->get();
+        $portada = Portada::where('user_id',$id)->first();
     
      
 

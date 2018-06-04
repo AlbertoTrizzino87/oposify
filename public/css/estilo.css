@@ -1356,54 +1356,119 @@ main#academia nav div.botones, main#preparador nav div.botones {
   z-index: 3;
   transition: all 500ms; }
 
-.social header {
+.social {
   width: 100%;
-  background-color: #000000;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  justify-content: space-between;
-  -ms-align-items: center;
-  align-items: center;
-  padding: 20px 70px; }
-  .social header input[type="text"] {
-    border: solid 2px #ffffff;
-    background-color: transparent;
-    width: 300px;
-    padding-left: 5px; }
-    .social header input[type="text"]::-webkit-input-placeholder {
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      font-size: 0.7rem; }
-    .social header input[type="text"]::-moz-placeholder {
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      font-size: 0.7rem; }
-    .social header input[type="text"]:-ms-input-placeholder {
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      font-size: 0.7rem; }
-    .social header input[type="text"]:-moz-placeholder {
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      font-size: 0.7rem; }
-  .social header img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer; }
-.social .banner {
-  width: 100%;
-  height: 50vh; }
-.social .contenitore {
-  width: 100%; }
-  .social .contenitore .fila {
+  position: fixed;
+  background: url("../img/cafeteria.jpg");
+  background-size: cover; }
+  .social header {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    -ms-align-items: center;
+    align-items: center;
+    padding: 20px 70px;
+    position: fixed; }
+    .social header input[type="text"] {
+      border: solid 2px #ffffff;
+      background-color: transparent;
+      width: 300px;
+      padding-left: 5px; }
+      .social header input[type="text"]::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 0.7rem; }
+      .social header input[type="text"]::-moz-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 0.7rem; }
+      .social header input[type="text"]:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 0.7rem; }
+      .social header input[type="text"]:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 0.7rem; }
+    .social header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer; }
+  .social .banner {
+    width: 100%;
+    height: 50vh;
+    margin-top: 90px; }
+  .social .contenitore {
+    width: 100%; }
+    .social .contenitore .fila {
+      width: 100%;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flex;
+      display: -o-flex;
+      display: flex;
+      justify-content: space-between;
+      padding: 0; }
+      .social .contenitore .fila .col-izq {
+        flex-basis: 15%; }
+      .social .contenitore .fila .col-central {
+        flex-basis: 50%;
+        padding: 50px; }
+      .social .contenitore .fila .col-der {
+        flex-basis: 25%;
+        background-color: black;
+        padding: 50px; }
+        .social .contenitore .fila .col-der h3 {
+          color: #ffffff;
+          text-transform: uppercase;
+          font-family: "Roboto Condensed", sans-serif; }
+          .social .contenitore .fila .col-der h3:after {
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: #ffffff;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 30px; }
+        .social .contenitore .fila .col-der .sugeridos {
+          width: 100%; }
+          .social .contenitore .fila .col-der .sugeridos span {
+            color: #ffffff; }
+          .social .contenitore .fila .col-der .sugeridos .sugerido {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            -ms-align-items: center;
+            align-items: center;
+            margin-bottom: 40px; }
+            .social .contenitore .fila .col-der .sugeridos .sugerido img {
+              width: 50px;
+              height: 50px;
+              border-radius: 50%; }
+            .social .contenitore .fila .col-der .sugeridos .sugerido span {
+              text-transform: uppercase;
+              color: #ffffff;
+              margin: 0 15px; }
+            .social .contenitore .fila .col-der .sugeridos .sugerido form button {
+              background-color: transparent;
+              padding: 5px 10px;
+              border: solid 2px #ffffff;
+              color: #ffffff;
+              text-transform: uppercase;
+              cursor: pointer; }
+  .social .info-usuario {
     width: 100%;
     display: -webkit-flex;
     display: -moz-flex;
@@ -1411,230 +1476,30 @@ main#academia nav div.botones, main#preparador nav div.botones {
     display: -o-flex;
     display: flex;
     justify-content: space-between;
-    padding: 0; }
-    .social .contenitore .fila .col-izq {
-      flex-basis: 15%; }
-    .social .contenitore .fila .col-central {
-      flex-basis: 50%;
-      padding: 50px; }
-    .social .contenitore .fila .col-der {
-      flex-basis: 25%;
-      background-color: black;
-      padding: 50px; }
-      .social .contenitore .fila .col-der h3 {
-        color: #ffffff;
-        text-transform: uppercase;
-        font-family: "Roboto Condensed", sans-serif; }
-        .social .contenitore .fila .col-der h3:after {
-          content: "";
-          width: 100%;
-          height: 1px;
-          background-color: #ffffff;
-          display: block;
-          margin-top: 10px;
-          margin-bottom: 30px; }
-      .social .contenitore .fila .col-der .sugeridos {
-        width: 100%; }
-        .social .contenitore .fila .col-der .sugeridos span {
-          color: #ffffff; }
-        .social .contenitore .fila .col-der .sugeridos .sugerido {
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: -ms-flex;
-          display: -o-flex;
-          display: flex;
-          -ms-align-items: center;
-          align-items: center;
-          margin-bottom: 40px; }
-          .social .contenitore .fila .col-der .sugeridos .sugerido img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%; }
-          .social .contenitore .fila .col-der .sugeridos .sugerido span {
-            text-transform: uppercase;
-            color: #ffffff;
-            margin: 0 15px; }
-          .social .contenitore .fila .col-der .sugeridos .sugerido form button {
-            background-color: transparent;
-            padding: 5px 10px;
-            border: solid 2px #ffffff;
-            color: #ffffff;
-            text-transform: uppercase;
-            cursor: pointer; }
-.social .info-usuario {
-  width: 100%;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  justify-content: space-between;
-  -ms-align-items: center;
-  align-items: center;
-  padding: 10px 30px;
-  background-color: #000000; }
-  .social .info-usuario img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    margin-top: -100px; }
-  .social .info-usuario form button {
-    background-color: transparent;
-    padding: 10px 15px;
-    border: solid 2px #ffffff;
-    color: #ffffff;
-    text-transform: uppercase;
-    cursor: pointer; }
-.social .visualizar-mensaje {
-  background-color: #000; }
-  .social .visualizar-mensaje .post {
-    width: 100%;
-    margin-top: 30px;
-    background-color: #000000;
-    padding: 10px; }
-    .social .visualizar-mensaje .post .cabecera-post {
-      width: 100%;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      -ms-align-items: center;
-      align-items: center; }
-      .social .visualizar-mensaje .post .cabecera-post .left img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin-right: 10px; }
-      .social .visualizar-mensaje .post .cabecera-post .right span {
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        font-family: "Roboto Condensed", sans-serif;
-        color: #ffffff; }
-    .social .visualizar-mensaje .post .mensaje-post {
-      width: 100%;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex; }
-      .social .visualizar-mensaje .post .mensaje-post .left {
-        width: 100px; }
-      .social .visualizar-mensaje .post .mensaje-post .right p {
-        color: #ffffff; }
-.social .container-fluid {
-  min-height: 90vh; }
-  .social .container-fluid .row .perfil-sn {
-    background-color: #000000;
-    padding: 50px;
-    min-height: 90vh; }
-    .social .container-fluid .row .perfil-sn .personal-imagen {
-      text-align: center;
-      border: solid 1px black;
-      margin-bottom: 100px; }
-      .social .container-fluid .row .perfil-sn .personal-imagen img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        margin: 0 auto;
-        margin-bottom: 30px;
-        border: solid 2px #ffffff; }
-      .social .container-fluid .row .perfil-sn .personal-imagen h1 {
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        color: #ffffff; }
-    .social .container-fluid .row .perfil-sn .sugerencias {
+    -ms-align-items: center;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #000000; }
+    .social .info-usuario img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-top: -100px; }
+    .social .info-usuario form button {
+      background-color: transparent;
+      padding: 10px 15px;
+      border: solid 2px #ffffff;
       color: #ffffff;
-      text-align: center; }
-      .social .container-fluid .row .perfil-sn .sugerencias h4 {
-        text-transform: uppercase;
-        font-size: 1.5rem;
-        margin-bottom: 30px; }
-        .social .container-fluid .row .perfil-sn .sugerencias h4:after {
-          content: "";
-          background-color: #ffffff;
-          width: 200px;
-          height: 2px;
-          display: block;
-          margin: 5px auto; }
-    .social .container-fluid .row .perfil-sn .sugeridos h5 {
       text-transform: uppercase;
-      color: #ffffff;
-      font-size: 1rem; }
-      .social .container-fluid .row .perfil-sn .sugeridos h5:after {
-        content: "";
-        background-color: #ffffff;
-        width: 100%;
-        height: 1px;
-        display: block;
-        margin: 5px 0; }
-    .social .container-fluid .row .perfil-sn .sugeridos .sugerido {
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flex;
-      display: -o-flex;
-      display: flex;
-      justify-content: space-between;
-      -ms-align-items: center;
-      align-items: center;
-      margin-bottom: 10px; }
-      .social .container-fluid .row .perfil-sn .sugeridos .sugerido img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%; }
-      .social .container-fluid .row .perfil-sn .sugeridos .sugerido span {
-        color: #ffffff;
-        text-transform: uppercase; }
-  .social .container-fluid .row .mensajes-sn {
-    padding: 50px; }
-    .social .container-fluid .row .mensajes-sn form {
-      width: 100%;
-      text-align: center;
-      border-bottom: solid 1px #000000;
-      padding: 10px; }
-      .social .container-fluid .row .mensajes-sn form textarea {
-        width: 400px;
-        height: 100px;
-        outline: none;
-        border: solid 1px #000000;
-        padding: 10px; }
-      .social .container-fluid .row .mensajes-sn form label {
-        cursor: pointer; }
-    .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn {
-      width: 100%; }
-      .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado {
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flex;
-        display: -o-flex;
-        display: flex;
-        justify-content: space-between;
-        -ms-align-items: center;
-        align-items: center;
-        margin-bottom: 20px; }
-        .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left {
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: -ms-flex;
-          display: -o-flex;
-          display: flex;
-          -ms-align-items: center;
-          align-items: center;
-          width: 80%; }
-          .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%; }
-          .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left span {
-            text-transform: uppercase;
-            font-size: 1.2rem;
-            margin-left: 15px; }
-    .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post {
+      cursor: pointer; }
+  .social .visualizar-mensaje {
+    background-color: #000; }
+    .social .visualizar-mensaje .post {
       width: 100%;
       margin-top: 30px;
       background-color: #000000;
       padding: 10px; }
-      .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post {
+      .social .visualizar-mensaje .post .cabecera-post {
         width: 100%;
         display: -webkit-flex;
         display: -moz-flex;
@@ -1643,27 +1508,202 @@ main#academia nav div.botones, main#preparador nav div.botones {
         display: flex;
         -ms-align-items: center;
         align-items: center; }
-        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .left img {
+        .social .visualizar-mensaje .post .cabecera-post .left img {
           width: 100px;
           height: 100px;
           border-radius: 50%;
           margin-right: 10px; }
-        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .right span {
+        .social .visualizar-mensaje .post .cabecera-post .right span {
           text-transform: uppercase;
           font-size: 1.5rem;
           font-family: "Roboto Condensed", sans-serif;
           color: #ffffff; }
-      .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post {
+      .social .visualizar-mensaje .post .mensaje-post {
         width: 100%;
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
         display: -o-flex;
         display: flex; }
-        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .left {
+        .social .visualizar-mensaje .post .mensaje-post .left {
           width: 100px; }
-        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .right p {
+        .social .visualizar-mensaje .post .mensaje-post .right p {
           color: #ffffff; }
+  .social .container-fluid {
+    min-height: 90vh;
+    overflow: scroll;
+    margin-top: 90px; }
+    .social .container-fluid .row .perfil-sn {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 50px;
+      min-height: 90vh;
+      flex-grow: 1; }
+      .social .container-fluid .row .perfil-sn .personal-imagen {
+        text-align: center;
+        border: solid 1px black;
+        margin-bottom: 100px; }
+        .social .container-fluid .row .perfil-sn .personal-imagen img {
+          width: 200px;
+          height: 200px;
+          border-radius: 50%;
+          margin: 0 auto;
+          margin-bottom: 30px;
+          border: solid 2px #ffffff; }
+        .social .container-fluid .row .perfil-sn .personal-imagen h1 {
+          text-transform: uppercase;
+          font-size: 1.5rem;
+          color: #ffffff; }
+      .social .container-fluid .row .perfil-sn .sugerencias {
+        color: #ffffff;
+        text-align: center; }
+        .social .container-fluid .row .perfil-sn .sugerencias h4 {
+          text-transform: uppercase;
+          font-size: 1.5rem;
+          margin-bottom: 30px; }
+          .social .container-fluid .row .perfil-sn .sugerencias h4:after {
+            content: "";
+            background-color: #ffffff;
+            width: 200px;
+            height: 2px;
+            display: block;
+            margin: 5px auto; }
+      .social .container-fluid .row .perfil-sn .sugeridos h5 {
+        text-transform: uppercase;
+        color: #ffffff;
+        font-size: 1rem; }
+        .social .container-fluid .row .perfil-sn .sugeridos h5:after {
+          content: "";
+          background-color: #ffffff;
+          width: 100%;
+          height: 1px;
+          display: block;
+          margin: 5px 0; }
+      .social .container-fluid .row .perfil-sn .sugeridos .sugerido {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        -ms-align-items: center;
+        align-items: center;
+        margin-bottom: 10px; }
+        .social .container-fluid .row .perfil-sn .sugeridos .sugerido img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%; }
+        .social .container-fluid .row .perfil-sn .sugeridos .sugerido span {
+          color: #ffffff;
+          text-transform: uppercase; }
+        .social .container-fluid .row .perfil-sn .sugeridos .sugerido form button {
+          border: solid 1px #ffffff;
+          background-color: transparent;
+          color: #ffffff;
+          text-transform: uppercase;
+          padding: 5px 10px;
+          font-size: 0.7rem; }
+    .social .container-fluid .row .mensajes-sn {
+      padding: 50px; }
+      .social .container-fluid .row .mensajes-sn form {
+        width: 100%;
+        text-align: center;
+        border-bottom: solid 1px #ffffff;
+        padding: 10px; }
+        .social .container-fluid .row .mensajes-sn form textarea {
+          width: 400px;
+          height: 100px;
+          outline: none;
+          border: solid 1px #000000;
+          padding: 10px;
+          background-color: rgba(0, 0, 0, 0.7);
+          color: #ffffff; }
+        .social .container-fluid .row .mensajes-sn form input[type="submit"] {
+          background-color: rgba(0, 0, 0, 0.7);
+          color: #ffffff;
+          border: none;
+          text-transform: uppercase;
+          padding: 8px 15px;
+          cursor: pointer; }
+        .social .container-fluid .row .mensajes-sn form label {
+          cursor: pointer; }
+      .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn {
+        width: 100%; }
+        .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado {
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: flex;
+          justify-content: space-between;
+          -ms-align-items: center;
+          align-items: center;
+          margin-bottom: 20px; }
+          .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            -ms-align-items: center;
+            align-items: center;
+            width: 80%; }
+            .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left img {
+              width: 100px;
+              height: 100px;
+              border-radius: 50%; }
+            .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left span {
+              text-transform: uppercase;
+              font-size: 1.2rem;
+              margin-left: 15px;
+              color: #ffffff; }
+            .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .left button {
+              background-color: transparent;
+              color: #ffffff;
+              border: solid 1px #ffffff;
+              padding: 8px 12px;
+              text-transform: uppercase; }
+          .social .container-fluid .row .mensajes-sn .visualizar-usuarios-sn .buscado .right form button {
+            background-color: transparent;
+            color: #ffffff;
+            border: solid 1px #ffffff;
+            padding: 5px 10px;
+            text-transform: uppercase;
+            font-size: 0.8rem; }
+      .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post {
+        width: 100%;
+        margin-top: 30px;
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 10px; }
+        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post {
+          width: 100%;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: flex;
+          -ms-align-items: center;
+          align-items: center; }
+          .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .left img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 10px; }
+          .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .right span {
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-family: "Roboto Condensed", sans-serif;
+            color: #ffffff; }
+        .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post {
+          width: 100%;
+          display: -webkit-flex;
+          display: -moz-flex;
+          display: -ms-flex;
+          display: -o-flex;
+          display: flex; }
+          .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .left {
+            width: 100px; }
+          .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .right p {
+            color: #ffffff; }
 
 section#entrada-space {
   width: 30vw;
@@ -1879,6 +1919,106 @@ section#mensaje-space {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 1.3rem;
   border: none;
+  text-transform: uppercase; }
+
+.layout-profesor {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  -ms-align-items: center;
+  margin-top: 15px; }
+  .layout-profesor .layout-left {
+    padding: 0; }
+    .layout-profesor .layout-left img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%; }
+  .layout-profesor .layout-center span {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 0.8rem; }
+  .layout-profesor .layout-center .mail-prof {
+    font-size: 0.6rem; }
+  .layout-profesor .layout-right form button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer; }
+
+#profesor-view .layout-profesor {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  -ms-align-items: center;
+  margin-top: 15px; }
+  #profesor-view .layout-profesor .layout-left {
+    padding: 0; }
+    #profesor-view .layout-profesor .layout-left img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; }
+  #profesor-view .layout-profesor .layout-center span {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 1.5rem; }
+  #profesor-view .layout-profesor .layout-center .mail-prof {
+    font-size: 1rem; }
+  #profesor-view .layout-profesor .layout-right form button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: solid 1px #ffffff;
+    padding: 8px 10px; }
+
+.alumnos-layout {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  -ms-align-items: center;
+  margin-top: 15px; }
+  .alumnos-layout .layout-left {
+    padding: 0; }
+    .alumnos-layout .layout-left img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%; }
+  .alumnos-layout .layout-center span {
+    text-transform: uppercase;
+    color: #ffffff;
+    font-size: 1.5rem; }
+  .alumnos-layout .layout-center .mail-prof {
+    font-size: 1rem; }
+  .alumnos-layout .layout-right form button {
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: solid 1px #ffffff;
+    padding: 8px 10px; }
+
+#asi {
+  background-color: transparent;
+  color: #ffffff;
+  border: solid 1px #ffffff;
+  padding: 8px 12px;
   text-transform: uppercase; }
 
 /*# sourceMappingURL=estilo.css.map */

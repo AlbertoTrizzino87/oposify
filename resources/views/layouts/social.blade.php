@@ -20,7 +20,7 @@
                 <a href="{{ url('/user') }}"><img src="../../img/Logo-TuOposify-blanco.png" title="logotipo" alt="Logotipo tuOposify"></a> 
             </div>
             <form action="/red-social/buscar-usuario" method="GET">
-				<input type="text" name="parametro" placeholder="Buscar usuario">
+				<input type="text" name="parametro" placeholder="Buscar usuario" style="color: white;">
 				<input type="submit" name="buscar2" value="Buscar">
 			</form>
 

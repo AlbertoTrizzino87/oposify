@@ -33,7 +33,7 @@
                                 <div class="sugerido">
                                     <img src="{{Storage::disk('public')->url($user->image)}}" alt="">
                                     <span>{{ $user->name }} {{ $user->apellido }} {{ $user->apellidoDos }}</span>
-                                    <button>Follow</button>
+                                    <button ="asi">Follow</button>
                                 </div>
                             @endif
                         @endforeach
@@ -57,13 +57,13 @@
                             </div>
                             <div class="right">
                             @if(Auth::user()->isFollowing($user))
-                                 <form action="user/red-social/unfollow" method="POST">
+                                 <form action="/red-social/unfollow" method="POST">
                                     {{ csrf_field() }}
                                     <input type="text" value="{{ $user->id }}" name="user" hidden>
                                      <button>Dejar de seguir</button>
                                 </form>
                             @else
-                                <form action="user/red-social/follow" method="POST">
+                                <form action="/red-social/follow" method="POST">
                                     {{ csrf_field() }}
                                     <input type="text" value="{{ $user->id }}" name="user" hidden>
                                      <button>Seguir</button>

@@ -433,7 +433,7 @@
 							</form>
 						</div>
 					@empty
-					<span>No hay mensajes</span>
+					<span style="color:white;text-transform:uppercase;">No hay mensajes</span>
 					@endforelse
 				</div>
 			</div>

@@ -1,10 +1,11 @@
 @extends('layouts.social')
 
-@section('contenido-social')   
+@section('contenido-social')  
+    
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-4 perfil-sn">
+            <div class="col-md-3 perfil-sn">
                 <div class="personal-imagen">
             	    <img src="{{Storage::disk('public')->url(Auth::user()->image)}}"  alt="">
 				    <h1>{{Auth::user()->name}} {{Auth::user()->apellido}} {{Auth::user()->apellidoDos}} </h1>
@@ -69,13 +70,13 @@
 
                 </div>
             </div>
-            <div class="col-md-8 mensajes-sn">
+            <div class="col-md-9 mensajes-sn">
                 <div class="enviar-mensaje-sn">
                     <form action="/red-social/crear-post" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <textarea name="mensaje" placeholder="¿Que estás pensando?"></textarea>
                         <label for="imagen"><span class="icon-camera"></span></label>
-                        <input type="file" name="imagen" id="imagen" style="display:none;">
+                        <input type="file" name="imagen" id="imagen" style="display:none;"><br>
                         <input type="submit" value="Enviar">
                     </form>
                 </div>
@@ -88,7 +89,7 @@
                                         <img src="{{Storage::disk('public')->url($post->user->image)}}" alt="">
                                     </div>
                                      <div class="right">
-                                        <a href="/user/red-social/{{ $post->user->id }}"><span>{{ $user->name }} {{ $user->apellido }} {{ $user->apellidoDos }}</span>                              
+                                        <a href="/user/red-social/{{ $post->user->id }}"><span>{{ $post->user->name }} {{ $post->user->apellido }} {{ $post->user->apellidoDos }}</span>                              
                                     </div>
                                 </div>
                                 <div class="mensaje-post">

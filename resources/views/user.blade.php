@@ -52,8 +52,15 @@
 					<div class="block desaparecer">
 						<h3>{{$title_home['uno']}}</h3>
 					</div>
-					<div class="block desaparecer">
+					<div class="block desaparecer" id="mini-curso">
 						<h3>{{$title_home['cuatro']}}</h3>
+						@forelse ($cursosAcademia as $curso)
+							<div class="mini-curso">
+								<span>{{ $curso->oposicione->descripcion }}</span>
+							</div>
+						@empty
+							<span>Todavia no hay cursos</span>
+						@endforelse
 					</div>
 				</div>
 				<div class="fila col-12 col-md-4">
@@ -84,12 +91,63 @@
 						</div>
 					</div>
 					<div class="block">
-						<h3>{{$title_home['cinco']}}</h3>
+						3<h3>{{$title_home['cinco']}}</h3>
+						<div class="notificaciones">
+							@if(Session::has('videoSubido'))
+							<span style="color:green">El video se ha subido correctamente</span><br>
+							@endif
+							@if(Session::has('temaSubido'))
+							<span style="color:green">El tema se ha subido correctamente</span><br>
+							@endif
+							@if(Session::has('testSubido'))
+							<span style="color:green">El test se ha subido correctamente</span><br>
+							@endif
+							@forelse ($notificaciones as $notificacione)
+								<div class="layout-left col-md-2">
+									<img src="{{Storage::disk('public')->url($notificacione->usersPeticiones->image )}}">
+								</div>
+								<div class="layout-center col-md-7">
+									<span>{{ $notificacione->usersPeticiones->name }}</span><br>
+									<span>{{ $notificacione->usersPeticiones->email }}</span>
+								</div>
+								<div class="layout-right col-md-3">
+									<form action="/user/aceptar-peticion" method="POST">
+										{{ csrf_field() }}
+										<input type="text" name="idPeticion" id="idPeticion" value="{{$notificacione->id }}" hidden>
+										<input type="text" name="idAcademia" id="idAcademia" value="{{$notificacione->user_id }}" hidden>
+										<button>Aceptar</button>
+									</form>
+								</div>
+							@empty
+								<span style="color:white; text-transform:uppercase;">No hay notoficaciones</span>
+							@endforelse
+						</div>
+						
 					</div>
 				</div>
 				<div class="fila col-12 col-md-4">
 					<div class="full-block">
 						<h3>{{$title_home['tres']}}</h3>
+						<div class="layout-profesor">
+						@forelse ($profesores as $profesore)
+						<div class="layout-left col-md-2">
+							<img src="{{Storage::disk('public')->url($profesore->preparador->image )}}" alt="">
+						</div>
+						<div class="layout-center col-md-8">
+							<span>{{ $profesore->preparador->name }} {{ $profesore->preparador->apellido }} {{ $profesore->preparador->apellidoDos }}</span><br>
+							<span class="mail-prof">{{ $profesore->preparador->email }}</span>
+						</div>
+						<div class="layout-right col-md-2">
+							<form action="/user/eliminar-profesor" method="POST">
+								{{ csrf_field() }}
+								<input type="text" name="idPreparador" id="idPreparador" value="{{$profesore->id }}" hidden>
+								<button><span class="icon-cross"></span></button>
+							</form>
+						</div>
+						</div>
+					@empty
+					@endforelse
+						
 					</div>
 				</div>
 			</div>
@@ -98,10 +156,6 @@
 		<section class="contenido" id="cursosa">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-cursosa"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar cursos">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>cursos</h3>
 			<div class="box">
@@ -132,7 +186,8 @@
 				<span id="new-profesores">añadir profesor</span>
 			</div>
 			<div class="box">
-				<div class="content-box">
+				<div class="content-box" id="profesor-view">
+				<div class="layout-profesor">
 					@forelse ($profesores as $profesore)
 						<div class="layout-left col-md-2">
 							<img src="{{Storage::disk('public')->url($profesore->preparador->image )}}" alt="">
@@ -150,6 +205,7 @@
 						</div>
 					@empty
 					@endforelse
+				</div>
 				</div>
 			</div>
 		</section>
@@ -187,10 +243,6 @@
 		<section class="contenido" id="mensajesa">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-mensajesa"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar cursos">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>mensajes</h3>
 			<div class="anadir-curso">
@@ -257,10 +309,7 @@
 		<section class="contenido" id="alumnos">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-alumnos"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar cursos">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
+
 			</div>
 			<h3>alumnos</h3>
 			<div class="box">
@@ -279,12 +328,13 @@
 									<div class="row">
 										@foreach ($alumnos as $alumno)
 											@if($alumno->curso_id == $cursoAcademia->id)
+											<div class="alumnos-layout">
 											<div class="layout-left col-md-2">
 												<img src="{{Storage::disk('public')->url($alumno->user->image )}}" alt="">
 											</div>	
 											<div class="layout-center col-md-8">
 												<span>{{ $alumno->user->name }} {{ $alumno->user->apellido }} {{ $alumno->user->apellidoDos }}</span><br>
-												<span>{{ $alumno->user->email }}</span>
+												<span class="mail-prof">{{ $alumno->user->email }}</span>
 											</div>
 											<div class="layout-right col-md-2">
 												<form action="/user/eliminar-profesor" method="POST">
@@ -292,6 +342,7 @@
 													<input type="text" name="idPreparador" id="idPreparador" value="{{$profesore->id }}" hidden>
 													<button>Eliminar</button>
 												</form>
+											</div>
 											</div>	
 											@endif
 										@endforeach
@@ -311,10 +362,7 @@
 		<section class="contenido" id="bonosa">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-bonosa"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar cursos">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
+
 			</div>
 			<h3>bonos</h3>
 			<div class="anadir-curso">

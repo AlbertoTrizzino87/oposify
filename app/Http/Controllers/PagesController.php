@@ -101,7 +101,8 @@ class PagesController extends Controller
                 'profesores' => $profesorado,
                 'cursosAcademia'=>$cursoAcademia,
                 'alumnos'=> $alumnos,
-                'mensajesPersonales' => $mensajesPersonales
+                'mensajesPersonales' => $mensajesPersonales,
+                'notificaciones' => $notificaciones,
             ]);
         }else if($userRole == 'Preparador'){
 

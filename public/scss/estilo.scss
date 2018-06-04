@@ -1782,10 +1782,13 @@ main#academia nav div.botones,main#preparador nav div.botones{
    // HOME SOCIAL
     
 .social{
-    
+    width: 100%;
+    position: fixed;
+    background: url('../img/cafeteria.jpg');
+    background-size: cover;
     header{
         width: 100%;
-        background-color: $negro;
+        background-color: $transparente;
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
@@ -1795,12 +1798,15 @@ main#academia nav div.botones,main#preparador nav div.botones{
         -ms-align-items: center;
         align-items: center;
         padding: 20px 70px;
+        position: fixed;
+        
 
         input[type="text"]{
             border: solid 2px $blanco;
             background-color: transparent;
             width: 300px;
             padding-left: 5px;
+            $color: $blanco !important;
 
             &::-webkit-input-placeholder {
                 color: rgba(255, 255, 255, .5);
@@ -1839,6 +1845,8 @@ main#academia nav div.botones,main#preparador nav div.botones{
         }
     }
 
+
+
    
 
     // PGINA PERSONAL SN
@@ -1846,7 +1854,10 @@ main#academia nav div.botones,main#preparador nav div.botones{
     .banner{
         width: 100%;
         height: 50vh;
+        margin-top: 90px;
     }
+
+   
 
     .contenitore{
         width: 100%;
@@ -2020,11 +2031,14 @@ main#academia nav div.botones,main#preparador nav div.botones{
 
     .container-fluid{
         min-height: 90vh;
+        overflow: scroll;
+        margin-top: 90px;
         .row{
             .perfil-sn{
-                background-color: $negro;
+                background-color: $transparente;
                 padding: 50px;
                 min-height: 90vh;
+               flex-grow:1;
                 .personal-imagen{
                     text-align: center;
                     border: solid 1px black;
@@ -2100,16 +2114,28 @@ main#academia nav div.botones,main#preparador nav div.botones{
                             color: $blanco;
                             text-transform: uppercase;
                         }
+
+                        form{
+                            button{
+                                border: solid 1px $blanco;
+                                background-color: transparent;
+                                color: $blanco;
+                                text-transform: uppercase;
+                                padding: 5px 10px;
+                                font-size: 0.7rem;
+                            }
+                        }
                     }
                 }
             }
 
             .mensajes-sn{
                 padding: 50px;
+                
                 form{
                     width: 100%;
                     text-align: center;
-                    border-bottom: solid 1px $negro;
+                    border-bottom: solid 1px $blanco;
                     padding: 10px;
                     textarea{
                         width: 400px;
@@ -2117,6 +2143,17 @@ main#academia nav div.botones,main#preparador nav div.botones{
                         outline: none;
                         border: solid 1px $negro;
                         padding: 10px;
+                        background-color: $transparente;
+                        color: $blanco;
+                    }
+
+                    input[type="submit"]{
+                        background-color: $transparente;
+                        color: $blanco;
+                        border: none;
+                        text-transform: uppercase;
+                        padding: 8px 15px;
+                        cursor: pointer;
                     }
 
                     label{
@@ -2157,6 +2194,31 @@ main#academia nav div.botones,main#preparador nav div.botones{
                                 text-transform: uppercase;
                                 font-size: 1.2rem;
                                 margin-left: 15px;
+                                color: $blanco;
+                            }
+
+                            button{
+                                background-color: transparent;
+                                color: $blanco;
+                                border: solid 1px $blanco;
+                                padding: 8px 12px;
+                                text-transform: uppercase;
+                            }
+                            
+                                
+                            
+                        }
+
+                        .right{
+                            form{
+                                button{
+                                    background-color: transparent;
+                                    color: $blanco;
+                                    border: solid 1px $blanco;
+                                    padding: 5px 10px;
+                                    text-transform: uppercase;
+                                    font-size: 0.8rem;
+                                }
                             }
                         }
                     }
@@ -2166,7 +2228,7 @@ main#academia nav div.botones,main#preparador nav div.botones{
                     .post{
                         width: 100%;
                         margin-top: 30px;
-                        background-color: $negro;
+                        background-color: $transparente;
                         padding: 10px;
                         .cabecera-post{
                             width: 100%;
@@ -2530,4 +2592,155 @@ section#entrada-space{
             text-transform: uppercase;
         }
     }
+}
+
+.layout-profesor{
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        -ms-align-items: center;
+        margin-top: 15px;
+        .layout-left{
+           padding: 0;
+            img{
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+        }
+        
+
+        .layout-center{
+            span{
+                text-transform: uppercase;
+                color: $blanco;
+                font-size: 0.8rem;
+            }
+
+            .mail-prof{
+                font-size: 0.6rem;
+            }
+        }
+
+        .layout-right{
+            form{
+                button{
+                    background-color: transparent;
+                    border: none;
+                    color: $blanco;
+                    cursor: pointer;
+                }
+            }
+        }
+}
+
+#profesor-view{
+    .layout-profesor{
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        -ms-align-items: center;
+        margin-top: 15px;
+        .layout-left{
+           padding: 0;
+            img{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+            }
+        }
+        
+
+        .layout-center{
+            span{
+                text-transform: uppercase;
+                color: $blanco;
+                font-size: 1.5rem;
+            }
+
+            .mail-prof{
+                font-size: 1rem;
+            }
+        }
+
+        .layout-right{
+            form{
+                button{
+                    background-color: transparent;
+                    border: none;
+                    color: $blanco;
+                    cursor: pointer;
+                    text-transform: uppercase;
+                    border: solid 1px $blanco;
+                    padding: 8px 10px;
+                }
+            }
+        }
+} 
+}
+
+.alumnos-layout{
+    width: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    -ms-align-items: center;
+    margin-top: 15px;
+    .layout-left{
+       padding: 0;
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    }
+    
+
+    .layout-center{
+        span{
+            text-transform: uppercase;
+            color: $blanco;
+            font-size: 1.5rem;
+        }
+
+        .mail-prof{
+            font-size: 1rem;
+        }
+    }
+
+    .layout-right{
+        form{
+            button{
+                background-color: transparent;
+                border: none;
+                color: $blanco;
+                cursor: pointer;
+                text-transform: uppercase;
+                border: solid 1px $blanco;
+                padding: 8px 10px;
+            }
+        }
+    }
+} 
+
+#asi{
+    background-color: transparent;
+    color: $blanco;
+    border: solid 1px $blanco;
+    padding: 8px 12px;
+    text-transform: uppercase;
 }
