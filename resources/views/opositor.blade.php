@@ -70,8 +70,16 @@
 									@if($mensaje->status == "No leido")
 										<div class="mensajes-personal">
 											<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="30px"  alt="">
-											<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span>
+											<div class="info-mensaje">
+											<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
+											<span>{{ $mensaje->titulo }}</span>
+											</div>
+											
+											<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
+											{{ csrf_field() }}
+											<input type="text" name="id"  value="{{$mensaje->id }}" hidden>
 											<button>Leer</button>
+											</form>
 										</div>
 									@endif
 								@empty
@@ -96,10 +104,6 @@
        <section class="contenido" id="clases">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-clases"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar clase">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>clases</h3>
 			<div class="box">
@@ -303,9 +307,16 @@
 					@forelse ($mensajesPersonales as $mensaje)
 						<div class="mensajes-personal">
 							<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="100px"  alt="">
-							<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span>
-							<button>Enviar</button>
-							<button>Leer</button>
+							<div class="info-mensaje">
+								<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
+								<span>{{ $mensaje->titulo }}</span>
+							</div>
+							<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
+								{{ csrf_field() }}
+								<input type="text" name="id"  value="{{$mensaje->id }}" hidden>
+								<button>Leer</button>
+							</form>
+							
 						</div>
 					@empty
 					<span>No hay mensajes</span>
@@ -352,7 +363,11 @@
 				@forelse ($entradas as $entrada)
 					<div class="entrada col-md-4">					
 						<img src="{{Storage::disk('public')->url($entrada->portada)}}" alt="">
-						<h4>{{ $entrada->titulo }}</h4>
+						<form action="/user/leer-entrada" method="POST" class="leer-entrada">
+							{{ csrf_field() }}
+							<input type="text" name="id"  value="{{$entrada->id }}" hidden>
+							<button>{{ $entrada->titulo }}</button>
+						</form>
 					</div>
 				@empty
 					<p>No has subido todavia nada</p>
@@ -378,12 +393,12 @@
 		<section class="contenido" id="buscar">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-buscar"></span>
-				<form action="/buscar" method="GET">
+				<form action="/buscar" method="GET" id="buscar-preparador-opositor">
 				<input type="text" name="parametro" placeholder="Buscar preparador,academia u oposición">
-				<input type="submit" name="buscar" value="Buscar">
+				<input type="submit" name="buscar" value="Buscar" id="buscarPreparadorOpositor">
 				</form>
 			</div>
-			<div class="resultados">
+			<div class="resultados" id="resultados">
 					@forelse ($resultados as $resultado)
 						<div class="busqueda-layout">
 							 	<div class="layout-left col-md-2">
@@ -417,5 +432,31 @@
 					@endforelse
 				</div>
         </section>
+
+		<section  id="mensaje-space" style="background-color:white; z-index:9999;">
+			<span class="icon-cross" id="close-secret-mensaje"></span>
+			<div class="bloque-corpo-mensaje">
+				<p class="corpo-mensaje"></p>
+			</div>
+			
+			<form action="/user/enviar-mensaje" method="post">
+			{{ csrf_field() }}
+				
+				<div class="parte-escondida">
+				
+				</div>
+				
+				<label for="titulo">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="mensaje">Mensaje</label>
+				<textarea name="mensaje" ></textarea>
+				<input type="submit" value="Enviar">
+			</form>
+		</section>
+
+		<section  id="entrada-space" style="background-color:white; z-index:9999;">
+			<span class="icon-cross" id="close-secret-entrada"></span>
+			<div class="espacio-entrada"></div>
+		</section>
 	</main>
 @endsection

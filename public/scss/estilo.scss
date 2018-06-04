@@ -1834,6 +1834,8 @@ main#academia nav div.botones,main#preparador nav div.botones{
         }
     }
 
+   
+
     // PGINA PERSONAL SN
 
     .banner{
@@ -2210,5 +2212,89 @@ main#academia nav div.botones,main#preparador nav div.botones{
                 }
             }
         }   
+    }
+}
+
+//ENTRADA-SPACE
+
+section#entrada-space{
+    width: 30vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    transition: all 400ms;
+    padding: 30px; 
+    overflow-y: scroll; 
+
+        #close-secret-entrada{
+            margin-bottom: 20px;
+            cursor:pointer;
+        }
+    }
+
+
+ //MENSAJE-SPACE
+
+ section#mensaje-space{
+    width: 30vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: -100%;
+    transition: all 400ms;
+    padding: 30px;
+
+    #close-secret-mensaje{
+        margin-bottom: 10px;
+        cursor:pointer;
+    }
+
+    .bloque-corpo-mensaje{
+        height: 400px;
+        overflow-y: scroll;
+    }
+
+    form{
+        width: 80%;
+        margin: 0 auto;
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-flow: column;
+
+        label{
+            text-transform: uppercase;
+
+        }
+
+        input{
+            margin-bottom: 10px;
+            border: solid 1px $negro;
+        }
+        textarea{
+            height: 150px;
+            border: solid 1px $negro;
+            
+        }
+
+        input[type="submit"]{
+            width: 150px;
+            height: 30px;
+            margin: 0 auto;
+            margin-top: 10px;
+            border: solid 1px $negro;
+            background-color: $negro;
+            color: $blanco;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        
     }
 }

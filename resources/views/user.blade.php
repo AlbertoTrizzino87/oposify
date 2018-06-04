@@ -30,7 +30,6 @@
 			<a href="#" id="profesores-trigger">profesorado</a>
 			<a href="#" id="mensajesa-trigger">mensajes</a>
 			<a href="#" id="alumnos-trigger">alumnos</a>
-			<a href="#" id="bonosa-trigger">bonos</a>
 			<a href="{{ url('/user/red-social') }}">Red social</a>
 			<a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">{{ __('Cerrar sessión') }}</a>
@@ -45,7 +44,6 @@
 			<span class="icon-female-instructor-giving-a-lecture-standing-at-the-side-of-a-screen" id="profesores-mobile-trigger"></span>
 			<span class="icon-paper-plane" id="mensajesa-mobile-trigger"></span>
 			<span class="icon-female-graduate-student" id="alumnos-mobile-trigger"></span>
-			<span class="icon-tickets" id="bonosa-mobile-trigger"></span>
 		</div>
 
 		<div class="conteiner feeds">
@@ -67,8 +65,16 @@
 									@if($mensaje->status == "No leido")
 										<div class="mensajes-personal">
 											<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="30px"  alt="">
-											<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span>
+											<div class="info-mensaje">
+											<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
+											<span>{{ $mensaje->titulo }}</span>
+											</div>
+											
+											<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
+											{{ csrf_field() }}
+											<input type="text" name="id"  value="{{$mensaje->id }}" hidden>
 											<button>Leer</button>
+											</form>
 										</div>
 									@endif
 								@empty
@@ -195,9 +201,15 @@
 					@forelse ($mensajesPersonales as $mensaje)
 						<div class="mensajes-personal">
 							<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="100px"  alt="">
-							<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span>
-							<button>Enviar</button>
-							<button>Leer</button>
+							<div class="info-mensaje">
+								<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
+								<span>{{ $mensaje->titulo }}</span>
+							</div>
+							<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
+								{{ csrf_field() }}
+								<input type="text" name="id"  value="{{$mensaje->id }}" hidden>
+								<button>Leer</button>
+							</form>
 						</div>
 					@empty
 					<span>No hay mensajes</span>
@@ -312,6 +324,27 @@
 
 		<section class="add-to-db" id="add-bonosa">
 			<span class="icon-cross" id="close-add-bonosa"></span>
+		</section>
+
+		<section  id="mensaje-space" style="background-color:white; z-index:9999;">
+			<span class="icon-cross" id="close-secret-mensaje"></span>
+			<div class="bloque-corpo-mensaje">
+				<p class="corpo-mensaje"></p>
+			</div>
+			
+			<form action="/user/enviar-mensaje" method="post">
+			{{ csrf_field() }}
+				
+				<div class="parte-escondida">
+				
+				</div>
+				
+				<label for="titulo">Titulo</label>
+				<input type="text" name="titulo" id="">
+				<label for="mensaje">Mensaje</label>
+				<textarea name="mensaje" ></textarea>
+				<input type="submit" value="Enviar">
+			</form>
 		</section>
 	</main>
 @endsection

@@ -2,6 +2,15 @@ $(document).ready(Inicio);
 
 function Inicio() {
 
+    $("#close-secret-mensaje").click(function(){
+        $("#mensaje-space").css("right","-100%");
+    });
+
+    $("#close-secret-entrada").click(function(){
+        $("#entrada-space").css("right","-100%");
+    });
+
+
     $("#trigger-home").click(function() {
 
         if ($("#trigger-home").hasClass("icon-hamburguesa")) {

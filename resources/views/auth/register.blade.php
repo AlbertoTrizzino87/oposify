@@ -59,12 +59,13 @@
                             </span>
                         @endif
                         
-                        <input id="name" type="text"  name="name" value="{{ old('name') }}" placeholder="Nombre" required autofocus>
+                        <input id="name" type="text"  name="name" value="{{ old('name') }}" placeholder="Nombre" autofocus>
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
                                 @endif
+                        <p id="errorNombre" style="display:none;color:red;">Introducir nombre</p>
                         
                          <input id="apellido" type="text" style="display:none;"  name="apellido" value="{{ old('apellido') }}" class="escondido" placeholder="Primer Apellido">
                                 @if ($errors->has('apellido'))
@@ -91,29 +92,27 @@
 
                         <input id="direccion" type="text"  name="direccion" value="{{ old('direccion') }}" placeholder="Dirección">
            
-                         <input id="email" type="email"  name="email" value="{{ old('email') }}" placeholder="correo" required>
-
+                         <input id="email" type="email"  name="email" value="{{ old('email') }}" placeholder="correo" >
+                             <p id="correoObligatorio" style="display:none;color:red;">Introducir correo</p>
                                 @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                                 <p id="emailRepetida" style="color:red;">{{ $errors->first('email') }}</p>
                                 @endif
                            
-                        <input id="password" type="password"  name="password" placeholder="Contraseña" required>
-
+                        <input id="password" type="password"  name="password" placeholder="Contraseña">
+                            <p id="passwordObligatorio" style="display:none;color:red;"></p>
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
 
-                        <input id="password-confirm" type="password"  name="password_confirmation"  placeholder="Repetir Contraseña" required><br>
-
+                        <input id="password-confirm" type="password"  name="password_confirmation"  placeholder="Repetir Contraseña"><br>
+                            <p id="passwordObligatorio" style="display:none;color:red;"></p>
                         <label for="image">Subir foto de perfil</label><br>
-
+                        <p id="imagenObligatoria" style="display:none;color:red;"></p>
                         <input type="file" name="image" class="form-control-file" id="image">
                             
-                        <button type="submit">
+                        <button type="submit" id="enviarRegister">
                              {{ __('Registrate') }}
                         </button>
                     </form>

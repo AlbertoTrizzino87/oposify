@@ -33,7 +33,7 @@ class PeticionesController extends Controller
             'id_academia' => $id_academia,
             
         ]);
-        Peticione::destroy($id);
+        Peticione::where('id',$id)->first()->delete();
 
         return redirect('/user');
 

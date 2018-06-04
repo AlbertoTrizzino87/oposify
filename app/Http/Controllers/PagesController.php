@@ -21,7 +21,17 @@ use App\Mail;
 
 
 class PagesController extends Controller
-{
+{   
+    public function buscar(Request $request)
+    {
+        $parametro = $request->input('parametro');
+        $element = \App\Curso::search($parametro)->get(); 
+        $element->load('user','oposicione');
+        return response()->json([
+            'mensaje'=>'busqueda con exito',
+            'element'=>$element
+        ]);
+    }
     
     public function usuario(Request $request)
     {   
@@ -47,7 +57,7 @@ class PagesController extends Controller
         $enviar = $request->input('buscar');
         $enviar2 = $request->input('buscar2');
         if(isset($enviar)){
-            $resultados = Curso::search($parametro)->get();      
+            $resultados = \App\Curso::search($parametro)->get();      
         }else{
             $resultados = [];
         }

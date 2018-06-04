@@ -41,13 +41,20 @@ Route::post('/user/apunte-creado','Crear@apunte')
 Route::post('/user/entrada-creada','Crear@entrada')
 ->middleware('auth');
 
+Route::post('/user/leer-mensaje','Crear@leer')
+->middleware('auth');
+
+Route::post('/user/leer-entrada','Crear@leerEntrada')
+->middleware('auth');
+
 Route::get('/buscar', 'PagesController@usuario');
 Route::get('/user/red-social', 'RedSocialController@usuario');
 Route::get('/buscar-preparador', 'PagesController@usuario');
 Route::get('/red-social/buscar-usuario','RedSocialController@buscar');
 Route::post('/user/anadir-preparador','PeticionesController@anadir')
 ->middleware('auth');
-
+Route::post('/user/eliminar-curso','Crear@eliminarcurso')
+->middleware('auth');
 Route::post('/user/aceptar-peticion','PeticionesController@aceptar')
 ->middleware('auth');
 Route::post('/user/eliminar-profesor','PeticionesController@eliminar')

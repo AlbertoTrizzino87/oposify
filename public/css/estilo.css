@@ -1664,4 +1664,63 @@ main#academia nav div.botones, main#preparador nav div.botones {
         .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .right p {
           color: #ffffff; }
 
+section#entrada-space {
+  width: 30vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  transition: all 400ms;
+  padding: 30px;
+  overflow-y: scroll; }
+  section#entrada-space #close-secret-entrada {
+    margin-bottom: 20px;
+    cursor: pointer; }
+
+section#mensaje-space {
+  width: 30vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: -100%;
+  transition: all 400ms;
+  padding: 30px; }
+  section#mensaje-space #close-secret-mensaje {
+    margin-bottom: 10px;
+    cursor: pointer; }
+  section#mensaje-space .bloque-corpo-mensaje {
+    height: 400px;
+    overflow-y: scroll; }
+  section#mensaje-space form {
+    width: 80%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-flow: column; }
+    section#mensaje-space form label {
+      text-transform: uppercase; }
+    section#mensaje-space form input {
+      margin-bottom: 10px;
+      border: solid 1px #000000; }
+    section#mensaje-space form textarea {
+      height: 150px;
+      border: solid 1px #000000; }
+    section#mensaje-space form input[type="submit"] {
+      width: 150px;
+      height: 30px;
+      margin: 0 auto;
+      margin-top: 10px;
+      border: solid 1px #000000;
+      background-color: #000000;
+      color: #ffffff;
+      text-transform: uppercase;
+      cursor: pointer; }
+
 /*# sourceMappingURL=estilo.css.map */

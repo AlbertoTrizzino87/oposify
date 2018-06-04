@@ -44,23 +44,21 @@
          <h1>{{ __('Acceder') }}</h1>
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                 <input id="email" type="email"  name="email" value="{{ old('email') }}" placeholder="Correo" required autofocus><br>
+                 <input id="email" type="email"  name="email" value="{{ old('email') }}" placeholder="Correo"  autofocus><br>
+                    <p id="correoObligatorio" style="display:none;color:red;">Introducir correo</p>
                         @if ($errors->has('email'))
-                             <span class="invalid-feedback">
-                                 <strong>{{ $errors->first('email') }}</strong>
-                             </span>
+                        <p id="usuarioNoExiste" style="color:red;">{{ $errors->first('email') }}</p>
                          @endif
-                 <input id="password" type="password"  name="password" placeholder="Contraseña" required><br>
+                 <input id="password" type="password"  name="password" placeholder="Contraseña" ><br>
+                    <p id="passwordObligatorio" style="display:none;color:red;"></p>
                          @if ($errors->has('password'))
-                            <span class="invalid-feedback">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
+                         <p id="passwordEquivocada" style="color:red;">{{ $errors->first('email') }}</p>
                         @endif
                 <div class="mantener">
                 <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}><span> {{ __('Mantener session') }}<span><br>
                 </div>
                 <div class="darle-boton">
-                <button type="submit" class="boton-acceder">
+                <button type="submit" class="boton-acceder" id="acceder">
                      {{ __('Acceder') }}
                 </button>
                 <a class="pss-olvidada" href="{{ route('password.request') }}">

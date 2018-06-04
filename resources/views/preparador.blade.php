@@ -31,7 +31,6 @@
 			<a href="#" id="tema-trigger">temas</a>
 			<a href="#" id="testp-trigger">test</a>
 			<a href="#" id="mensajesp-trigger">mensajes</a>
-			<a href="#" id="bonosp-trigger">bonos</a>
 			<a href="{{ route('logout') }}" onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">{{ __('Cerrar sessión') }}</a>
 					<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -45,7 +44,6 @@
 			<span class="icon-books-stack-of-three" id="temariop-mobile-trigger"></span>
 			<span class="icon-exam" id="testp-mobile-trigger"></span>
 			<span class="icon-paper-plane" id="mensajesp-mobile-trigger"></span>
-			<span class="icon-tickets" id="bonos-mobile-trigger"></span>
 		</div>
 
 		<div class="conteiner feeds">
@@ -67,8 +65,16 @@
 									@if($mensaje->status == "No leido")
 										<div class="mensajes-personal">
 											<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="30px"  alt="">
-											<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span>
+											<div class="info-mensaje">
+											<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
+											<span>{{ $mensaje->titulo }}</span>
+											</div>
+											
+											<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
+											{{ csrf_field() }}
+											<input type="text" name="id"  value="{{$mensaje->id }}" hidden>
 											<button>Leer</button>
+											</form>
 										</div>
 									@endif
 								@empty
@@ -80,6 +86,15 @@
 					<div class="block">
 						<h3>{{$title_home['cinco']}}</h3>
 						<div class="notificaciones">
+							@if(Session::has('videoSubido'))
+							<span style="color:green">El video se ha subido correctamente</span><br>
+							@endif
+							@if(Session::has('temaSubido'))
+							<span style="color:green">El tema se ha subido correctamente</span><br>
+							@endif
+							@if(Session::has('testSubido'))
+							<span style="color:green">El test se ha subido correctamente</span><br>
+							@endif
 							@forelse ($notificaciones as $notificacione)
 								<div class="layout-left col-md-2">
 									<img src="{{Storage::disk('public')->url($notificacione->usersPeticiones->image )}}">
@@ -113,16 +128,12 @@
 		<section class="contenido" id="cursos">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-cursos"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar curso">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>cursos</h3>
 			<div class="anadir-curso">
 				<span id="new-course">añadir curso</span>
 			</div>
-				<div class="box">
+				<div class="box" id="box-cursos">
 				@forelse ($cursos_id as $curso)
 				<div class="content-box">
 				<div class="box-header">
@@ -133,8 +144,10 @@
 					<p>{{ $curso->descripcion }}</p>
 				</div>
 				<div class="box-bottom">
-					<a href="">modificar</a>
-					<a href="">eliminar</a>
+					<form action="/user/eliminar-curso" method="POST" class="eliminar-curso">
+						<input type="hidden" name="id" value="{{$curso->id}}">
+						<button class="eliminarCurso">Eliminar</button>
+					</form>
 				</div>
 				</div>										
 				@empty
@@ -147,17 +160,18 @@
 		<section class="add-to-db" id="add-curso">
 			<span class="icon-cross" id="close-add-course"></span>
 			<div class="add-content">
-			<form action="/user/curso-creado" method="POST">
-				{{ csrf_field() }}
-				<label for="oposicion">Elegeri el tipo de oposicion</label>
-				<select name="oposicion">
+			<form action="/user/curso-creado" method="POST" id="crearCurso">
+				
+				<input type="hidden" name="_token" value="{{ csrf_token() }}" id="tokenCurso">
+				<label for="oposicion">Elegir el tipo de oposicion</label>
+				<select name="oposicion" id="curso">
 				@forelse ($oposiciones as $oposicion)
 				<option value="{{ $oposicion->id }}">{{ $oposicion->descripcion }}</option>
 				@empty
 				<option value="">No hay oposiciones disponibles</option>
 				@endforelse
 				</select>
-				<select name="dueno" id="">
+				<select name="dueno" id="tipo">
 					<option value="{{Auth::user()->id}}">Personal</option>
 					@forelse ($academias as $academia)
 					<option value="{{ $academia->id_academia }}">{{ $academia->academia->name }}</option>
@@ -165,17 +179,18 @@
 					<option value="">No hay ninguna collaboración</option>
 					@endforelse
 				</select>
-				<input type="text" name="preparador" value="{{Auth::user()->id}}" hidden>
+				<input type="text" name="preparador" value="{{Auth::user()->id}}" id="preparadorCurso" hidden>
 				<label for="descripcion">Descripción</label>
-				<textarea name="descripcion" id="" cols="30" rows="10"></textarea>
+				<textarea name="descripcion" id="" cols="30" rows="10" id="descripcionCurso"></textarea>
 				@if ($errors -> has('descripcion'))
 					@foreach ($errors->get('descripcion') as $error)
 						<div>{{ $error }}</div>
 					@endforeach
 				@endif
 				<label for="precio">Precio</label>
-				<input type="text" name="precio" id="">
-				<input type="submit" value="Crear curso" name="crearCurso">
+				<input type="text" name="precio" id="precioCurso">
+				<p id="cursoCreado" style="color:green; display:none;"></p>
+				<input type="submit" value="Crear curso" name="crearCurso" id="subirCurso">
 			</form>
 			</div>
 		</section>
@@ -183,10 +198,6 @@
 		<section class="contenido" id="video">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-video"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar clase">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>videos</h3>
 			<div class="anadir-curso">
@@ -242,7 +253,7 @@
 				<input type="text" name="titulo" id="">
 				<label for="video">Subir video - formato mp4</label>
 				<input type="file" name="video" id="">
-				<input type="submit" value="Subir video" name="subirVideo">
+				<input type="submit" value="Subir video"  name="subirVideo">
 			</form>
 			</div>
 		</section>
@@ -250,10 +261,6 @@
 		<section class="contenido" id="tema">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-tema"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar clase">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>temas</h3>
 			<div class="anadir-curso">
@@ -317,10 +324,6 @@
 		<section class="contenido" id="testp">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-testp"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar clase">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>tests</h3>
 			<div class="anadir-curso">
@@ -384,10 +387,6 @@
 		<section class="contenido" id="mensajesp">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-mensajesp"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar clase">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>mensajes</h3>
 			<div class="anadir-curso">
@@ -398,9 +397,16 @@
 					@forelse ($mensajesPersonales as $mensaje)
 						<div class="mensajes-personal">
 							<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="100px"  alt="">
-							<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span>
-							<button>Enviar</button>
-							<button>Leer</button>
+							<div class="info-mensaje">
+								<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
+								<span>{{ $mensaje->titulo }}</span>
+							</div>
+											
+							<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
+								{{ csrf_field() }}
+								<input type="text" name="id"  value="{{$mensaje->id }}" hidden>
+								<button>Leer</button>
+							</form>
 						</div>
 					@empty
 					<span>No hay mensajes</span>
@@ -445,23 +451,7 @@
 			</div>
 		</section>
 
-		<section class="contenido" id="bonosp">
-			<div class="cabezera">
-				<span class="icon-cross" id="close-bonosp"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar clase">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
-			</div>
-			<h3>mensajes</h3>
-			<div class="anadir-curso">
-				<span id="new-bonosp">nuevo mensaje</span>
-			</div>
-		</section>
-
-		<section class="add-to-db" id="add-bonosp">
-			<span class="icon-cross" id="close-add-bonosp"></span>
-		</section>
+		
 		
        
 	</main>

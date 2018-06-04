@@ -22,5 +22,6 @@
   <script type="text/javascript" src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
   <script type="text/javascript" src="{{ URL::asset('js/function.js') }}"></script>
   <script type="text/javascript" src="{{ URL::asset('js/responsive.js') }}"></script>
+  <script type="text/javascript" src="{{ URL::asset('js/ajax.js') }}"></script>
 </body>
 </html>
