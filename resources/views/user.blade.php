@@ -57,7 +57,7 @@
 					</div>
 				</div>
 				<div class="fila col-12 col-md-4">
-					<div class="block">
+					<div class="block" id="mensajes-personales">
 						<h3>{{$title_home['dos']}}</h3>
 						<div class="box">
 							<div class="content-box">
@@ -66,8 +66,8 @@
 										<div class="mensajes-personal">
 											<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="30px"  alt="">
 											<div class="info-mensaje">
-											<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
-											<span>{{ $mensaje->titulo }}</span>
+											<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span><br>
+											<span class="titulo-mensaje">{{ $mensaje->titulo }}</span>
 											</div>
 											
 											<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">

@@ -698,7 +698,7 @@ section.contenido {
           letter-spacing: 0.1rem; }
       section.contenido .box .content-box .box-description p {
         color: #ffffff;
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-family: "Roboto", sans-serif; }
       section.contenido .box .content-box .box-bottom {
         display: -webkit-flex;
@@ -707,7 +707,7 @@ section.contenido {
         display: -o-flex;
         display: flex;
         justify-content: flex-end; }
-        section.contenido .box .content-box .box-bottom a {
+        section.contenido .box .content-box .box-bottom form button {
           text-transform: uppercase;
           font-size: 0.8rem;
           font-family: "Roboto", sans-serif;
@@ -716,7 +716,8 @@ section.contenido {
           padding: 10px;
           letter-spacing: 0.1rem;
           margin-left: 10px;
-          cursor: pointer; }
+          cursor: pointer;
+          background-color: transparent; }
 
 section.add-to-db {
   width: 30vw;
@@ -1676,6 +1677,13 @@ section#entrada-space {
   section#entrada-space #close-secret-entrada {
     margin-bottom: 20px;
     cursor: pointer; }
+  section#entrada-space img {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px; }
+  section#entrada-space p {
+    font-size: 1.1rem;
+    line-height: 2rem; }
 
 section#mensaje-space {
   width: 30vw;
@@ -1722,5 +1730,155 @@ section#mensaje-space {
       color: #ffffff;
       text-transform: uppercase;
       cursor: pointer; }
+
+#tareas-pendientes span {
+  color: #ffffff;
+  text-transform: uppercase; }
+#tareas-pendientes form {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0 20px 0; }
+  #tareas-pendientes form input[type="text"] {
+    width: 200px;
+    background-color: transparent;
+    padding-left: 5px;
+    border: solid 1px #ffffff;
+    color: #ffffff; }
+    #tareas-pendientes form input[type="text"]::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+    #tareas-pendientes form input[type="text"]::-moz-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+    #tareas-pendientes form input[type="text"]:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+    #tareas-pendientes form input[type="text"]:-moz-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+  #tareas-pendientes form button {
+    background-color: transparent;
+    border: solid 1px #ffffff;
+    padding: 5px 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    cursor: pointer; }
+#tareas-pendientes .tarea {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -ms-align-items: center;
+  margin-bottom: 20px; }
+  #tareas-pendientes .tarea form {
+    width: 25px; }
+    #tareas-pendientes .tarea form button {
+      border: none; }
+
+#mini-curso span {
+  color: #ffffff;
+  text-transform: uppercase; }
+#mini-curso .mini-curso span {
+  color: #ffffff;
+  text-transform: uppercase;
+  display: block;
+  margin: 10px 0;
+  font-size: 1.3rem; }
+
+.mensajes-personal {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  -ms-align-items: center; }
+  .mensajes-personal img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 50px; }
+  .mensajes-personal .info-mensaje span {
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: "Roboto Condensed", sans-serif;
+    letter-spacing: 0.1rem; }
+  .mensajes-personal .info-mensaje .titulo-mensaje {
+    font-size: 1rem;
+    font-family: "Roboto", sans-serif; }
+  .mensajes-personal form {
+    margin-left: auto; }
+    .mensajes-personal form button {
+      background-color: transparent;
+      border: solid 1px #ffffff;
+      padding: 8px 20px;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-size: 1rem;
+      cursor: pointer; }
+
+#mensajes-personales .mensajes-personal {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  -ms-align-items: center; }
+  #mensajes-personales .mensajes-personal img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px; }
+  #mensajes-personales .mensajes-personal .info-mensaje span {
+    margin-bottom: 5px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #ffffff; }
+  #mensajes-personales .mensajes-personal .info-mensaje .titulo-mensaje {
+    font-size: 0.7rem; }
+  #mensajes-personales .mensajes-personal form button {
+    background-color: transparent;
+    border: solid 1px #ffffff;
+    padding: 5px 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    cursor: pointer; }
+
+.entrada img {
+  margin-bottom: 10px; }
+.entrada form button {
+  background-color: transparent;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.3rem;
+  border: none;
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=estilo.css.map */

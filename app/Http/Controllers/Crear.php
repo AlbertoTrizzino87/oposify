@@ -14,6 +14,7 @@ use App\Test;
 use App\Apunte;
 use App\Blog;
 use App\Mail;
+use App\Tarea;
 use Session;
 use App\Http\Requests\CrearCursoRequest;
 use App\Http\Requests\CrearVideoRequest;
@@ -21,10 +22,30 @@ use App\Http\Requests\CrearTemaRequest;
 use App\Http\Requests\CrearTestRequest;
 use App\Http\Requests\CrearApunteRequest;
 use App\Http\Requests\CrearEntradaRequest;
+use App\Http\Requests\CrearTareaRequest;
 use App\Oposicione;
 
 class Crear extends Controller
 {   
+    public function borrarTarea(Request $request)
+    {
+        $id = $request->input('id');
+        Tarea::destroy($id);
+        return redirect('/user');
+    }
+
+    public function tarea(CrearTareaRequest $request)
+    {
+        $userId = Auth::user()->id;
+
+        $tareas = Tarea::create([
+            'user_id' => $userId,
+            'tarea' => $request->input('tarea'),
+        ]);
+
+        return redirect('/user');
+    }
+
     public function leerEntrada(Request $request)
     {
         $id = $request->input("id");

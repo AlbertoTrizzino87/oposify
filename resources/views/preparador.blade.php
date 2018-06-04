@@ -52,12 +52,19 @@
 					<div class="block desaparecer">
 						<h3>{{$title_home['uno']}}</h3>
 					</div>
-					<div class="block desaparecer">
+					<div class="block desaparecer" id="mini-curso">
 						<h3>{{$title_home['cuatro']}}</h3>
+						@forelse ($cursos_id as $curso)
+							<div class="mini-curso">
+								<span>{{ $curso->oposicione->descripcion }}</span>
+							</div>
+						@empty
+							<span>Todavia no hay cursos</span>
+						@endforelse
 					</div>
 				</div>
 				<div class="fila col-12 col-md-4">
-					<div class="block">
+					<div class="block" id="mensajes-personales">
 						<h3>{{$title_home['dos']}}</h3>
 						<div class="box">
 							<div class="content-box">
@@ -66,8 +73,8 @@
 										<div class="mensajes-personal">
 											<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="30px"  alt="">
 											<div class="info-mensaje">
-											<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
-											<span>{{ $mensaje->titulo }}</span>
+											<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span><br>
+											<span class="titulo-mensaje">{{ $mensaje->titulo }}</span>
 											</div>
 											
 											<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
@@ -78,7 +85,7 @@
 										</div>
 									@endif
 								@empty
-								<span>No hay mensajes</span>
+								<span style="color:white; text-transform:uppercase;">No hay mensajes</span>
 								@endforelse
 							</div>
 						</div>
@@ -112,14 +119,31 @@
 									</form>
 								</div>
 							@empty
-								<span>No hay peticiones</span>
+								<span style="color:white; text-transform:uppercase;">No hay notoficaciones</span>
 							@endforelse
 						</div>
 					</div>
 				</div>
 				<div class="fila col-12 col-md-4">
-					<div class="full-block">
+					<div class="full-block" id="tareas-pendientes">
 						<h3>{{$title_home['tres']}}</h3>
+						<form action="/user/crear-tarea" method="POST">
+							{{ csrf_field() }}
+							<input type="text" name="tarea" id="" placeholder="Añadir nueva tarea">
+							<button>Añadir</button>
+						</form>
+						@forelse ($tareas as $tarea)
+							<div class="tarea">
+								<span>{{ $tarea->tarea }}</span>
+								<form action="/user/borrar-tarea" method="POST">
+									{{ csrf_field() }}
+									<input type="hidden" name="id" value="{{ $tarea->id }}">
+									<button><span class="icon-cross"></span></button>
+								</form>
+							</div>
+						@empty
+							<span>No hay tareas pendientes</span>
+						@endforelse
 					</div>
 				</div>
 			</div>

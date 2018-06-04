@@ -18,6 +18,7 @@ use App\Blog;
 use App\Peticione;
 use App\Profesore;
 use App\Mail;
+use App\Tarea;
 
 
 class PagesController extends Controller
@@ -74,7 +75,8 @@ class PagesController extends Controller
         $alumnos= Opositore::where('preparador_id',$id)->get();
         $alumnosPreparador = Opositore::all();
         $misCursos = Opositore::where('user_id',$id)->get();
-        $mensajesPersonales = Mail::where('reference_id',$id)->get();        
+        $mensajesPersonales = Mail::where('reference_id',$id)->get();
+        $tareas = Tarea::where('user_id',$id)->get();        
 
         if($userRole == 'Academia'){
 
@@ -133,7 +135,8 @@ class PagesController extends Controller
                 'academias' =>$academias,
                 'cursos_id' =>$cursos_id,
                 'alumnosPreparador' => $alumnosPreparador,
-                'mensajesPersonales' => $mensajesPersonales
+                'mensajesPersonales' => $mensajesPersonales,
+                'tareas' => $tareas
             ]);
 
         }else if($userRole == 'Opositor'){
@@ -146,8 +149,8 @@ class PagesController extends Controller
                 'uno' => 'bienvenid@!',
                 'dos' => 'Mensajes',
                 'tres' => 'Tareas pendientes',
-                'cuatro' => 'Estadisticas',
-                'cinco' => 'Repaso',
+                'cuatro' => 'Profesores',
+                'cinco' => 'Notificaciones',
             ];
 
             return view('opositor',[
@@ -164,7 +167,9 @@ class PagesController extends Controller
                 'apuntes' => $apuntes,
                 'entradas' => $entradas,
                 'misCursos' => $misCursos,
-                'mensajesPersonales' => $mensajesPersonales
+                'mensajesPersonales' => $mensajesPersonales,
+                'tareas' => $tareas,
+                'notificaciones' => $notificaciones,
             ]);
         }
     }

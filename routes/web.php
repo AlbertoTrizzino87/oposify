@@ -47,6 +47,12 @@ Route::post('/user/leer-mensaje','Crear@leer')
 Route::post('/user/leer-entrada','Crear@leerEntrada')
 ->middleware('auth');
 
+Route::post('/user/crear-tarea','Crear@tarea')
+->middleware('auth');
+
+Route::post('/user/borrar-tarea','Crear@borrarTarea')
+->middleware('auth');
+
 Route::get('/buscar', 'PagesController@usuario');
 Route::get('/user/red-social', 'RedSocialController@usuario');
 Route::get('/buscar-preparador', 'PagesController@usuario');

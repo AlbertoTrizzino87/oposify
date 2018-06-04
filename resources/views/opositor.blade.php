@@ -57,12 +57,19 @@
 					<div class="block desaparecer">
 						<h3>{{$title_home['uno']}}</h3>
 					</div>
-					<div class="block desaparecer">
+					<div class="block desaparecer" id="mini-curso">
 						<h3>{{$title_home['cuatro']}}</h3>
+						@forelse ($misCursos as $curso)
+							<div class="mini-curso">
+								<span>{{ $curso->profesor->name }}</span>
+							</div>
+						@empty
+							<span>Todavia no hay cursos</span>
+						@endforelse
 					</div>
 				</div>
 				<div class="fila col-12 col-lg-4">
-					<div class="block">
+					<div class="block" id="mensajes-personales">
 						<h3>{{$title_home['dos']}}</h3>
 						<div class="box">
 							<div class="content-box">
@@ -71,8 +78,8 @@
 										<div class="mensajes-personal">
 											<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="30px"  alt="">
 											<div class="info-mensaje">
-											<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
-											<span>{{ $mensaje->titulo }}</span>
+											<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span><br>
+											<span class="titulo-mensaje">{{ $mensaje->titulo }}</span>
 											</div>
 											
 											<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
@@ -90,11 +97,59 @@
 					</div>
 					<div class="block">
 						<h3>{{$title_home['cinco']}}</h3>
+						<div class="notificaciones">
+							@if(Session::has('videoSubido'))
+							<span style="color:green">El video se ha subido correctamente</span><br>
+							@endif
+							@if(Session::has('temaSubido'))
+							<span style="color:green">El tema se ha subido correctamente</span><br>
+							@endif
+							@if(Session::has('testSubido'))
+							<span style="color:green">El test se ha subido correctamente</span><br>
+							@endif
+							@forelse ($notificaciones as $notificacione)
+								<div class="layout-left col-md-2">
+									<img src="{{Storage::disk('public')->url($notificacione->usersPeticiones->image )}}">
+								</div>
+								<div class="layout-center col-md-7">
+									<span>{{ $notificacione->usersPeticiones->name }}</span><br>
+									<span>{{ $notificacione->usersPeticiones->email }}</span>
+								</div>
+								<div class="layout-right col-md-3">
+									<form action="/user/aceptar-peticion" method="POST">
+										{{ csrf_field() }}
+										<input type="text" name="idPeticion" id="idPeticion" value="{{$notificacione->id }}" hidden>
+										<input type="text" name="idAcademia" id="idAcademia" value="{{$notificacione->user_id }}" hidden>
+										<button>Aceptar</button>
+									</form>
+								</div>
+							@empty
+								<span style="color:white; text-transform:uppercase;">No hay notoficaciones</span>
+							@endforelse
+						</div>
 					</div>
 				</div>
 				<div class="fila col-12 col-lg-4">
-					<div class="full-block">
-						<h3>{{$title_home['tres']}}</h3>
+					<div class="full-block" id="tareas-pendientes">
+					<h3>{{$title_home['tres']}}</h3>
+						<form action="/user/crear-tarea" method="POST">
+							{{ csrf_field() }}
+							<input type="text" name="tarea" id="" placeholder="Añadir nueva tarea">
+							<button>Añadir</button>
+						</form>
+						@forelse ($tareas as $tarea)
+							<div class="tarea">
+								<span>{{ $tarea->tarea }}</span>
+								<form action="/user/borrar-tarea" method="POST">
+									{{ csrf_field() }}
+									<input type="hidden" name="id" value="{{ $tarea->id }}">
+									<button><span class="icon-cross"></span></button>
+								</form>
+							</div>
+						@empty
+							<span>No hay tareas pendientes</span>
+						@endforelse
+					</div>
 					</div>
 				</div>
 			</div>
@@ -142,10 +197,6 @@
 		<section class="contenido" id="temario">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-temario"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar tema">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>temario</h3>
 			<div class="box">
@@ -184,10 +235,6 @@
 		<section class="contenido" id="apuntes">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-apuntes"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar apuntes">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>apuntes</h3>
 			<div class="anadir-curso">
@@ -251,10 +298,6 @@
 		<section class="contenido" id="test">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-test"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar test">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>test</h3>
 			<div class="box">
@@ -293,10 +336,6 @@
 		<section class="contenido" id="mensajes">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-mensajes"></span>
-				<form action="buscar.php" method="POST">
-					<input type="text" name="parametro" placeholder="Buscar mensaje">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>mensajes</h3>
 			<div class="anadir-curso">
@@ -308,7 +347,7 @@
 						<div class="mensajes-personal">
 							<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="100px"  alt="">
 							<div class="info-mensaje">
-								<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
+								<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span><br>
 								<span>{{ $mensaje->titulo }}</span>
 							</div>
 							<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
@@ -350,10 +389,6 @@
 		<section class="contenido" id="diario">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-diario"></span>
-				<form action="buscar.php" method="POST">
-				<input type="text" name="parametro" placeholder="Buscar entrada">
-					<input type="submit" name="buscar" value="Buscar">
-				</form>
 			</div>
 			<h3>diario</h3>
 			<div class="anadir-curso">

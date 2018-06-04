@@ -935,7 +935,7 @@ section.contenido {
             .box-description{
                 p{
                     color: $blanco;
-                    font-size: 1.2rem;
+                    font-size: 1.1rem;
                     font-family: $fuente;
                 }
             }
@@ -948,7 +948,9 @@ section.contenido {
                 display: flex;
                 justify-content: flex-end;
     
-                a{
+                form{
+
+                    button{
                     text-transform: uppercase;
                     font-size: 0.8rem;
                     font-family: $fuente;
@@ -958,6 +960,9 @@ section.contenido {
                     letter-spacing: 0.1rem;
                     margin-left: 10px;
                     cursor: pointer;
+                    background-color: transparent;
+                    }
+                    
                 }
             }
     }   
@@ -2231,6 +2236,17 @@ section#entrada-space{
             margin-bottom: 20px;
             cursor:pointer;
         }
+
+        img{
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        p{
+            font-size: 1.1rem;
+            line-height: 2rem;
+        }
     }
 
 
@@ -2296,5 +2312,222 @@ section#entrada-space{
             cursor: pointer;
         }
         
+    }
+}
+
+#tareas-pendientes{
+    
+    span{
+        color:$blanco;
+        text-transform: uppercase;
+    }
+
+    form{
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0 20px 0;
+        input[type="text"]{
+            width: 200px;
+            background-color: transparent;
+            padding-left: 5px;
+            border: solid 1px $blanco;
+            color: $blanco;
+
+            &::-webkit-input-placeholder {
+                color: rgba(255, 255, 255, .5);
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+                font-size: 0.7rem;
+            }
+
+            &::-moz-placeholder {
+                color: rgba(255, 255, 255, .5);
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+                font-size: 0.7rem;
+            }
+
+            &:-ms-input-placeholder {
+                color: rgba(255, 255, 255, .5);
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+                font-size: 0.7rem;
+            }
+
+            &:-moz-placeholder {
+                color: rgba(255, 255, 255, .5);
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        button{
+            background-color:transparent;
+            border: solid 1px $blanco;
+            padding: 5px 10px;
+            color: $blanco;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            cursor: pointer;
+
+        }
+    }
+    .tarea{
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        -ms-align-items: center;
+        margin-bottom: 20px;
+        
+        form{
+            width: 25px;
+            button{
+                border: none;
+            }
+        }
+    }
+
+}
+
+#mini-curso{
+    span{
+        color: $blanco;
+        text-transform: uppercase;
+    }
+
+    .mini-curso{
+        span{
+            color: $blanco;
+            text-transform: uppercase;
+            display: block;
+            margin: 10px 0;
+            font-size: 1.3rem;
+        }
+    }
+}
+
+
+.mensajes-personal{
+
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        -ms-align-items: center;
+
+        img{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-right: 50px;
+        }
+
+        .info-mensaje{
+           
+            span{
+                font-size: 1.7rem;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                color: $blanco;
+                font-family: $titulo;
+                letter-spacing: 0.1rem;
+            }
+            .titulo-mensaje{
+                font-size: 1rem;
+                font-family: $fuente;
+            }
+        }
+
+        form{
+            margin-left: auto;
+            button{
+                background-color:transparent;
+            border: solid 1px $blanco;
+            padding: 8px 20px;
+            color: $blanco;
+            text-transform: uppercase;
+            font-size: 1rem;
+            cursor: pointer;
+            
+            }
+        }
+}
+
+#mensajes-personales{
+    .mensajes-personal{
+        width: 100%;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        -ms-align-items: center;
+
+        img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            
+        }
+
+        .info-mensaje{
+            span{
+                margin-bottom: 5px;
+                font-size: 0.8rem;
+                text-transform: uppercase;
+                color: $blanco;
+            }
+            .titulo-mensaje{
+                font-size: 0.7rem,
+            }
+        }
+
+        form{
+            button{
+                background-color:transparent;
+            border: solid 1px $blanco;
+            padding: 5px 10px;
+            color: $blanco;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            cursor: pointer;
+            }
+        }
+    }
+}
+
+.entrada{
+    img{
+        margin-bottom: 10px;
+    }
+
+    form{
+        button{
+            background-color: transparent;
+            cursor: pointer;
+            color: $blanco;
+            font-family: $titulo;
+            font-size: 1.3rem;
+            border: none;
+            text-transform: uppercase;
+        }
     }
 }
