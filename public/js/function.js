@@ -233,6 +233,7 @@ function Inicio() {
     $("#about-trigger").click(function(e) {
         e.preventDefault();
         if(window.matchMedia("(max-width: 1023px)").matches){
+            $(".contenido-global").css("left","-100%");
             $("#about").css("left", "50%");
         }else{
             $("#signup").css("top", "-100%");

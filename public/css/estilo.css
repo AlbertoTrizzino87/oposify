@@ -17,6 +17,14 @@ body.general {
     body.general {
       overflow-y: scroll; } }
 
+.blog img {
+  margin-bottom: 20px; }
+.blog button {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase; }
+
 main#home {
   background: url("../img/home-background.jpg") no-repeat center center;
   background-size: cover;
@@ -25,6 +33,7 @@ main#home {
   @media screen and (max-width: 1023px) {
     main#home {
       overflow-y: scroll;
+      overflow-x: hidden !important;
       position: fixed; } }
 
 main#reset {
@@ -730,14 +739,15 @@ section.add-to-db {
   @media screen and (max-width: 1023px) {
     section.add-to-db {
       width: 80vw;
-      height: 80vh;
+      height: 60vh;
       background-color: #fff;
       position: absolute;
       z-index: 9998;
       top: 50%;
       right: -100%;
       transform: translate(50%, -50%);
-      transition: all 400ms; } }
+      transition: all 400ms;
+      overflow-y: scroll; } }
   section.add-to-db span {
     color: #ffffff;
     cursor: pointer; }
@@ -763,6 +773,9 @@ section.add-to-db {
         color: #ffffff;
         text-transform: uppercase;
         font-size: 1rem; }
+        @media screen and (max-width: 1023px) {
+          section.add-to-db .add-content form label {
+            color: #000000; } }
       section.add-to-db .add-content form select, section.add-to-db .add-content form input {
         width: 300px;
         height: 40px;
@@ -773,6 +786,16 @@ section.add-to-db {
         margin-bottom: 10px;
         padding-left: 10px;
         outline: none; }
+        @media screen and (max-width: 1023px) {
+          section.add-to-db .add-content form select, section.add-to-db .add-content form input {
+            color: #000000;
+            border: solid 1px #000000; } }
+        @media screen and (max-width: 767px) {
+          section.add-to-db .add-content form select, section.add-to-db .add-content form input {
+            color: #000000;
+            border: solid 1px #000000;
+            width: 200px;
+            height: 30px; } }
       section.add-to-db .add-content form textarea {
         width: 300px;
         height: 330px;
@@ -783,6 +806,17 @@ section.add-to-db {
         margin-bottom: 10px;
         padding: 10px;
         outline: none; }
+        @media screen and (max-width: 1023px) {
+          section.add-to-db .add-content form textarea {
+            color: #000000;
+            border: solid 1px #000000;
+            height: 200px; } }
+        @media screen and (max-width: 767px) {
+          section.add-to-db .add-content form textarea {
+            color: #000000;
+            border: solid 1px #000000;
+            width: 200px;
+            height: 70px; } }
       section.add-to-db .add-content form input[type="submit"] {
         width: 150px;
         cursor: pointer;
@@ -1179,6 +1213,12 @@ section#login {
   right: -100%;
   padding: 50px;
   transition: all 500ms; }
+  @media screen and (max-width: 767px) {
+    .contenido-global {
+      padding: 50px 10px; } }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .contenido-global {
+      padding: 100px 50px; } }
   .contenido-global .cabezera {
     width: 100%;
     display: -webkit-flex;
@@ -1198,26 +1238,41 @@ section#login {
       color: #ffffff;
       font-family: "Roboto Condensed", sans-serif;
       outline: none; }
+      @media screen and (max-width: 767px) {
+        .contenido-global .cabezera form input {
+          width: 130px; } }
       .contenido-global .cabezera form input::-webkit-input-placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         font-size: 0.7rem; }
+        @media screen and (max-width: 767px) {
+          .contenido-global .cabezera form input::-webkit-input-placeholder {
+            font-size: 0.5rem; } }
       .contenido-global .cabezera form input::-moz-placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         font-size: 0.7rem; }
+        @media screen and (max-width: 767px) {
+          .contenido-global .cabezera form input::-moz-placeholder {
+            font-size: 0.5rem; } }
       .contenido-global .cabezera form input:-ms--placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         font-size: 0.7rem; }
+        @media screen and (max-width: 767px) {
+          .contenido-global .cabezera form input:-ms--placeholder {
+            font-size: 0.5rem; } }
       .contenido-global .cabezera form input:-moz-placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
         letter-spacing: 0.1rem;
         font-size: 0.7rem; }
+        @media screen and (max-width: 767px) {
+          .contenido-global .cabezera form input:-moz-placeholder {
+            font-size: 0.5rem; } }
     .contenido-global .cabezera form input[type="submit"] {
       width: 120px;
       border: none;
@@ -1252,7 +1307,8 @@ main#opositor {
   @media screen and (max-width: 1023px) {
     main#opositor {
       overflow-y: scroll;
-      position: fixed; } }
+      position: fixed;
+      overflow-x: hidden; } }
 
 main#academia nav div.botones, main#preparador nav div.botones {
   position: absolute;
@@ -1713,6 +1769,18 @@ section#entrada-space {
   transition: all 400ms;
   padding: 30px;
   overflow-y: scroll; }
+  @media screen and (max-width: 1023px) {
+    section#entrada-space {
+      width: 50vw;
+      height: 80vh;
+      top: 50%;
+      transform: translateY(-50%); } }
+  @media screen and (max-width: 767px) {
+    section#entrada-space {
+      width: 100vw;
+      height: 80vh;
+      top: 50%;
+      transform: translateY(-50%); } }
   section#entrada-space #close-secret-entrada {
     margin-bottom: 20px;
     cursor: pointer; }
@@ -1720,9 +1788,6 @@ section#entrada-space {
     width: 100%;
     margin-bottom: 20px;
     margin-top: 20px; }
-  section#entrada-space p {
-    font-size: 1.1rem;
-    line-height: 2rem; }
 
 section#mensaje-space {
   width: 30vw;
@@ -1732,6 +1797,18 @@ section#mensaje-space {
   right: -100%;
   transition: all 400ms;
   padding: 30px; }
+  @media screen and (max-width: 1023px) {
+    section#mensaje-space {
+      width: 50vw;
+      height: 80vh;
+      top: 50%;
+      transform: translateY(-50%); } }
+  @media screen and (max-width: 767px) {
+    section#mensaje-space {
+      width: 100vw;
+      height: 80vh;
+      top: 50%;
+      transform: translateY(-50%); } }
   section#mensaje-space #close-secret-mensaje {
     margin-bottom: 10px;
     cursor: pointer; }
@@ -1857,6 +1934,11 @@ section#mensaje-space {
     height: 80px;
     border-radius: 50%;
     margin-right: 50px; }
+    @media screen and (max-width: 767px) {
+      .mensajes-personal img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px; } }
   .mensajes-personal .info-mensaje span {
     font-size: 1.7rem;
     margin-bottom: 5px;
@@ -1864,9 +1946,15 @@ section#mensaje-space {
     color: #ffffff;
     font-family: "Roboto Condensed", sans-serif;
     letter-spacing: 0.1rem; }
+    @media screen and (max-width: 767px) {
+      .mensajes-personal .info-mensaje span {
+        font-size: 0.8rem; } }
   .mensajes-personal .info-mensaje .titulo-mensaje {
     font-size: 1rem;
     font-family: "Roboto", sans-serif; }
+    @media screen and (max-width: 767px) {
+      .mensajes-personal .info-mensaje .titulo-mensaje {
+        font-size: 0.6rem; } }
   .mensajes-personal form {
     margin-left: auto; }
     .mensajes-personal form button {
@@ -1877,6 +1965,10 @@ section#mensaje-space {
       text-transform: uppercase;
       font-size: 1rem;
       cursor: pointer; }
+      @media screen and (max-width: 767px) {
+        .mensajes-personal form button {
+          font-size: 0.6rem;
+          padding: 5px 15px; } }
 
 #mensajes-personales .mensajes-personal {
   width: 100%;
@@ -2037,30 +2129,63 @@ section#mensaje-space {
     border-radius: 50%;
     margin: 0 auto;
     margin-bottom: 10px; }
+    @media screen and (max-width: 767px) {
+      #resultados .busqueda-layout .layout-left img {
+        width: 40px;
+        height: 40px; } }
   #resultados .busqueda-layout .layout-left span {
     color: #ffffff;
     text-transform: uppercase;
     font-size: 1rem;
     text-align: center; }
+    @media screen and (max-width: 767px) {
+      #resultados .busqueda-layout .layout-left span {
+        font-size: 0.7rem;
+        text-align: center; } }
   #resultados .busqueda-layout .layout-center h5 {
     color: #ffffff;
     text-transform: uppercase;
     font-size: 1.2rem; }
+    @media screen and (max-width: 767px) {
+      #resultados .busqueda-layout .layout-center h5 {
+        font-size: 0.9rem; } }
   #resultados .busqueda-layout .layout-center p {
     color: #ffffff;
     font-size: 1rem;
     text-transform: uppercase; }
+    @media screen and (max-width: 767px) {
+      #resultados .busqueda-layout .layout-center p {
+        font-size: 0.8rem; } }
   #resultados .busqueda-layout .layout-right {
     margin: 0 auto;
     text-align: left; }
+    @media screen and (max-width: 767px) {
+      #resultados .busqueda-layout .layout-right {
+        font-size: 0.7rem;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: flex-end;
+        -ms-align-items: flex-end; } }
     #resultados .busqueda-layout .layout-right span {
       color: #ffffff;
       margin-right: 20px;
       margin-left: auto; }
+      @media screen and (max-width: 767px) {
+        #resultados .busqueda-layout .layout-right span {
+          margin-bottom: 15px;
+          font-size: 0.8rem; } }
     #resultados .busqueda-layout .layout-right a {
       color: #ffffff;
       border: solid 1px #ffffff;
       text-transform: uppercase;
       padding: 7px 15px; }
+      @media screen and (max-width: 767px) {
+        #resultados .busqueda-layout .layout-right a {
+          font-size: 0.7rem; } }
 
 /*# sourceMappingURL=estilo.css.map */

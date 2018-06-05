@@ -27,7 +27,21 @@ body.general {
 
     @media screen and (max-width: 1023px){
         overflow-y: scroll;
+        
     } 
+}
+
+.blog{
+
+    img{
+        margin-bottom: 20px;
+    }
+    button{
+        color: $blanco;
+        background-color: transparent;
+        border: none;
+        text-transform: uppercase;
+    }
 }
 
 main#home {
@@ -37,6 +51,7 @@ main#home {
     height: 100vh;
     @media screen and (max-width: 1023px){
         overflow-y: scroll;
+        overflow-x: hidden !important;
        position: fixed;
     } 
 }
@@ -981,7 +996,7 @@ section.add-to-db{
 
     @media screen and (max-width: 1023px){
         width: 80vw;
-        height: 80vh;
+        height: 60vh;
         background-color: #fff;
         position: absolute;
         z-index: 9998;
@@ -989,6 +1004,7 @@ section.add-to-db{
         right:-100%;
         transform:translate(50%,-50%);
         transition: all 400ms;
+        overflow-y: scroll;
     }
 
     span{
@@ -1021,6 +1037,9 @@ section.add-to-db{
                 color: $blanco;
                 text-transform: uppercase;
                 font-size: 1rem;
+                @media screen and (max-width: 1023px){
+                    color: $negro;
+                }
             }
 
             select,input{
@@ -1033,6 +1052,17 @@ section.add-to-db{
                 margin-bottom: 10px;
                 padding-left: 10px;
                 outline: none;
+                @media screen and (max-width: 1023px){
+                    color: $negro;
+                    border: solid 1px $negro;
+                }
+
+                @media screen and (max-width: 767px){
+                    color: $negro;
+                    border: solid 1px $negro;
+                    width: 200px;
+                    height: 30px;
+                }
             }
 
             textarea{
@@ -1045,6 +1075,19 @@ section.add-to-db{
                 margin-bottom: 10px;
                 padding: 10px;
                 outline: none;
+
+                @media screen and (max-width: 1023px){
+                    color: $negro;
+                    border: solid 1px $negro;
+                    height: 200px;
+                }
+
+                @media screen and (max-width: 767px){
+                    color: $negro;
+                    border: solid 1px $negro;
+                    width: 200px;
+                    height: 70px;
+                }
 
             }
 
@@ -1549,6 +1592,13 @@ section#login {
     right: -100%;
     padding: 50px;
     transition: all 500ms;
+    @media screen and (max-width: 767px){
+        padding: 50px 10px;
+     }
+    
+     @media screen and (min-width: 768px) and (max-width: 1023px){
+        padding: 100px 50px;
+     }
     
 
     .cabezera {
@@ -1574,12 +1624,18 @@ section#login {
                 color: $blanco;
                 font-family: $titulo;
                 outline: none;
+                @media screen and (max-width: 767px){
+                    width: 130px;
+                 }
 
                 &::-webkit-input-placeholder {
                     color: rgba(255, 255, 255, .5);
                     text-transform: uppercase;
                     letter-spacing: 0.1rem;
                     font-size: 0.7rem;
+                    @media screen and (max-width: 767px){
+                        font-size: 0.5rem;
+                     }
                 }
 
                 &::-moz-placeholder {
@@ -1587,6 +1643,9 @@ section#login {
                     text-transform: uppercase;
                     letter-spacing: 0.1rem;
                     font-size: 0.7rem;
+                    @media screen and (max-width: 767px){
+                        font-size: 0.5rem;
+                     }
                 }
 
                 &:-ms--placeholder {
@@ -1594,6 +1653,9 @@ section#login {
                     text-transform: uppercase;
                     letter-spacing: 0.1rem;
                     font-size: 0.7rem;
+                    @media screen and (max-width: 767px){
+                        font-size: 0.5rem;
+                     }
                 }
 
                 &:-moz-placeholder {
@@ -1601,6 +1663,9 @@ section#login {
                     text-transform: uppercase;
                     letter-spacing: 0.1rem;
                     font-size: 0.7rem;
+                    @media screen and (max-width: 767px){
+                        font-size: 0.5rem;
+                     }
                 }
             }
 
@@ -1647,10 +1712,12 @@ main#opositor{
     @media screen and (max-width: 1023px){
         overflow-y: scroll;
        position: fixed;
-    //    padding-bottom: 50px;
+        overflow-x: hidden;
     } 
     
 }
+
+
 
 main#academia nav div.botones,main#preparador nav div.botones{
   position: absolute;
@@ -2294,6 +2361,20 @@ section#entrada-space{
     transition: all 400ms;
     padding: 30px; 
     overflow-y: scroll; 
+    @media screen and (max-width: 1023px){
+        width: 50vw;
+        height: 80vh;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @media screen and (max-width: 767px){
+        width: 100vw;
+        height: 80vh;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
 
         #close-secret-entrada{
             margin-bottom: 20px;
@@ -2306,10 +2387,7 @@ section#entrada-space{
             margin-top: 20px;
         }
 
-        p{
-            font-size: 1.1rem;
-            line-height: 2rem;
-        }
+        
     }
 
 
@@ -2323,6 +2401,20 @@ section#entrada-space{
     right: -100%;
     transition: all 400ms;
     padding: 30px;
+
+    @media screen and (max-width: 1023px){
+        width: 50vw;
+        height: 80vh;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @media screen and (max-width: 767px){
+        width: 100vw;
+        height: 80vh;
+        top: 50%;
+        transform: translateY(-50%);
+    }
 
     #close-secret-mensaje{
         margin-bottom: 10px;
@@ -2498,6 +2590,11 @@ section#entrada-space{
             height: 80px;
             border-radius: 50%;
             margin-right: 50px;
+            @media screen and (max-width: 767px){
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
         }
 
         .info-mensaje{
@@ -2509,10 +2606,16 @@ section#entrada-space{
                 color: $blanco;
                 font-family: $titulo;
                 letter-spacing: 0.1rem;
+                @media screen and (max-width: 767px){
+                    font-size: 0.8rem;
+                }
             }
             .titulo-mensaje{
                 font-size: 1rem;
                 font-family: $fuente;
+                @media screen and (max-width: 767px){
+                    font-size: 0.6rem;
+                }
             }
         }
 
@@ -2526,6 +2629,10 @@ section#entrada-space{
             text-transform: uppercase;
             font-size: 1rem;
             cursor: pointer;
+            @media screen and (max-width: 767px){
+                font-size: 0.6rem;
+                padding: 5px 15px;
+            }
             
             }
         }
@@ -2766,6 +2873,10 @@ section#entrada-space{
                 border-radius: 50%;
                 margin: 0 auto;
                 margin-bottom: 10px;
+                @media screen and (max-width: 767px){
+                    width: 40px;
+                    height: 40px;
+                } 
             }
 
             span{
@@ -2773,6 +2884,10 @@ section#entrada-space{
                 text-transform: uppercase;
                 font-size: 1rem;
                 text-align: center;
+                @media screen and (max-width: 767px){
+                    font-size: 0.7rem;
+                    text-align: center;
+                } 
             }
         }
         .layout-center{
@@ -2780,6 +2895,9 @@ section#entrada-space{
                 color:$blanco;
                 text-transform: uppercase;
                 font-size: 1.2rem;
+                @media screen and (max-width: 767px){
+                    font-size: 0.9rem;
+                } 
                
             }
 
@@ -2787,15 +2905,34 @@ section#entrada-space{
                 color: $blanco;
                 font-size: 1rem;
                 text-transform: uppercase;
+                @media screen and (max-width: 767px){
+                    font-size: 0.8rem;
+                } 
             }
         }
         .layout-right{
             margin: 0 auto;
             text-align: left;
+            @media screen and (max-width: 767px){
+                font-size: 0.7rem;
+                display: -webkit-flex;
+                display: -moz-flex;
+                display: -ms-flex;
+                 display: -o-flex;
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: flex-end;
+                -ms-align-items: flex-end;
+            } 
             span{
                 color: $blanco;
                 margin-right: 20px;
                 margin-left: auto;
+                @media screen and (max-width: 767px){
+                   margin-bottom: 15px;
+                   font-size: 0.8rem;
+                } 
             }
 
             a{
@@ -2803,6 +2940,9 @@ section#entrada-space{
                 border: solid 1px $blanco;
                 text-transform: uppercase;
                 padding: 7px 15px;
+                @media screen and (max-width: 767px){
+                    font-size: 0.7rem;
+                } 
             }
         }
     }

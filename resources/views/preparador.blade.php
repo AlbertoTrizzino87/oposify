@@ -48,7 +48,7 @@
 
 		<div class="conteiner feeds">
 			<div class="row">
-				<div class="fila col-12 col-md-4">
+				<div class="fila col-12 col-lg-4">
 					<div class="block desaparecer">
 						<h3>{{$title_home['uno']}}</h3>
 					</div>
@@ -63,7 +63,7 @@
 						@endforelse
 					</div>
 				</div>
-				<div class="fila col-12 col-md-4">
+				<div class="fila col-12 col-lg-4">
 					<div class="block" id="mensajes-personales">
 						<h3>{{$title_home['dos']}}</h3>
 						<div class="box">
@@ -124,7 +124,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="fila col-12 col-md-4">
+				<div class="fila col-12 col-lg-4">
 					<div class="full-block" id="tareas-pendientes">
 						<h3>{{$title_home['tres']}}</h3>
 						<form action="/user/crear-tarea" method="POST">

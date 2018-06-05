@@ -173,11 +173,11 @@
 					<div class="tab-content" id="videoTabContent">
 						@foreach ($opositorId as $id)
 							<div class="tab-pane" id="{{ $id->curso }}" role="tabpanel" aria-labelledby="{{ $id->curso }}-tab">
-								<div class="container">
+								<div class="conteiner">
 									<div class="row">
 										@foreach ($videos as $video)
 											@if($video->curso_id == $id->curso_id)
-											<div class="col-md-3 col-lg-4">
+											<div class=" col-lg-4">
 													<video controls>
 														<source src="{{ Storage::disk('public')->url($video->video) }}" type="video/mp4">
 													</video>
@@ -396,7 +396,7 @@
 			</div>
 			<div class="blog">
 				@forelse ($entradas as $entrada)
-					<div class="entrada col-md-4">					
+					<div class="col-md-6 col-lg-3">					
 						<img src="{{Storage::disk('public')->url($entrada->portada)}}" alt="">
 						<form action="/user/leer-entrada" method="POST" class="leer-entrada">
 							{{ csrf_field() }}

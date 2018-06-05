@@ -164,11 +164,19 @@ function BuscarPreparador(e)
         success: function(data){
             $(".contenido-global").css("right","0");
             var resultados = $("#resultados");
+            resultados.html("");
             for(var i = 0; i < data.element.length; i++){
                 var busquedaLayout = $("<div class='busqueda-layout'></div>");
                 var leftLayout = $("<div class='layout-left col-md-2'></div>");
                 var img = $("<img src='http://localhost:8000/storage/"+ data.element[i].user['image'] + "' alt=''>");
-                var span = $("<span>" +data.element[i].user['name'] + " "+ data.element[i].user['apellido']+" "+data.element[i].user['apellidoDos'] + "</span>")
+                if(data.element[i].user['apellido']!=null && data.element[i].user['apellidoDos']!=null){
+                    var span = $("<span>" +data.element[i].user['name'] + " "+ data.element[i].user['apellido']+" "+data.element[i].user['apellidoDos'] + "</span>")
+                }else if(data.element[i].user['apellido']!=null && data.element[i].user['apellidoDos']==null){
+                    var span = $("<span>" +data.element[i].user['name'] + " "+ data.element[i].user['apellido']+ "</span>");
+                }else if(data.element[i].user['apellido']==null && data.element[i].user['apellidoDos']==null){
+                    var span = $("<span>" +data.element[i].user['name'] + "</span>");
+                }
+                
                 leftLayout.append(img);
                 leftLayout.append(span);
                 busquedaLayout.append(leftLayout);
@@ -211,11 +219,18 @@ function BuscarPreparador2(e)
         success: function(data){
             $(".contenido-global").css("right","0");
             var resultados = $("#resultados");
+            resultados.text("");
             for(var i = 0; i < data.element.length; i++){
                 var busquedaLayout = $("<div class='busqueda-layout'></div>");
                 var leftLayout = $("<div class='layout-left col-md-2'></div>");
                 var img = $("<img src='http://localhost:8000/storage/"+ data.element[i].user['image'] + "' alt=''>");
-                var span = $("<span>" +data.element[i].user['name'] + " "+ data.element[i].user['apellido']+" "+data.element[i].user['apellidoDos'] + "</span>")
+                if(data.element[i].user['apellido']!=null && data.element[i].user['apellidoDos']!=null){
+                    var span = $("<span>" +data.element[i].user['name'] + " "+ data.element[i].user['apellido']+" "+data.element[i].user['apellidoDos'] + "</span>")
+                }else if(data.element[i].user['apellido']!=null && data.element[i].user['apellidoDos']==null){
+                    var span = $("<span>" +data.element[i].user['name'] + " "+ data.element[i].user['apellido']+ "</span>");
+                }else if(data.element[i].user['apellido']==null && data.element[i].user['apellidoDos']==null){
+                    var span = $("<span>" +data.element[i].user['name'] + "</span>");
+                }
                 leftLayout.append(img);
                 leftLayout.append(span);
                 busquedaLayout.append(leftLayout);
