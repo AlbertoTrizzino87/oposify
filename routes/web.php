@@ -75,7 +75,7 @@ Route::post('/red-social/follow','RedSocialController@follow');
 Route::post('/red-social/unfollow','RedSocialController@unfollow');
 Route::post('/red-social/crear-post','RedSocialController@post');
 Route::get('/user/red-social/{id}','RedSocialController@show');
-Route::post('/user/red-social/subir-portada','RedSocialController@portada');
+Route::post('/subir-portada','RedSocialController@portada');
 Route::post('paypal','PaymentController@payWithpaypal');
 Route::get('status', [ 'as' => 'status', 'uses' => 'PaymentController@getPaymentStatus']);
 

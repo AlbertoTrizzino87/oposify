@@ -110,9 +110,9 @@ class RedSocialController extends Controller
     {
         $id = Auth::user()->id;
         $portadaName = $request->file('fotoPortada');  
-        $foto = Portada::where('user_id',$id)->first();
+        $foto = Portada::where('user_id',$id)->get();
 
-        if($foto == null){
+        if(!$foto){
             $portadas = Portada::create([
                 'user_id' => $id,
                 'portada' => $portadaName->store('portadas','public'),

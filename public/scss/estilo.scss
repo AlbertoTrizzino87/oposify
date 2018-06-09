@@ -1865,6 +1865,10 @@ main#academia nav div.botones,main#preparador nav div.botones{
         -ms-align-items: center;
         align-items: center;
         padding: 20px 70px;
+        @media screen and (max-width: 767px){
+            padding: 10px 20px;
+        }
+        
         
 
         input[type="text"]{
@@ -1873,6 +1877,11 @@ main#academia nav div.botones,main#preparador nav div.botones{
             width: 300px;
             padding-left: 5px;
             $color: $blanco !important;
+
+            @media screen and (max-width: 767px){
+                width: 180px;
+                margin-left: 30px;
+            }
 
             &::-webkit-input-placeholder {
                 color: rgba(255, 255, 255, .5);
@@ -1919,7 +1928,7 @@ main#academia nav div.botones,main#preparador nav div.botones{
 
     .banner{
         width: 100%;
-        height: 50vh;
+        height: 70vh;
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
@@ -2122,6 +2131,10 @@ main#academia nav div.botones,main#preparador nav div.botones{
 
         .row{
             .perfil-sn{
+
+                @media screen and (max-width:1023px){
+                    display: none;
+                }
                 background-color: $transparente;
                 padding: 50px;
                 min-height: 90vh;
@@ -2231,6 +2244,10 @@ main#academia nav div.botones,main#preparador nav div.botones{
                         padding: 10px;
                         background-color: $transparente;
                         color: $blanco;
+
+                        @media screen and (max-width:767px){
+                            width: 100%;
+                        }
                     }
 
                     input[type="submit"]{
@@ -2332,6 +2349,10 @@ main#academia nav div.botones,main#preparador nav div.botones{
                                     height: 100px;
                                     border-radius: 50%;
                                     margin-right: 10px;
+                                    @media screen and (max-width:767px){
+                                        width: 50px;
+                                        height: 50px;
+                                    }
                                 }
                             }
 
@@ -2341,6 +2362,10 @@ main#academia nav div.botones,main#preparador nav div.botones{
                                     font-size: 1.5rem;
                                     font-family: $titulo;
                                     color: $blanco;
+
+                                    @media screen and (max-width:767px){
+                                        font-size: 1.2rem;
+                                    }
                                 }
                             }
                         }
@@ -2353,10 +2378,16 @@ main#academia nav div.botones,main#preparador nav div.botones{
                             display: flex;
                             .left{
                                 width: 100px;
+                                @media screen and (max-width:767px){
+                                    width: 50px;
+                                }
                             }
                             .right{
                                 p{
                                     color: $blanco;
+                                    @media screen and (max-width:767px){
+                                        font-size: 0.8rem;
+                                    }
                                 }
                             }
                         }

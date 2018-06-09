@@ -5,7 +5,7 @@
 <div class="contenido-social">
     <div class="banner" @if(!empty($portada)) style="background: url(../../storage/{{ $portada->portada}}); background-size: cover;"@endif>
         @if($user->id == Auth::user()->id )
-        <form action="/user/red-social/subir-portada" method="POST" enctype="multipart/form-data">
+        <form action="/subir-portada" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
             <label for="fotoPortada"><span class="icon-camera"></span></label>
             <input type="file" name="fotoPortada" id="fotoPortada" hidden>

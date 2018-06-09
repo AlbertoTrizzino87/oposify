@@ -1427,11 +1427,18 @@ main#academia nav div.botones, main#preparador nav div.botones {
     -ms-align-items: center;
     align-items: center;
     padding: 20px 70px; }
+    @media screen and (max-width: 767px) {
+      .social header {
+        padding: 10px 20px; } }
     .social header input[type="text"] {
       border: solid 2px #ffffff;
       background-color: transparent;
       width: 300px;
       padding-left: 5px; }
+      @media screen and (max-width: 767px) {
+        .social header input[type="text"] {
+          width: 180px;
+          margin-left: 30px; } }
       .social header input[type="text"]::-webkit-input-placeholder {
         color: rgba(255, 255, 255, 0.5);
         text-transform: uppercase;
@@ -1459,7 +1466,7 @@ main#academia nav div.botones, main#preparador nav div.botones {
       cursor: pointer; }
   .social .banner {
     width: 100%;
-    height: 50vh;
+    height: 70vh;
     display: -webkit-flex;
     display: -moz-flex;
     display: -ms-flex;
@@ -1606,6 +1613,9 @@ main#academia nav div.botones, main#preparador nav div.botones {
       padding: 50px;
       min-height: 90vh;
       flex-grow: 1; }
+      @media screen and (max-width: 1023px) {
+        .social .container-fluid .row .perfil-sn {
+          display: none; } }
       .social .container-fluid .row .perfil-sn .personal-imagen {
         text-align: center;
         margin-bottom: 100px; }
@@ -1684,6 +1694,9 @@ main#academia nav div.botones, main#preparador nav div.botones {
           padding: 10px;
           background-color: rgba(0, 0, 0, 0.7);
           color: #ffffff; }
+          @media screen and (max-width: 767px) {
+            .social .container-fluid .row .mensajes-sn form textarea {
+              width: 100%; } }
         .social .container-fluid .row .mensajes-sn form input[type="submit"] {
           background-color: rgba(0, 0, 0, 0.7);
           color: #ffffff;
@@ -1755,11 +1768,18 @@ main#academia nav div.botones, main#preparador nav div.botones {
             height: 100px;
             border-radius: 50%;
             margin-right: 10px; }
+            @media screen and (max-width: 767px) {
+              .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .left img {
+                width: 50px;
+                height: 50px; } }
           .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .right span {
             text-transform: uppercase;
             font-size: 1.5rem;
             font-family: "Roboto Condensed", sans-serif;
             color: #ffffff; }
+            @media screen and (max-width: 767px) {
+              .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .cabecera-post .right span {
+                font-size: 1.2rem; } }
         .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post {
           width: 100%;
           display: -webkit-flex;
@@ -1769,8 +1789,14 @@ main#academia nav div.botones, main#preparador nav div.botones {
           display: flex; }
           .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .left {
             width: 100px; }
+            @media screen and (max-width: 767px) {
+              .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .left {
+                width: 50px; } }
           .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .right p {
             color: #ffffff; }
+            @media screen and (max-width: 767px) {
+              .social .container-fluid .row .mensajes-sn .visualizar-mensaje-sn .post .mensaje-post .right p {
+                font-size: 0.8rem; } }
 
 section#entrada-space {
   width: 30vw;

@@ -70,7 +70,7 @@
 
                 </div>
             </div>
-            <div class="col-md-9 mensajes-sn">
+            <div class="col-md-12 col-lg-9 mensajes-sn">
                 <div class="enviar-mensaje-sn">
                     <form action="/red-social/crear-post" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
