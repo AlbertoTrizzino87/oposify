@@ -109,12 +109,22 @@ class RedSocialController extends Controller
     public function portada(CrearPortadaRequest $request)
     {
         $id = Auth::user()->id;
-        $portada = $request->file('fotoPortada');
+        $portadaName = $request->file('fotoPortada');  
+        $foto = Portada::where('user_id',$id)->first();
 
-        $portadas = Portada::create([
-            'user_id' => $id,
-            'portada' => $portada->store('portadas','public'),
-        ]);
-        return redirect('/user/red-social/{{$id}}');
+        if($foto == null){
+            $portadas = Portada::create([
+                'user_id' => $id,
+                'portada' => $portadaName->store('portadas','public'),
+            ]);
+            return back();
+        }else{
+            $portadas = Portada::where('user_id',$id)->first();
+            $portadas->portada = $portadaName->store('portadas','public');
+            $portadas->save();
+            return back();
+        }
+
+        
     }
 }
