@@ -10,6 +10,56 @@ function Inicio()
     $(".leer-entrada").click(LeerEntrada);
     $("#buscarHome").click(BuscarPreparador);
     $("#buscarHome2").click(BuscarPreparador2);
+    $("#buscarPreparadorOpositor").click(buscarPreparadorOpositor);
+    $("#buscarPreparadorAcademia").click(buscarPreparadorAcademia);
+}
+
+function buscarPreparadorAcademia(e){
+    e.preventDefault();
+
+ 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: '/buscar-preparador-academia',
+        type: 'get',
+        dataType: 'json',
+        async: false,
+        data: $('#buscar-preparadorOpositor').serialize(),
+        success: function(data){
+            var resultados = $("#profesoresListados");
+            resultados.html(data);
+            console.log(data);
+        }
+    });
+}
+
+function buscarPreparadorOpositor(e){
+    e.preventDefault();
+
+    var url = $("#buscar-preparadorOpositor").attr('action');
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: '/buscarPreparador',
+        type: 'get',
+        dataType: 'json',
+        async: false,
+        data: $('#buscar-preparadorOpositor').serialize(),
+        success: function(data){
+            var resultados = $("#resultados");
+            resultados.html(data);
+            console.log(data);
+        }
+    });
 }
 
 function ValidarRegistro(e)
@@ -96,30 +146,13 @@ function EnviarCurso(e)
         async: false,
         data: $('#crearCurso').serialize(),
         success: function(data){
-            $("#cursoCreado").html(data['mensaje']).show();
+           
             $("#box-cursos").html("");
-            for(var i = 0; i < data.element.length; i++){
-                var contentBox = $("<div class='content-box'></div>");
-                var headerBox = $("<div class='box-header'></div>");
-                var titulo = $("<h4>" + data.element[i].oposicione['descripcion'] + "</h4>" );
-                var precio = $("<span>" + data.element[i]['precio'] + "€mes</span>" )
-                console.log(data.element[i]['precio']);
-                headerBox.append(titulo);
-                headerBox.append(precio);
-                contentBox.append(headerBox);
-                var boxDescription = $("<div class='box-description'></div>");
-                var descripcion = $("<p>" + data.element[i]['descripcion'] + "</p>" );
-                boxDescription.append(descripcion);
-                contentBox.append(boxDescription);
-                var bottomBox = $("<div class='box-bottom'></div>");
-                var modificar = $("<a href=''>modificar</a>" );
-                var eliminar = $("<a href=''>eliminar</a>" );
-                bottomBox.append(modificar);
-                bottomBox.append(eliminar);
-                contentBox.append(bottomBox);
-                $("#box-cursos").append(contentBox);
-            }
+            $("#box-cursos").html(data);
 
+            
+            
+            console.log(data);
 
         }
     });
@@ -127,7 +160,7 @@ function EnviarCurso(e)
 
 function EliminarCurso(e){
     e.preventDefault();
-
+    var b = $(this).parents('.content-box');
     var url = $(".eliminar-curso").attr('action');
     $.ajaxSetup({
         headers: {
@@ -141,6 +174,10 @@ function EliminarCurso(e){
         dataType: 'json',
         async: false,
         data: $('.eliminar-curso').serialize(),
+        success: function(){
+            b.html("");
+            b.html("<span style='color:red;'>Curso eliminado con exito</span>");
+        }
     });
 }
 

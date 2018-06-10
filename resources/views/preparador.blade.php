@@ -103,6 +103,7 @@
 							<span style="color:green">El test se ha subido correctamente</span><br>
 							@endif
 							@forelse ($notificaciones as $notificacione)
+							<div class="block-notificacion">
 								<div class="layout-left col-md-2">
 									<img src="{{Storage::disk('public')->url($notificacione->usersPeticiones->image )}}">
 								</div>
@@ -118,6 +119,7 @@
 										<button>Aceptar</button>
 									</form>
 								</div>
+							</div>
 							@empty
 								<span style="color:white; text-transform:uppercase;">No hay notoficaciones</span>
 							@endforelse

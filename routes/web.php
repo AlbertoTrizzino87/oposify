@@ -57,9 +57,11 @@ Route::post('/user/borrar-tarea','Crear@borrarTarea')
 ->middleware('auth');
 
 Route::get('/buscar', 'PagesController@usuario');
+Route::get('buscarPreparador', 'PagesController@usuario');
 Route::get('/buscar-home', 'PagesController@buscar');
 Route::get('/user/red-social', 'RedSocialController@usuario');
 Route::get('/buscar-preparador', 'PagesController@usuario');
+Route::get('/buscar-preparador-academia', 'PagesController@buscarPreparadorAcademia');
 Route::get('/red-social/buscar-usuario','RedSocialController@buscar');
 Route::post('/user/anadir-preparador','PeticionesController@anadir')
 ->middleware('auth');

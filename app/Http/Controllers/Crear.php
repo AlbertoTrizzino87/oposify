@@ -24,6 +24,7 @@ use App\Http\Requests\CrearApunteRequest;
 use App\Http\Requests\CrearEntradaRequest;
 use App\Http\Requests\CrearTareaRequest;
 use App\Oposicione;
+use View;
 
 class Crear extends Controller
 {   
@@ -79,12 +80,8 @@ class Crear extends Controller
             'precio' => $request->input('precio')
         ]);
 
-        $element = Curso::where('preparador_id',$id)->get();
-        $element->load('oposicione');
-        return response()->json([
-            'mensaje'=>'Curso creado',
-            'element'=>$element
-        ]);
+        $cursos_id = Curso::where('preparador_id',$id)->get();
+        return response()->json(view('cursos.cursos',compact('cursos_id',$cursos_id ))->render());
     }
 
     public function eliminarcurso(Request $request)

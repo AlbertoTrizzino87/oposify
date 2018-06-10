@@ -1007,6 +1007,140 @@ section.add-to-db{
         overflow-y: scroll;
     }
 
+    form{
+        margin-top: 30px;
+    }
+
+    .busqueda-layout{
+        width: 100%;
+        margin-top: 30px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        -ms-align-items: center;
+        align-items: center;
+        margin-bottom: 30px;
+        @media screen and (max-width: 767px){
+            display: block;
+            }
+
+        
+
+        img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            @media screen and (max-width: 767px){
+                margin-bottom: 20px;
+                }
+        }
+
+        button{
+            background-color: transparent;
+            border: solid 1px $blanco;
+            padding: 5px 10px;
+            color: $blanco;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            cursor: pointer;
+            @media screen and (max-width: 1023px){
+                color:$negro;
+                border: solid 1px $negro;
+                }
+            
+        }
+
+        .layout-right{
+           padding-bottom: 25px;
+           @media screen and (max-width: 767px){
+            margin-bottom: 30px;
+            }
+        }
+    }
+
+    input[type="text"]{
+        border: none;
+        border: solid 2px $blanco;
+        background-color: transparent;
+        width: 250px;
+        padding-left: 5px;
+        margin-right: 30px;
+        color: $blanco;
+        outline: none;
+        @media screen and (max-width: 1023px){
+            color:$negro;
+            border: solid 1px $negro;
+            width: 70%;
+            }
+
+        @media screen and (max-width: 767px){
+                color:$negro;
+                border: solid 1px $negro;
+                width: 60%;
+                }
+
+        &::-webkit-input-placeholder {
+            color: rgba(255, 255, 255, .5);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-size: 0.7rem;
+
+            @media screen and (max-width: 1023px){
+                font-size: 0.5rem;
+                color:$negro;
+             }
+        }
+
+        &::-moz-placeholder {
+            color: rgba(255, 255, 255, .5);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-size: 0.7rem;
+
+            @media screen and (max-width: 1023px){
+                font-size: 0.5rem;
+                color:$negro;
+             }
+        }
+
+        &:-ms-input-placeholder {
+            color: rgba(255, 255, 255, .5);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-size: 0.7rem;
+
+            @media screen and (max-width: 1023px){
+                font-size: 0.5rem;
+                color:$negro;
+             }
+        }
+
+        &:-moz-placeholder {
+            color: rgba(255, 255, 255, .5);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-size: 0.7rem;
+
+            @media screen and (max-width: 1023px){
+                font-size: 0.5rem;
+                color:$negro;
+             }
+        }
+    }
+
+    input[type="submit"]{
+        border: none;
+        background-color: transparent;
+        color: $blanco;
+        text-transform: uppercase;
+        @media screen and (max-width: 1023px){
+            color:$negro;
+            }
+    }
+
     span{
         color: $blanco;
         cursor: pointer;
@@ -1809,6 +1943,9 @@ main#academia nav div.botones,main#preparador nav div.botones{
                 height: 40%;
                 background-color: $transparente;
                 padding: 30px;
+                overflow-y: scroll;
+
+                
 
                 @media screen and (max-width: 1023px){
                     height: 50%;
@@ -1970,15 +2107,24 @@ main#academia nav div.botones,main#preparador nav div.botones{
 
             .col-izq{
                 flex-basis: 15%;
+                @media screen and (max-width:1023px){
+                    display: none;
+                }
             }
             .col-central{
                 flex-basis: 50%;
                 padding: 50px;
+                @media screen and (max-width:1023px){
+                    flex-basis: 100%;
+                }
             }
             .col-der{
                 flex-basis: 25%;
                 background-color: $transparente;
                 padding: 50px;
+                @media screen and (max-width:1023px){
+                    display:none;
+                }
                 h3{
                     color: $blanco;
                     text-transform: uppercase;
@@ -2048,12 +2194,21 @@ main#academia nav div.botones,main#preparador nav div.botones{
         align-items: center;
         padding: 10px 30px;
         background-color: $transparente;
+        @media screen and (max-width:767px){
+            padding: 10px 15px;
+        }
 
         img{
             width: 200px;
             height: 200px;
             border-radius:50%;
             margin-top: -100px;
+
+            @media screen and (max-width:767px){
+                width: 100px;
+                height: 100px;
+                margin-top: -50px;
+            }
         }
 
         form{
@@ -2064,6 +2219,10 @@ main#academia nav div.botones,main#preparador nav div.botones{
                 color: $blanco;
                 text-transform: uppercase;
                 cursor: pointer;
+                @media screen and (max-width:767px){
+                    font-size: 0.7rem;
+                    padding: 5px 2px;
+                }
             }
         }
     }
@@ -2092,6 +2251,11 @@ main#academia nav div.botones,main#preparador nav div.botones{
                         height: 100px;
                         border-radius: 50%;
                         margin-right: 10px;
+
+                        @media screen and (max-width: 767px){
+                            width: 50px;
+                            height: 50px;
+                        }
                     }
                 }
 
@@ -2101,6 +2265,10 @@ main#academia nav div.botones,main#preparador nav div.botones{
                         font-size: 1.5rem;
                         font-family: $titulo;
                         color: $blanco;
+
+                        @media screen and (max-width: 767px){
+                            font-size: 1.2rem;
+                        }
                     }
                 }
             }
@@ -2113,10 +2281,19 @@ main#academia nav div.botones,main#preparador nav div.botones{
                 display: flex;
                 .left{
                     width: 100px;
+                    @media screen and (max-width: 767px){
+                        width: 50px;
+                    }
                 }
                 .right{
                     p{
                         color: $blanco;
+                        @media screen and (max-width:1023px){
+                            font-size: 1.5rem;
+                        }
+                        @media screen and (max-width: 767px){
+                            font-size: 1rem;
+                        }
                     }
                 }
             }
@@ -2230,6 +2407,9 @@ main#academia nav div.botones,main#preparador nav div.botones{
 
             .mensajes-sn{
                 padding: 50px;
+                @media screen and (max-width:767px){
+                    padding: 20px;
+                }
                 
                 form{
                     width: 100%;
@@ -2996,3 +3176,59 @@ section#entrada-space{
         }
     }
 }
+
+.block-notificacion{
+    width: 100%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -ms-align-items: center;
+    @media screen and (max-width: 767px){
+        display: block;
+    }
+
+
+    img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        @media screen and (max-width: 767px){
+            margin-bottom: 10px;
+        }
+    }
+
+    span{
+        color: $blanco;
+        font-size: 0.9rem;
+        
+
+    }
+
+    button{
+        text-transform: uppercase;
+        background-color: transparent;
+        color: $blanco;
+        border:none;
+        border: solid 1px $blanco;
+        font-size: 0.7rem;
+        padding: 3px 7px;
+        @media screen and (max-width: 767px){
+            margin-top: 10px;
+        }
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,.2);
+}
+
+
+

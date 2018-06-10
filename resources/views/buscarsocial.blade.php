@@ -45,7 +45,7 @@
 
                 </div>
             </div>
-            <div class="col-md-8 mensajes-sn">
+            <div class="col-lg-8 mensajes-sn">
                 
                 <div class="visualizar-usuarios-sn">
                     @foreach ($buscados as $user)

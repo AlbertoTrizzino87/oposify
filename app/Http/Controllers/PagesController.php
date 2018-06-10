@@ -19,10 +19,30 @@ use App\Peticione;
 use App\Profesore;
 use App\Mail;
 use App\Tarea;
+use Session;
+use View;
 
 
 class PagesController extends Controller
 {   
+
+    public function buscarPreparador(Request $request)
+    {
+        $parametro = $request->input('parametro');
+        $element = \App\Curso::search($parametro)->get(); 
+        return view('opositor')
+        ->with('resultados',$element);
+        
+    }
+
+    public function buscarPreparadorAcademia(Request $request)
+    {
+        $parametro = $request->input('parametro');
+        $resultadosPreparador = User::search($parametro)->where('role_id', 2)->get();
+        return response()->json(view('profesores.profesores',compact('resultadosPreparador',$resultadosPreparador))->render()); 
+        
+    }
+
     public function buscar(Request $request)
     {
         $parametro = $request->input('parametro');
@@ -76,7 +96,27 @@ class PagesController extends Controller
         $alumnosPreparador = Opositore::all();
         $misCursos = Opositore::where('user_id',$id)->get();
         $mensajesPersonales = Mail::where('reference_id',$id)->get();
-        $tareas = Tarea::where('user_id',$id)->get();        
+        $tareas = Tarea::where('user_id',$id)->get(); 
+
+        $title = 'Preparador';
+
+            $main = 'preparador';
+
+            $title_home = [
+                'uno' => 'bienvenid@!',
+                'dos' => 'Mensajes',
+                'tres' => 'Tareas pendientes',
+                'cuatro' => 'Cursos',
+                'cinco' => 'Notificaciones',
+            ];
+
+        if($request->ajax()){
+            $parametro = $request->input('parametro');
+            $resultados = \App\Curso::search($parametro)->get();
+            return response()->json(view('resultados.resultados',compact('resultados',$resultados))->render());
+        }
+        
+        
 
         if($userRole == 'Academia'){
 

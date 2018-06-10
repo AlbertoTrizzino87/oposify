@@ -748,6 +748,110 @@ section.add-to-db {
       transform: translate(50%, -50%);
       transition: all 400ms;
       overflow-y: scroll; } }
+  section.add-to-db form {
+    margin-top: 30px; }
+  section.add-to-db .busqueda-layout {
+    width: 100%;
+    margin-top: 30px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-between;
+    -ms-align-items: center;
+    align-items: center;
+    margin-bottom: 30px; }
+    @media screen and (max-width: 767px) {
+      section.add-to-db .busqueda-layout {
+        display: block; } }
+    section.add-to-db .busqueda-layout img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%; }
+      @media screen and (max-width: 767px) {
+        section.add-to-db .busqueda-layout img {
+          margin-bottom: 20px; } }
+    section.add-to-db .busqueda-layout button {
+      background-color: transparent;
+      border: solid 1px #ffffff;
+      padding: 5px 10px;
+      color: #ffffff;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      cursor: pointer; }
+      @media screen and (max-width: 1023px) {
+        section.add-to-db .busqueda-layout button {
+          color: #000000;
+          border: solid 1px #000000; } }
+    section.add-to-db .busqueda-layout .layout-right {
+      padding-bottom: 25px; }
+      @media screen and (max-width: 767px) {
+        section.add-to-db .busqueda-layout .layout-right {
+          margin-bottom: 30px; } }
+  section.add-to-db input[type="text"] {
+    border: none;
+    border: solid 2px #ffffff;
+    background-color: transparent;
+    width: 250px;
+    padding-left: 5px;
+    margin-right: 30px;
+    color: #ffffff;
+    outline: none; }
+    @media screen and (max-width: 1023px) {
+      section.add-to-db input[type="text"] {
+        color: #000000;
+        border: solid 1px #000000;
+        width: 70%; } }
+    @media screen and (max-width: 767px) {
+      section.add-to-db input[type="text"] {
+        color: #000000;
+        border: solid 1px #000000;
+        width: 60%; } }
+    section.add-to-db input[type="text"]::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+      @media screen and (max-width: 1023px) {
+        section.add-to-db input[type="text"]::-webkit-input-placeholder {
+          font-size: 0.5rem;
+          color: #000000; } }
+    section.add-to-db input[type="text"]::-moz-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+      @media screen and (max-width: 1023px) {
+        section.add-to-db input[type="text"]::-moz-placeholder {
+          font-size: 0.5rem;
+          color: #000000; } }
+    section.add-to-db input[type="text"]:-ms-input-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+      @media screen and (max-width: 1023px) {
+        section.add-to-db input[type="text"]:-ms-input-placeholder {
+          font-size: 0.5rem;
+          color: #000000; } }
+    section.add-to-db input[type="text"]:-moz-placeholder {
+      color: rgba(255, 255, 255, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem; }
+      @media screen and (max-width: 1023px) {
+        section.add-to-db input[type="text"]:-moz-placeholder {
+          font-size: 0.5rem;
+          color: #000000; } }
+  section.add-to-db input[type="submit"] {
+    border: none;
+    background-color: transparent;
+    color: #ffffff;
+    text-transform: uppercase; }
+    @media screen and (max-width: 1023px) {
+      section.add-to-db input[type="submit"] {
+        color: #000000; } }
   section.add-to-db span {
     color: #ffffff;
     cursor: pointer; }
@@ -1382,7 +1486,8 @@ main#academia nav div.botones, main#preparador nav div.botones {
         width: 90%;
         height: 40%;
         background-color: rgba(0, 0, 0, 0.7);
-        padding: 30px; }
+        padding: 30px;
+        overflow-y: scroll; }
         @media screen and (max-width: 1023px) {
           .feeds .row .fila .block {
             height: 50%;
@@ -1497,13 +1602,22 @@ main#academia nav div.botones, main#preparador nav div.botones {
       padding: 0; }
       .social .contenitore .fila .col-izq {
         flex-basis: 15%; }
+        @media screen and (max-width: 1023px) {
+          .social .contenitore .fila .col-izq {
+            display: none; } }
       .social .contenitore .fila .col-central {
         flex-basis: 50%;
         padding: 50px; }
+        @media screen and (max-width: 1023px) {
+          .social .contenitore .fila .col-central {
+            flex-basis: 100%; } }
       .social .contenitore .fila .col-der {
         flex-basis: 25%;
         background-color: rgba(0, 0, 0, 0.7);
         padding: 50px; }
+        @media screen and (max-width: 1023px) {
+          .social .contenitore .fila .col-der {
+            display: none; } }
         .social .contenitore .fila .col-der h3 {
           color: #ffffff;
           text-transform: uppercase;
@@ -1556,11 +1670,19 @@ main#academia nav div.botones, main#preparador nav div.botones {
     align-items: center;
     padding: 10px 30px;
     background-color: rgba(0, 0, 0, 0.7); }
+    @media screen and (max-width: 767px) {
+      .social .info-usuario {
+        padding: 10px 15px; } }
     .social .info-usuario img {
       width: 200px;
       height: 200px;
       border-radius: 50%;
       margin-top: -100px; }
+      @media screen and (max-width: 767px) {
+        .social .info-usuario img {
+          width: 100px;
+          height: 100px;
+          margin-top: -50px; } }
     .social .info-usuario form button {
       background-color: transparent;
       padding: 10px 15px;
@@ -1568,6 +1690,10 @@ main#academia nav div.botones, main#preparador nav div.botones {
       color: #ffffff;
       text-transform: uppercase;
       cursor: pointer; }
+      @media screen and (max-width: 767px) {
+        .social .info-usuario form button {
+          font-size: 0.7rem;
+          padding: 5px 2px; } }
   .social .visualizar-mensaje {
     background-color: rgba(0, 0, 0, 0.7); }
     .social .visualizar-mensaje .post {
@@ -1589,11 +1715,18 @@ main#academia nav div.botones, main#preparador nav div.botones {
           height: 100px;
           border-radius: 50%;
           margin-right: 10px; }
+          @media screen and (max-width: 767px) {
+            .social .visualizar-mensaje .post .cabecera-post .left img {
+              width: 50px;
+              height: 50px; } }
         .social .visualizar-mensaje .post .cabecera-post .right span {
           text-transform: uppercase;
           font-size: 1.5rem;
           font-family: "Roboto Condensed", sans-serif;
           color: #ffffff; }
+          @media screen and (max-width: 767px) {
+            .social .visualizar-mensaje .post .cabecera-post .right span {
+              font-size: 1.2rem; } }
       .social .visualizar-mensaje .post .mensaje-post {
         width: 100%;
         display: -webkit-flex;
@@ -1603,8 +1736,17 @@ main#academia nav div.botones, main#preparador nav div.botones {
         display: flex; }
         .social .visualizar-mensaje .post .mensaje-post .left {
           width: 100px; }
+          @media screen and (max-width: 767px) {
+            .social .visualizar-mensaje .post .mensaje-post .left {
+              width: 50px; } }
         .social .visualizar-mensaje .post .mensaje-post .right p {
           color: #ffffff; }
+          @media screen and (max-width: 1023px) {
+            .social .visualizar-mensaje .post .mensaje-post .right p {
+              font-size: 1.5rem; } }
+          @media screen and (max-width: 767px) {
+            .social .visualizar-mensaje .post .mensaje-post .right p {
+              font-size: 1rem; } }
   .social .container-fluid {
     min-height: 90vh;
     overflow: scroll; }
@@ -1681,6 +1823,9 @@ main#academia nav div.botones, main#preparador nav div.botones {
           font-size: 0.7rem; }
     .social .container-fluid .row .mensajes-sn {
       padding: 50px; }
+      @media screen and (max-width: 767px) {
+        .social .container-fluid .row .mensajes-sn {
+          padding: 20px; } }
       .social .container-fluid .row .mensajes-sn form {
         width: 100%;
         text-align: center;
@@ -2225,5 +2370,46 @@ section#mensaje-space {
       @media screen and (max-width: 767px) {
         #resultados .busqueda-layout .layout-right a {
           font-size: 0.7rem; } }
+
+.block-notificacion {
+  width: 100%;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  -ms-align-items: center; }
+  @media screen and (max-width: 767px) {
+    .block-notificacion {
+      display: block; } }
+  .block-notificacion img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; }
+    @media screen and (max-width: 767px) {
+      .block-notificacion img {
+        margin-bottom: 10px; } }
+  .block-notificacion span {
+    color: #ffffff;
+    font-size: 0.9rem; }
+  .block-notificacion button {
+    text-transform: uppercase;
+    background-color: transparent;
+    color: #ffffff;
+    border: none;
+    border: solid 1px #ffffff;
+    font-size: 0.7rem;
+    padding: 3px 7px; }
+    @media screen and (max-width: 767px) {
+      .block-notificacion button {
+        margin-top: 10px; } }
+
+::-webkit-scrollbar {
+  width: 5px; }
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2); }
 
 /*# sourceMappingURL=estilo.css.map */

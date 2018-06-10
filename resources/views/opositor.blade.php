@@ -49,6 +49,7 @@
 			<span class="icon-paper-plane" id="mensajes-mobile-trigger"></span>
 			<span class="icon-quill-drawing-a-line" id="diario-mobile-trigger"></span>
 			<span class="icon-lupa" id="buscar-mobile-trigger"></span>
+			<a href="{{ url('/user/red-social') }}" style="color:black;"><span class="icon-users"></span></a>
 		</div>
 
 		<div class="container-fluid feeds">
@@ -348,7 +349,7 @@
 							<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="100px"  alt="">
 							<div class="info-mensaje">
 								<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span><br>
-								<span>{{ $mensaje->titulo }}</span>
+								<span>objeto: {{ $mensaje->titulo }}</span>
 							</div>
 							<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
 								{{ csrf_field() }}
@@ -428,44 +429,16 @@
 		<section class="contenido" id="buscar">
 			<div class="cabezera">
 				<span class="icon-cross" id="close-buscar"></span>
-				<form action="/buscar" method="GET" id="buscar-preparador-opositor">
-				{{ csrf_field() }}
+				<form action="buscarPreparador" method="GET" id="buscar-preparadorOpositor">
+		
 				<input type="text" name="parametro" placeholder="Buscar preparador,academia u oposición">
 				<input type="submit" name="buscar" value="Buscar" id="buscarPreparadorOpositor">
 				</form>
 			</div>
 			<div class="resultados" id="resultados">
-					@forelse ($resultados as $resultado)
-						<div class="busqueda-layout">
-							 	<div class="layout-left col-md-2">
-							 		<img src="{{Storage::disk('public')->url($resultado->user->image)}}" alt="">
-								 	@if (empty($resultado->user->apellido))
-								 	<span>{{ $resultado->user->name }}</span>
-								 	@elseif (empty($resultado->user->apellidoDos))
-								 	<span>{{ $resultado->user->name }} {{ $resultado->user->apellido }}</span>
-								 	@else 
-								 	<span>{{ $resultado->user->name }} {{ $resultado->user->apellido }} <br> {{ $resultado->user->apellidoDos }}</span>
-								 	@endif
-								</div>
-								<div class="layout-center col-md-7">
-									<h5>{{ $resultado->oposicione->descripcion }}</h5>
-									<p>{{ $resultado->descripcion }}</p>
-								</div>
-								<div class="layout-right col-md-3">
-									<span>{{ $resultado->precio }}€</span>
-									<form action="{!! URL::to('paypal') !!}" method="POST" id="payment-form">
-										{{ csrf_field() }}
-										<input type="text" name="amount" id="amount" value="{{ $resultado->precio }}" hidden>
-										<input type="text" name="idPreparador" id="idPreparador" value="{{ $resultado->user_id }}" hidden>
-										<input type="text" name="nombreCurso" id="nombreCurso" value="{{ $resultado->oposicione->descripcion }}" hidden>
-										<input type="text" name="idCurso" id="idCurso" value="{{ $resultado->id }}" hidden>
-										<button>comprar</button>
-									</form>
-								</div>
-						</div>
-					@empty
-						
-					@endforelse
+				
+					
+				
 				</div>
         </section>
 

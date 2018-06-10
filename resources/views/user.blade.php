@@ -48,7 +48,7 @@
 
 		<div class="conteiner feeds">
 			<div class="row">
-				<div class="fila col-12 col-md-4">
+				<div class="fila col-12 col-lg-4">
 					<div class="block desaparecer">
 						<h3>{{$title_home['uno']}}</h3>
 					</div>
@@ -63,7 +63,7 @@
 						@endforelse
 					</div>
 				</div>
-				<div class="fila col-12 col-md-4">
+				<div class="fila col-12 col-lg-4">
 					<div class="block" id="mensajes-personales">
 						<h3>{{$title_home['dos']}}</h3>
 						<div class="box">
@@ -91,7 +91,7 @@
 						</div>
 					</div>
 					<div class="block">
-						3<h3>{{$title_home['cinco']}}</h3>
+						<h3>{{$title_home['cinco']}}</h3>
 						<div class="notificaciones">
 							@if(Session::has('videoSubido'))
 							<span style="color:green">El video se ha subido correctamente</span><br>
@@ -125,10 +125,11 @@
 						
 					</div>
 				</div>
-				<div class="fila col-12 col-md-4">
+				<div class="fila col-12 col-lg-4">
 					<div class="full-block">
 						<h3>{{$title_home['tres']}}</h3>
 						<div class="layout-profesor">
+						@if(!empty($profesores))
 						@forelse ($profesores as $profesore)
 						<div class="layout-left col-md-2">
 							<img src="{{Storage::disk('public')->url($profesore->preparador->image )}}" alt="">
@@ -147,11 +148,12 @@
 						</div>
 					@empty
 					@endforelse
-						
+					@endif	
 					</div>
 				</div>
 			</div>
 		</div>
+</div>
 
 		<section class="contenido" id="cursosa">
 			<div class="cabezera">
@@ -212,31 +214,12 @@
 
 		<section class="add-to-db" id="add-profesores">
 			<span class="icon-cross" id="close-add-profesores"></span>
-			<form action="/buscar-preparador" method="GET">
+			<form action="/buscar-preparador-academia" method="GET" >
 				<input type="text" name="parametro" placeholder="Buscar preparador">
-				<input type="submit" name="buscar2" value="Buscar">
+				<input type="submit" name="buscar2" value="Buscar" id="buscarPreparadorAcademia">
 			</form>
-			<div class="resultados">
-				@forelse ($resultadoPreparadores as $resultadoPreparadore)
-					<div class="busqueda-layout">
-						<div class="layout-left col-md-2">
-							<img src="{{Storage::disk('public')->url($resultadoPreparadore->image)}}" alt="">
-						</div>
-						<div class="layout-center col-md-7">
-							<span>{{ $resultadoPreparadore->name }} {{ $resultadoPreparadore->apellido }} {{ $resultadoPreparadore->apellidoDos }}</span><br>
-							<span>{{ $resultadoPreparadore->email }}</span>
-						</div>
-						<div class="layout-right col-md-3">
-							<form action="/user/anadir-preparador" method="POST">
-								{{ csrf_field() }}
-								<input type="text" name="idPrepa" id="idPrepa" value="{{ $resultadoPreparadore->id }}" hidden>
-								<button>Añadir</button>
-							</form>
-						</div>
-					</div>
-				@empty
-					<span>No se ha añadido ningun preparador</span>	
-				@endforelse	
+			<div class="resultados" id="profesoresListados">
+				
 			</div>
 		</section>
 
@@ -254,8 +237,8 @@
 						<div class="mensajes-personal">
 							<img src="{{Storage::disk('public')->url($mensaje->user->image)}}" width="100px"  alt="">
 							<div class="info-mensaje">
-								<h6>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</h6><br>
-								<span>{{ $mensaje->titulo }}</span>
+								<span>{{ $mensaje->user->name }} {{ $mensaje->user->apellido }} {{ $mensaje->user->apellidoDos }}</span><br>
+								<span>objeto: {{ $mensaje->titulo }}</span>
 							</div>
 							<form action="/user/leer-mensaje" method="POST" class="leer-mensaje">
 								{{ csrf_field() }}
@@ -318,7 +301,7 @@
 						@forelse ($cursosAcademia as $cursoAcademia)
 							<li class="nav-item"><a id="{{ $cursoAcademia->oposicione->descripcion }}-tab" href="#{{ $cursoAcademia->oposicione->descripcion }}" data-toggle="tab" role="tab" aria-controls="home" aria-selected="{{ $cursoAcademia->oposicione->descripcion }}">{{ $cursoAcademia->oposicione->descripcion }}</a></li>
 						@empty
-							<span>No hay cursos disponibles</span>
+							<span style="color:white;">No hay cursos disponibles</span>
 						@endforelse
 					</ul>
 					<div class="tab-content" id="videoTabContent">
@@ -326,6 +309,7 @@
 							<div class="tab-pane" id="{{ $cursoAcademia->oposicione->descripcion }}" role="tabpanel" aria-labelledby="{{ $cursoAcademia->oposicione->descripcion }}-tab">
 								<div class="container">
 									<div class="row">
+										@if(!empty($profesore))
 										@foreach ($alumnos as $alumno)
 											@if($alumno->curso_id == $cursoAcademia->id)
 											<div class="alumnos-layout">
@@ -346,6 +330,7 @@
 											</div>	
 											@endif
 										@endforeach
+										@endif
 									</div>
 								</div>
 							</div>						
